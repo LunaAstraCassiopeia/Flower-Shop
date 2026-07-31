@@ -5,10 +5,12 @@ init python:
     UnmetCustomerList = []
 
     class Customer:
-        def __init__(self, wants: dict[str, int], preferences: dict[str, int], character):
+        def __init__(self, wants: dict[str, int], preferences: dict[str, int], character, enter_dialogue: list[str], exit_dialogue: dict[str, list[str]]):
             self.preferences = preferences
             self.wants = wants
             self.character = character
+            self.enter_dialogue = enter_dialogue
+            self.exit_dialogue = exit_dialogue
             UnmetCustomerList.append(self)
             CustomerList.append(self)
         
@@ -25,26 +27,28 @@ init python:
         def runOnEnter(self):
             renpy.show("Default Person", at_list=[right])
             renpy.with_statement(dissolve)
-            self.character(_("Hi there! This is default text and needs to be replaced!"))
-            self.character(_("I don't know what I want, can you pick for me?"), interact = False)
+            idx = 0
+            for line in self.enter_dialogue:
+                inter = idx + 1 != len(self.enter_dialogue)
+                self.character(_(line), interact = inter)
+                idx += 1
             renpy.choice_for_skipping()
             rating = renpy.call_screen("flower_menu", self)
             return rating
             
         def runAfterFlowers(self, joyRating):
             renpy.hide("Default Person")
+            char_status = ""
             if joyRating["satisfaction"] < 0.3:
-                renpy.show("Happy", at_list=[right])
-                self.character(_("I LOVE THIS AAA THANK YOU!!!!"))
-                renpy.hide("Happy")
+                char_status = "Happy"
             elif joyRating["satisfaction"] < 1:
-                renpy.show("Meh", at_list=[right])
-                self.character(_("eh."))
-                renpy.hide("Meh")
+                char_status = "Meh"
             elif joyRating["satisfaction"] < 10:
-                renpy.show("Sucks Ass", at_list=[right])
-                self.character(_("Hey has anyone noticed this sucks ass?"))
-                renpy.hide("Sucks Ass")
+                char_status = "Sucks Ass"
+            renpy.show(char_status, at_list = [right])
+            for line in self.exit_dialogue[char_status]:
+                self.character(_(line))
+            renpy.hide(char_status)
             renpy.show("Default Person", at_list=[right])
             self.character(_("My satisfaction score is [joyRating['satisfaction']]"))
             renpy.hide("Default Person")
