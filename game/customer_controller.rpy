@@ -31,7 +31,10 @@ init python:
                 self.character(_(line), interact = inter)
                 idx += 1
             renpy.choice_for_skipping()
+            renpy.scene()
+            renpy.show("flowers bg")
             rating = renpy.call_screen("flower_menu", self)
+            renpy.show("default bg")
             return rating
             
         def runAfterFlowers(self, joyRating):

@@ -82,6 +82,29 @@ init python:
             meanings = {"Positive": 3, "Green":1, "Leaf": 1, "Yum": 1}
         return meanings
 
+    def flower_pic(name: str, imgType: str) -> str:
+        if name == "Rose":
+            image = "red " + imgType + " %s.png"
+        if name == "Carnation":
+            image = "pink " + imgType + " %s.png"
+        if name == "Hydrangea":
+            image = "purple " + imgType + " %s.png"
+        if name == "Lily":
+            image = "orange " + imgType + " %s.png"
+        if name == "Bluebell":
+            image = "blue " + imgType + " %s.png"
+        if name == "Hyacinth":
+            image = "yellow " + imgType + " %s.png"
+        if name == "Orchid":
+            image = "white " + imgType + " %s.png"
+        if name == "Forget-Me-Not":
+            image = "aqua " + imgType + " %s.png"
+        if name == "Stick":
+            image = "branch " + imgType + " %s.png"
+        if name == "Leaf":
+            image = "leaf " + imgType + " %s.png"
+        return image
+
     meanings = {}
     bouquet = []
     decor = ""
