@@ -7,7 +7,7 @@ define e = Character("Eileen")
 
 
 # The game starts here.
-
+$ flowers = {"Lilies": 0, "Roses": 0, "Hydrangeas": 0, "Guns": 0}
 label start:
 
     # Show a background. This uses a placeholder by default, but you can
@@ -30,9 +30,7 @@ label start:
     
     e "Just testing some things!!"
 
-    $ flowers = {"Lilies": 0, "Roses": 0, "Hydrangeas": 0, "Guns": 0}
-
-    show screen flower_menu(flowers)
+    show screen flower_menu()
     
     e "Give me a bouquet with 5 Roses and 3 Lilies!"
 
@@ -45,13 +43,13 @@ label start:
 
     return
 
-screen flower_menu(bouquet):
+screen flower_menu():
     vbox:
         spacing 10 
         null height 20
-        default number = amount
+        default number = 3
         vbox:
-            label name
+            label _("Roses")
             null height 5
             hbox:
                 textbutton _("down"):
