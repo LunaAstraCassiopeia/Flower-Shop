@@ -79,17 +79,8 @@ init python:
             meanings = {"Positive": 3, "Green":1, "Leaf": 1, "Yum": 1}
         return meanings
 
-    class Customer:
-        def __init__(self, wants: dict[str, int], preferences: dict[str, int]):
-            self.preferences = preferences
-            self.wants = wants
-        
-        def calculateJoy(self, bouquet):
-            joy = is_similar(bouquet, self.wants)
-            if "NoOverflow" in self.preferences:
-                for key, val in joy.items():
-                    if val > 0:
-                        joy[key] = 0
-            joy = calculate_satisfaction(joy)
-            joy = calculate_preferences(bouquet, self.preferences, joy)
-            return joy
+    meanings = {}
+    bouquet = []
+    decor = ""
+    FlowerList = ["Rose","Carnation", "Hydrangea", "Lily", "Bluebell", "Hyacinth", "Orchid", "Forget-Me-Not"]
+    AddonList = ["Stick", "Leaf"]
