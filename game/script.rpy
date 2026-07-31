@@ -21,9 +21,9 @@ label start:
         $ bouquet = []
         $ meanings = {}
         $ decor = ""
-        $ customer = getNewCustomer(customer)
+        $ customer = getNewCustomer()
         $ joyRating = customer.runOnEnter()
-        $ customer.runAfterFlowers(customer, joyRating)
+        $ customer.runAfterFlowers(joyRating)
         $ print(joyRating)
 
     # This ends the game.
