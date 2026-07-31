@@ -2,6 +2,7 @@
 default bouquet = []
 default meanings = {}
 default decor = ""
+define deb = Character("Debug")
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 label start:
@@ -17,7 +18,17 @@ label start:
     # directory.
 
     # These display lines of dialogue.
-    while len(UnmetCustomerList) > 0:
+    
+    # debug set of Customers
+    $ customerMasterlist = [RoseCustomer, CarnationCustomer, HydrangeaCustomer]
+    $ initialize_customers(customerMasterlist)
+    $ quota = 2
+
+    deb "Hi!"
+
+    deb "[CustomerList]"
+
+    while len(UnmetCustomerList) > 0 and quota > 0:
         $ bouquet = []
         $ meanings = {}
         $ decor = ""
@@ -25,6 +36,7 @@ label start:
         $ joyRating = customer.runOnEnter()
         $ customer.runAfterFlowers(joyRating)
         $ print(joyRating)
+        $ quota -= 1
 
     # This ends the game.
 

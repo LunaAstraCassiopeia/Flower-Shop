@@ -11,8 +11,6 @@ init python:
             self.character = character
             self.enter_dialogue = enter_dialogue
             self.exit_dialogue = exit_dialogue
-            UnmetCustomerList.append(self)
-            CustomerList.append(self)
         
         def calculateJoy(self, bouquet):
             joy = is_similar(bouquet, self.wants)
