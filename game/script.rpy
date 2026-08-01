@@ -2,6 +2,8 @@
 default bouquet = []
 default meanings = {}
 default decor = ""
+default page = 1
+default book_open = False
 define deb = Character("Debug")
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -23,6 +25,7 @@ label start:
     $ customerMasterlist = [RoseCustomer, CarnationCustomer, HydrangeaCustomer]
     $ initialize_customers(customerMasterlist)
     $ quota = 2
+    $ init_globals()
 
     deb "Hi!"
 
@@ -62,6 +65,16 @@ transform position6:
     pos (0.52, 0.19)
 transform addonpos:
     pos (0.58, 0.1)
+transform bookpos:
+    pos (0.64, 0.27)
+transform openbookpos:
+    pos (0.46, 0.16)
+transform leftarrowos:
+    pos (0.46, 0.16)
+transform rightarrowpos:
+    pos (0.93, 0.16)
+transform exitbuttonpos:
+    pos (0.46, 0.26)
     
 transform nothing:
     align (0,0) alpha 0.0
@@ -77,12 +90,12 @@ screen flower_menu(customer):
                 spacing 32
                 for name in FlowerList:
                     imagebutton auto flower_pic(name, "flower"):
-                        action [SensitiveIf(len(bouquet) <7), Function(add_flower, name, bouquet, meanings)]
+                        action [SensitiveIf((len(bouquet) <7) and not book_open), Function(add_flower, name, bouquet, meanings)]
                 grid 2 1:
                     for name in AddonList:
                         imagebutton auto flower_pic(name, "flower"):
                             action [Function(set_addon, name, decor, meanings), SetVariable("decor", name)]
-    if(decor is not ""):
+    if(decor != ""):
         imagebutton auto flower_pic(decor, "bouquet") at addonpos:
             action [Function(set_addon, name, decor, meanings), SetVariable("decor", "")]
     $ i = 0
@@ -94,7 +107,53 @@ screen flower_menu(customer):
         vbox:
             textbutton _("submit"):
                 action Return(customer.calculateJoy(meanings))
+
+screen book_button():
+    zorder -1
+    imagebutton auto "flower manual %s" at bookpos:
+        action Function(open_book, page)
+
+screen book_screen():
+    if (page > 1):
+        imagebutton auto "left arrow %s" at leftarrowos:
+            action [SensitiveIf(page > 1), Function(change_page, page, -1)]
+        imagebutton auto "exit button %s" at exitbuttonpos:
+            action Function(close_book)
+    else:
+        imagebutton auto "exit button %s" at leftarrowos:
+            action Function(close_book)
+    if (page < 2):
+        imagebutton auto "right arrow %s" at rightarrowpos:
+            action [SensitiveIf(page < 2), Function(change_page, page, 1)]
+
 init python:
+    import random
+    def open_book(current_page: int):
+        global book_open
+        renpy.hide_screen("book_button")
+        renpy.show("manual page " + str(current_page), at_list={openbookpos})
+        renpy.show_screen("book_screen")
+        book_open = True
+
+    def change_page(current_page: int, shift: int):
+        global page
+        global book_open
+        book_open = True
+        renpy.hide("manual page " + str(current_page))
+        page = current_page + shift
+        if(random.random() > 0.9):
+            renpy.show("manual page tree", at_list={openbookpos})
+        else:
+            renpy.show("manual page " + str(page), at_list={openbookpos})
+    
+    def close_book():
+        global book_open
+        renpy.hide_screen("book_screen")
+        renpy.hide("manual page " + str(page))
+        renpy.show_screen("book_button")
+        book_open = False
+
+
     def get_transform(index):
         match index:
             case 0:
@@ -111,3 +170,5 @@ init python:
                 return position5
             case 6:
                 return position6
+            case _:
+                return position0

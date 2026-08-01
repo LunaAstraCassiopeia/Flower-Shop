@@ -33,6 +33,7 @@ init python:
             renpy.choice_for_skipping()
             renpy.scene()
             renpy.show("flowers bg")
+            renpy.show_screen("book_button")
             rating = renpy.call_screen("flower_menu", self)
             renpy.show("default bg")
             return rating

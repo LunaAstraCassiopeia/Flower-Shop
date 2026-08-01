@@ -69,7 +69,7 @@ init python:
         if name == "Lily":
             meanings = {"Hate": 3, "Orange":1, "Lily": 1, "Passion": 1}
         if name == "Bluebell":
-            meanings = {"Humility": 3, "Blue":1, "Blue": 1, "Gratitude": 1}
+            meanings = {"Humility": 3, "Blue":1, "Bluebell": 1, "Gratitude": 1}
         if name == "Hyacinth":
             meanings = {"Jealousy": 3, "Yellow":1, "Hyacinth": 1, "Contempt": 1}
         if name == "Orchid":
@@ -105,8 +105,16 @@ init python:
             image = "leaf " + imgType + " %s.png"
         return image
 
-    meanings = {}
-    bouquet = []
-    decor = ""
-    FlowerList = ["Rose","Carnation", "Hydrangea", "Lily", "Bluebell", "Hyacinth", "Orchid", "Forget-Me-Not"]
-    AddonList = ["Stick", "Leaf"]
+    def init_globals():
+        global meanings
+        global bouquet
+        global decor
+        global FlowerList
+        global AddonList
+        global page
+        meanings = {}
+        bouquet = []
+        decor = ""
+        FlowerList = ["Rose","Carnation", "Hydrangea", "Lily", "Bluebell", "Hyacinth", "Orchid", "Forget-Me-Not"]
+        AddonList = ["Stick", "Leaf"]
+        page = 1
