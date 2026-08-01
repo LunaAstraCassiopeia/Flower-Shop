@@ -40,6 +40,7 @@ init python:
             return rating
             
         def runAfterFlowers(self, joyRating):
+            renpy.hide_screen("book_button")
             renpy.hide("Default Person")
             char_status = ""
             if joyRating["satisfaction"] < 0.3:
