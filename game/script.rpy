@@ -27,7 +27,10 @@ label start:
     deb "Hi!"
 
     deb "[CustomerList]"
+    
+    jump customerWave
 
+label customerWave:
     while len(UnmetCustomerList) > 0 and quota > 0:
         $ bouquet = []
         $ meanings = {}
@@ -37,6 +40,7 @@ label start:
         $ customer.runAfterFlowers(joyRating)
         $ print(joyRating)
         $ quota -= 1
+        jump customerCutscene
 
     # This ends the game.
 

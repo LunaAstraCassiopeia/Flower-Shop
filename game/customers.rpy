@@ -40,7 +40,7 @@ init python:
         for customer in custList:
             CustomerList.append(customer)
             UnmetCustomerList.append(customer)
-    
+
     # hydraWants = {"Hydrangea": 5}
     # Hydrangea = Character("Hydrangea")
     # HydrangeaCustomer = Customer(hydraWants, noPreferences, Hydrangea)
@@ -49,3 +49,9 @@ init python:
     # Lily = Character("Lily")
     # LilyCustomer = Customer(lilyWants, noPreferences, Lily)
     
+label customerCutscene:
+    if customer == HydrangeaCustomer:
+        deb "Here's more extra dialogue!"
+
+        deb "Yay!"
+    jump customerWave
