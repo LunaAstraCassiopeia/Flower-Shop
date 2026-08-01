@@ -28,7 +28,10 @@ init python:
             idx = 0
             for line in self.enter_dialogue:
                 inter = idx + 1 != len(self.enter_dialogue)
-                self.character(_(line), interact = inter)
+                if line[:3] == "BL:":
+                    blank(_(line[3:]), interact = inter)
+                else:
+                    self.character(_(line), interact = inter)
                 idx += 1
             renpy.choice_for_skipping()
             renpy.scene()

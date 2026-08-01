@@ -1,13 +1,69 @@
 # define character sprites here
-image Tomura Happy = "Tomura Happy.png"
-image Tomura Meh = "Tomura Meh.png"
-image Tomura Sucks Ass = "Tomura Sucks Ass.png"
+image Tomura Happy = "Tomura/Tomura Happy.png"
+image Tomura Meh = "Tomura/Tomura Meh.png"
+image Tomura Sucks Ass = "Tomura/Tomura Sucks Ass.png"
+
+image Ilana Meh = "Ilana/Ilana Meh.png"
+image Ilana Happy = "Ilana/Ilana Happy.png"
+image Ilana Sucks Ass = "Ilana/Ilana Sucks Ass.png"
+image Ilana Hehe = "Ilana/Ilana Hehe.png"
+
+image Arthur Meh = "Arthur/Arthur Meh.png"
+image Arthur Happy = "Arthur/Arthur Happy.png"
+image Arthur Sucks Ass = "Arthur/Arthur Sucks Ass.png"
+
+image Kara Meh = "Kara/Kara Meh.png"
+image Kara Happy = "Kara/Kara Happy.png"
+image Kara Sucks Ass = "Kara/Kara Sucks Ass.png"
 
 # all instances of customers are defined here.
 init python:
 
-    roseWants = {"Rose": 5}
+    # all ilana instances!
+
+    ilana = Character("Ilana")
+    
+    ilanaTutorialWants = {"Orchid": 7}
     noPreferences = {"test": 0}
+    ilanaTutorialEnter = ["Those flowers... I forget what they're called...", "The, uh, white ones?", "About innocence, and new beginnings, and stuff...", "Give me an entire bouquet of those. Seven of 'em.", "...", "Don't just stare at me like that! Use your manual to figure out what I mean!", "BL:(Pick out flowers by selecting them on the left, then click submit to give the customer their bouquet! You can click on flowers to remove them from the bouquet.)"]
+    ilanaTutorialExit = {
+        "Happy": ["There you go.", "Exactly what I asked.", "Told you you should've kept that book safe!", "Anyways, you should have everything you need now. I'll be on my way, I'm kinda busy today.", "See you later!"],
+        "Meh": ["I mean... you're kind of there?", "I told you I wanted more of those white ones, right?", "Ah, well. At least you got halfway there.", "Anyways, you should have everything you need now. I'll be on my way, I'm kinda busy today.", "See you later!"],
+        "Sucks Ass": ["...This isn't what I asked for?", "...Like, at all?", "You're doing this on purpose, aren't you?", "Anyways, you should have everything you need now. I'll be on my way, I'm kinda busy today.", "See you later!"],
+    }
+    IlanaTutorialCustomer = Customer(ilanaTutorialWants, noPreferences, ilana, ilanaTutorialEnter, ilanaTutorialExit, "Ilana")
+
+    # all arthur instances!
+
+    arthur = Character("Arthur")
+    
+    arthurOneWants = {"Lily": 4, "Orchid": 2, "Hydrangea": 1}
+    noPreferences = {"test": 0}
+    arthurOneEnter = ["Hey. This is that one shop... right? With, the flowers?", "BL:(You're not sure what other flower shops are there. Nearby, at least.)", "Bit of a strange ask, but... give me the worst bouquet you can think of.", "BL:(...?)", "I'm thinking of... hatred, spite, wishing this person was dead. Maybe something to remind them that I'm better than them."]
+    arthurOneExit = {
+        "Happy": ["Perfect.", "This guy's not dumb, he'll know what I mean with these."],
+        "Meh": ["This will have to do.", "I don't think it'll fully get the point across, but it will have to suffice."],
+        "Sucks Ass": ["...", "Is this not the exact opposite of what I said I wanted?"],
+    }
+    ArthurOneCustomer = Customer(arthurOneWants, noPreferences, arthur, arthurOneEnter, arthurOneExit, "Arthur")
+    
+    # all kara instances!
+
+    kara = Character("Kara")
+    
+    karaOneWants = {"Carnation": 4, "Bluebell": 3}
+    noPreferences = {"test": 0}
+    karaOneEnter = ["Hello!", "I'm not sure what flowers I think she'd like, but...", "...I have a friend who really likes pink flowers!", "I would like some of those, along with ones that generally convey gratitude."]
+    karaOneExit = {
+        "Happy": ["Oh! I think she'd like these ones, yeah!", "These will cheer her up, definitely!"],
+        "Meh": ["Ah!", "I think this could work!", "Could use a little more, but I think she'd like this nonetheless."],
+        "Sucks Ass": ["Hmm...", "It's an honest effort, at least!", "I'm not sure if she'd like these, but it's worth a shot!"],
+    }
+    KaraOneCustomer = Customer(karaOneWants, noPreferences, kara, karaOneEnter, karaOneExit, "Kara")
+
+    # minor characters
+
+    roseWants = {"Rose": 5}
     Rose = Character("Rose")
     roseEnter = ["Hi!", "I'm Rose!", "Could I have 5 roses?"]
     roseExit = {
@@ -80,21 +136,65 @@ label customerCutscene:
         deb "Yay!"
 
     if customer == TomiCustomer:
-        show Tomura Meh
+        show Tomura Meh at right
 
         peri "Say..."
-
         peri "You must really care about this person, huh?"
 
         hide Tomura Meh
-        show Tomura Happy
+        show Tomura Happy at right
+
         tomi "Yes! I feel kind of bad that we don't get to talk that much, especially since I have to fly out so frequently."
-
         peri "Right... well I hope they take these well!"
-
         tomi "I hope so too!"
-
         tomi "Thank you very much!"
+
         hide Tomura Happy
+    
+    if customer == ArthurOneCustomer:
+        show Arthur Happy at right
+
+        blank "(You wonder if you should even be giving bouquets like these to random people.)"
+        peri "Can I ask..?"
+
+        hide Arthur Happy
+        show Arthur Meh at right
+
+        arthur "It's none of your business. You wouldn't get it."
+        blank "(Rude...)"
+        peri "Should you really be giving that to-"
+        arthur "I know what I want to do, thank you very much!"
+
+        hide Arthur Meh
+
+        blank "(Before you can get any other words out, Arthur storms out of the shop.)"
+
+    
+    if customer == KaraOneCustomer:
+        show Kara Meh at right
+
+        peri "So, what brings you here?"
+        kara "Coming home from overseas work... you know how it is."
+        peri "Mmm..."
+        kara "These flowers are for a friend, actually."
+        kara "Part of why I'm visiting is because she's sick..."
+        kara "Caught a kinda serious illness... I want to look out for her whenever I can."
+        peri "I see..."
+        peri "That's really sweet of you!"
+
+        hide Kara Meh
+        show Kara Happy at right
+
+        kara "Hehe, I sure hope so..."
+        peri "I hope she gets better soon."
+
+        hide Kara Happy
+        show Kara Meh at right
+
+        kara "Thanks... though, it might be a while."
+        blank "(You nod. Kara waves at you as she leaves the store.)"
+        
+        hide Kara Meh
+
 
     jump customerWave

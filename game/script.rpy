@@ -3,8 +3,10 @@ default bouquet = []
 default meanings = {}
 default decor = ""
 default page = 1
+default day = 0
 default book_open = False
 define deb = Character("Debug")
+define blank = Character("")
 define peri = Character("Periwinkle")
 define config.layers = [ 'master', 'transient', 'flowers', 'book', 'screens', 'overlay' ]
 # Declare characters used by this game. The color argument colorizes the
@@ -17,6 +19,10 @@ label start:
     # images directory to show it.
 
     scene default bg
+    $ renpy.add_layer("book", above = "screens")
+    $ init_globals()
+    $ day = 1
+    $ dayShift()
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
@@ -25,33 +31,8 @@ label start:
     # These display lines of dialogue.
     
     # debug set of Customers
-    $ majorCustomerDayList = [TomiCustomer]
-    $ quota = 2
-    $ initialize_customers(majorCustomerDayList)
-    $ init_globals()
-    $ renpy.add_layer("book", above = "screens")
-
-    deb "Hi!"
-
-    deb "[UnmetCustomerList]"
     
-    jump customerWave
-
-label customerWave:
-    while len(UnmetCustomerList) > 0 and quota > 0:
-        $ bouquet = []
-        $ meanings = {}
-        $ decor = ""
-        $ customer = getNewCustomer()
-        $ joyRating = customer.runOnEnter()
-        $ customer.runAfterFlowers(joyRating)
-        $ print(joyRating)
-        $ quota -= 1
-        jump customerCutscene
-
-    # This ends the game.
-
-    return
+    jump dayOne
 
 transform shift_right:
     align (-0.45, -0.05) alpha 0.0

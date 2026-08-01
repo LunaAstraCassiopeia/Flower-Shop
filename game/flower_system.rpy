@@ -85,25 +85,25 @@ init python:
 
     def flower_pic(name: str, imgType: str) -> str:
         if name == "Rose":
-            image = "red " + imgType + " %s.png"
+            image = "flowers/red " + imgType + " %s.png"
         if name == "Carnation":
-            image = "pink " + imgType + " %s.png"
+            image = "flowers/pink " + imgType + " %s.png"
         if name == "Hydrangea":
-            image = "purple " + imgType + " %s.png"
+            image = "flowers/purple " + imgType + " %s.png"
         if name == "Lily":
-            image = "orange " + imgType + " %s.png"
+            image = "flowers/orange " + imgType + " %s.png"
         if name == "Bluebell":
-            image = "blue " + imgType + " %s.png"
+            image = "flowers/blue " + imgType + " %s.png"
         if name == "Hyacinth":
-            image = "yellow " + imgType + " %s.png"
+            image = "flowers/yellow " + imgType + " %s.png"
         if name == "Orchid":
-            image = "white " + imgType + " %s.png"
+            image = "flowers/white " + imgType + " %s.png"
         if name == "Forget-Me-Not":
-            image = "aqua " + imgType + " %s.png"
+            image = "flowers/aqua " + imgType + " %s.png"
         if name == "Stick":
-            image = "branch " + imgType + " %s.png"
+            image = "flowers/branch " + imgType + " %s.png"
         if name == "Leaf":
-            image = "leaf " + imgType + " %s.png"
+            image = "flowers/leaf " + imgType + " %s.png"
         return image
 
     def init_globals():
