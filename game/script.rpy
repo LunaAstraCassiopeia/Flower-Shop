@@ -6,8 +6,10 @@ default page = 1
 default book_open = False
 define deb = Character("Debug")
 define peri = Character("Periwinkle")
+define config.layers = [ 'master', 'transient', 'flowers', 'book', 'screens', 'overlay' ]
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
+
 label start:
 
     # Show a background. This uses a placeholder by default, but you can
@@ -27,6 +29,7 @@ label start:
     $ initialize_customers(customerMasterlist)
     $ quota = 2
     $ init_globals()
+    $ renpy.add_layer("book", above = "screens")
 
     deb "Hi!"
 
@@ -75,17 +78,18 @@ transform bookpos:
 transform openbookpos:
     pos (0.46, 0.16)
 transform leftarrowos:
-    pos (0.46, 0.16)
+    pos (0.455, 0.16)
 transform rightarrowpos:
-    pos (0.93, 0.16)
+    pos (0.935, 0.16)
 transform exitbuttonpos:
-    pos (0.46, 0.26)
+    pos (0.455, 0.27)
     
 transform nothing:
     align (0,0) alpha 0.0
         
 
 screen flower_menu(customer):
+    layer "flowers"
     tag _flower_menu
     grid 3 2 at shift_right:
         vbox:
@@ -102,11 +106,11 @@ screen flower_menu(customer):
                             action [Function(set_addon, name, decor, meanings), SetVariable("decor", name)]
     if(decor != ""):
         imagebutton auto flower_pic(decor, "bouquet") at addonpos:
-            action [Function(set_addon, name, decor, meanings), SetVariable("decor", "")]
+            action [SensitiveIf(not book_open), Function(set_addon, name, decor, meanings), SetVariable("decor", "")]
     $ i = 0
     for flowerName in bouquet:
         imagebutton auto flower_pic(flowerName, "bouquet") at get_transform(i):
-            action Function(remove_flower, flowerName, bouquet, meanings)
+            action [SensitiveIf(not book_open), Function(remove_flower, flowerName, bouquet, meanings)]
         $ i = i + 1
     frame:
         vbox:
@@ -116,17 +120,17 @@ screen flower_menu(customer):
 screen book_button():
     zorder -1
     imagebutton auto "flower manual %s" at bookpos:
-        action Function(open_book, page)
+        action [Function(open_book, page), SetVariable("book_open", True)]
 
 screen book_screen():
     if (page > 1):
         imagebutton auto "left arrow %s" at leftarrowos:
             action [SensitiveIf(page > 1), Function(change_page, page, -1)]
         imagebutton auto "exit button %s" at exitbuttonpos:
-            action Function(close_book)
+            action [Function(close_book), SetVariable("book_open", False)]
     else:
         imagebutton auto "exit button %s" at leftarrowos:
-            action Function(close_book)
+            action [Function(close_book), SetVariable("book_open", False)]
     if (page < 2):
         imagebutton auto "right arrow %s" at rightarrowpos:
             action [SensitiveIf(page < 2), Function(change_page, page, 1)]
@@ -136,7 +140,7 @@ init python:
     def open_book(current_page: int):
         global book_open
         renpy.hide_screen("book_button")
-        renpy.show("manual page " + str(current_page), at_list={openbookpos})
+        renpy.show("manual page " + str(current_page), at_list={openbookpos}, layer = "book")
         renpy.show_screen("book_screen")
         book_open = True
 
@@ -144,17 +148,17 @@ init python:
         global page
         global book_open
         book_open = True
-        renpy.hide("manual page " + str(current_page))
+        renpy.hide("manual page " + str(current_page), layer = "book")
         page = current_page + shift
         if(random.random() > 0.9):
-            renpy.show("manual page tree", at_list={openbookpos})
+            renpy.show("manual page tree", at_list={openbookpos}, layer = "book")
         else:
-            renpy.show("manual page " + str(page), at_list={openbookpos})
+            renpy.show("manual page " + str(page), at_list={openbookpos}, layer = "book")
     
     def close_book():
         global book_open
         renpy.hide_screen("book_screen")
-        renpy.hide("manual page " + str(page))
+        renpy.hide("manual page " + str(page), layer = "book")
         renpy.show_screen("book_button")
         book_open = False
 
