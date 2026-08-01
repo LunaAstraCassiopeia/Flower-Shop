@@ -95,4 +95,5 @@ label customerCutscene:
 
         tomi "Thank you very much!"
         hide Tomura Happy
+
     jump customerWave
