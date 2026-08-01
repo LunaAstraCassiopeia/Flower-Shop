@@ -3,6 +3,7 @@ default bouquet = []
 default meanings = {}
 default decor = ""
 define deb = Character("Debug")
+define peri = Character("Periwinkle")
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 label start:
@@ -20,7 +21,7 @@ label start:
     # These display lines of dialogue.
     
     # debug set of Customers
-    $ customerMasterlist = [RoseCustomer, CarnationCustomer, HydrangeaCustomer]
+    $ customerMasterlist = [TomiCustomer, HydrangeaCustomer]
     $ initialize_customers(customerMasterlist)
     $ quota = 2
 

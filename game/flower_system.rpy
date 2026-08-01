@@ -13,6 +13,7 @@ init python:
         if len(bouquet) >= 7:
             return
         bouquet.append(name)
+        print(name)
         for key, val in get_flower_meanings(name).items():
             if key in meanings:
                 meanings[key] += val
