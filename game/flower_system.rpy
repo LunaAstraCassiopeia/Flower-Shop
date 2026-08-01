@@ -13,6 +13,7 @@ init python:
         if len(bouquet) >= 7:
             return
         bouquet.append(name)
+        print(name)
         for key, val in get_flower_meanings(name).items():
             if key in meanings:
                 meanings[key] += val
@@ -69,7 +70,7 @@ init python:
         if name == "Lily":
             meanings = {"Hate": 3, "Orange":1, "Lily": 1, "Passion": 1}
         if name == "Bluebell":
-            meanings = {"Humility": 3, "Blue":1, "Bluebell": 1, "Gratitude": 1}
+            meanings = {"Humility": 3, "Blue": 1, "Bluebell": 1, "Gratitude": 1}
         if name == "Hyacinth":
             meanings = {"Jealousy": 3, "Yellow":1, "Hyacinth": 1, "Contempt": 1}
         if name == "Orchid":

@@ -5,6 +5,7 @@ default decor = ""
 default page = 1
 default book_open = False
 define deb = Character("Debug")
+define peri = Character("Periwinkle")
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 label start:
@@ -22,7 +23,7 @@ label start:
     # These display lines of dialogue.
     
     # debug set of Customers
-    $ customerMasterlist = [RoseCustomer, CarnationCustomer, HydrangeaCustomer]
+    $ customerMasterlist = [TomiCustomer, HydrangeaCustomer]
     $ initialize_customers(customerMasterlist)
     $ quota = 2
     $ init_globals()
@@ -30,7 +31,10 @@ label start:
     deb "Hi!"
 
     deb "[CustomerList]"
+    
+    jump customerWave
 
+label customerWave:
     while len(UnmetCustomerList) > 0 and quota > 0:
         $ bouquet = []
         $ meanings = {}
@@ -40,6 +44,7 @@ label start:
         $ customer.runAfterFlowers(joyRating)
         $ print(joyRating)
         $ quota -= 1
+        jump customerCutscene
 
     # This ends the game.
 

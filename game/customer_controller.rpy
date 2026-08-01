@@ -5,12 +5,13 @@ init python:
     UnmetCustomerList = []
 
     class Customer:
-        def __init__(self, wants: dict[str, int], preferences: dict[str, int], character, enter_dialogue: list[str], exit_dialogue: dict[str, list[str]]):
+        def __init__(self, wants: dict[str, int], preferences: dict[str, int], character, enter_dialogue: list[str], exit_dialogue: dict[str, list[str]], name: str):
             self.preferences = preferences
             self.wants = wants
             self.character = character
             self.enter_dialogue = enter_dialogue
             self.exit_dialogue = exit_dialogue
+            self.header = name
         
         def calculateJoy(self, bouquet):
             joy = is_similar(bouquet, self.wants)
@@ -23,7 +24,7 @@ init python:
             return joy
 
         def runOnEnter(self):
-            renpy.show("Default Person", at_list=[right])
+            renpy.show(self.formatImage("Meh"), at_list=[right])
             renpy.with_statement(dissolve)
             idx = 0
             for line in self.enter_dialogue:
@@ -42,23 +43,27 @@ init python:
             renpy.hide("Default Person")
             char_status = ""
             if joyRating["satisfaction"] < 0.3:
-                char_status = "Happy"
+                char_status += "Happy"
             elif joyRating["satisfaction"] < 1:
-                char_status = "Meh"
+                char_status += "Meh"
             elif joyRating["satisfaction"] < 10:
-                char_status = "Sucks Ass"
-            renpy.show(char_status, at_list = [right])
+                char_status += "Sucks Ass"
+            renpy.show(self.formatImage(char_status), at_list = [right])
             for line in self.exit_dialogue[char_status]:
                 self.character(_(line))
-            renpy.hide(char_status)
-            renpy.show("Default Person", at_list=[right])
+            renpy.hide(self.formatImage(char_status))
+            renpy.show(self.formatImage("Meh"), at_list=[right])
             self.character(_("My satisfaction score is [joyRating['satisfaction']]"))
-            renpy.hide("Default Person")
+            renpy.hide(self.formatImage("Meh"))
             renpy.with_statement(dissolve)
             renpy.hide_screen("flower_menu")
             renpy.with_statement(dissolve)
             return
         
+        def formatImage(self, mood: str):
+            ret = f"{self.header} {mood}"
+            return ret
+
         def replaceMethods(self, runMethod, AfterMethod):
             self.runOnEnter = runMethod
             self.runAfterFlowers = AfterMethod
