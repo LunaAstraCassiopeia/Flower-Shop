@@ -25,15 +25,15 @@ label start:
     # These display lines of dialogue.
     
     # debug set of Customers
-    $ customerMasterlist = [TomiCustomer, HydrangeaCustomer]
-    $ initialize_customers(customerMasterlist)
+    $ majorCustomerDayList = [TomiCustomer]
     $ quota = 2
+    $ initialize_customers(majorCustomerDayList)
     $ init_globals()
     $ renpy.add_layer("book", above = "screens")
 
     deb "Hi!"
 
-    deb "[CustomerList]"
+    deb "[UnmetCustomerList]"
     
     jump customerWave
 

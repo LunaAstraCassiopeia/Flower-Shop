@@ -54,14 +54,15 @@ init python:
 
 
     def initialize_customers(custList: list[Customer]):
-        global CustomerList
         global UnmetCustomerList
+        global minorCustomerMasterlist
+        minorCustomerMasterlist = [CarnationCustomer, HydrangeaCustomer, RoseCustomer]
         
-        CustomerList = []
         UnmetCustomerList = []
         for customer in custList:
-            CustomerList.append(customer)
             UnmetCustomerList.append(customer)
+        while len(UnmetCustomerList) < quota:
+            UnmetCustomerList.append(getMinorCustomer())
 
     # hydraWants = {"Hydrangea": 5}
     # Hydrangea = Character("Hydrangea")

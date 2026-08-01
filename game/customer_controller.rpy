@@ -1,7 +1,6 @@
 init python:
     import random
 
-    CustomerList = []
     UnmetCustomerList = []
 
     class Customer:
@@ -75,4 +74,12 @@ init python:
         decor = ""
         customer = random.choice(UnmetCustomerList)
         UnmetCustomerList.remove(customer)
+        return customer
+
+    def getMinorCustomer():
+        bouquet = []
+        meanings = {}
+        decor = ""
+        customer = random.choice(minorCustomerMasterlist)
+        minorCustomerMasterlist.remove(customer)
         return customer
