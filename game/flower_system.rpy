@@ -76,7 +76,7 @@ init python:
         if name == "Orchid":
             meanings = {"Purity": 3, "White":1, "Orchid": 1, "Funeral": 1}
         if name == "Forget-Me-Not":
-            meanings = {"Faithful": 3, "Light Blue":1, "Forget-Me-Not": 1, "Poison": 1}
+            meanings = {"Faithful": 3, "Light Blue":1, "Forget-Me-Not": 1, "Remembrance": 1}
         if name == "Stick":
             meanings = {"Negative": 3, "Brown":1, "Stick": 1, "Dog": 1}
         if name == "Leaf":
@@ -116,6 +116,6 @@ init python:
         meanings = {}
         bouquet = []
         decor = ""
-        FlowerList = ["Rose","Carnation", "Hydrangea", "Lily", "Bluebell", "Hyacinth", "Orchid", "Forget-Me-Not"]
+        FlowerList = ["Rose", "Lily", "Hyacinth", "Forget-Me-Not", "Bluebell", "Hydrangea", "Carnation", "Orchid"]
         AddonList = ["Stick", "Leaf"]
         page = 1

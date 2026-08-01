@@ -76,13 +76,13 @@ transform addonpos:
 transform bookpos:
     pos (0.64, 0.27)
 transform openbookpos:
-    pos (0.46, 0.16)
+    pos (0.46, 0.07)
 transform leftarrowos:
-    pos (0.455, 0.16)
+    pos (0.455, 0.07)
 transform rightarrowpos:
-    pos (0.935, 0.16)
+    pos (0.935, 0.07)
 transform exitbuttonpos:
-    pos (0.455, 0.27)
+    pos (0.455, 0.19)
     
 transform nothing:
     align (0,0) alpha 0.0
@@ -131,9 +131,9 @@ screen book_screen():
     else:
         imagebutton auto "exit button %s" at leftarrowos:
             action [Function(close_book), SetVariable("book_open", False)]
-    if (page < 2):
+    if (page < 5):
         imagebutton auto "right arrow %s" at rightarrowpos:
-            action [SensitiveIf(page < 2), Function(change_page, page, 1)]
+            action [SensitiveIf(page < 5), Function(change_page, page, 1)]
 
 init python:
     import random
@@ -150,7 +150,7 @@ init python:
         book_open = True
         renpy.hide("manual page " + str(current_page), layer = "book")
         page = current_page + shift
-        if(random.random() > 0.9):
+        if(random.random() > 0.99):
             renpy.show("manual page tree", at_list={openbookpos}, layer = "book")
         else:
             renpy.show("manual page " + str(page), at_list={openbookpos}, layer = "book")
