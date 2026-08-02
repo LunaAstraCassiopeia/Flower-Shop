@@ -53,6 +53,7 @@ label dayOne:
     $ meanings = {}
     $ decor = ""
     $ joyRating = IlanaTutorialCustomer.runOnEnter()
+    $ renpy.block_rollback()
     $ IlanaTutorialCustomer.runAfterFlowers(joyRating)
     $ print(joyRating)
 
@@ -141,7 +142,9 @@ label customerWave:
         $ meanings = {}
         $ decor = ""
         $ customer = getNewCustomer()
+        $ renpy.block_rollback()
         $ joyRating = customer.runOnEnter()
+        $ renpy.block_rollback()
         $ customer.runAfterFlowers(joyRating)
         $ print(joyRating)
         $ quota -= 1
