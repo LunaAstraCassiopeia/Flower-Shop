@@ -18,6 +18,7 @@ init python:
 
 label nightOne:
     scene night bg
+    with dissolve
  
     blank "(As you close up shop today, Ilana suddenly opens the door and lets herself in.)"
     
@@ -62,6 +63,7 @@ label nightOne:
 
 label nightTwo:
     scene night bg
+    with dissolve
 
     show Ilana Meh at right
     with dissolve
@@ -121,6 +123,7 @@ label nightTwo:
 
 label nightThree:
     scene night bg
+    with dissolve
 
     blank "(Huh...)"
     peri "Ilana should be here by now..."
@@ -224,6 +227,7 @@ label nightThree:
     
 label nightFour:
     scene night bg
+    with dissolve
 
     show Ilana Meh at right
     with dissolve

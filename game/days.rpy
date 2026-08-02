@@ -67,6 +67,7 @@ label dayOne:
     jump customerWave
 
 label dayTwo:
+    scene default bg
     $ majorCustomerDayList = [ReubenOneCustomer, MarkOneCustomer, KaraTwoCustomer]
     $ quota = 5
     $ initialize_customers(majorCustomerDayList)
@@ -78,6 +79,7 @@ label dayTwo:
     jump customerWave
     
 label dayThree:
+    scene default bg
     $ majorCustomerDayList = [ArthurTwoCustomer, MarkTwoCustomer]
     $ quota = 5
     $ initialize_customers(majorCustomerDayList)
@@ -89,6 +91,7 @@ label dayThree:
     jump customerWave
 
 label dayFour:
+    scene default bg
     $ majorCustomerDayList = [ReubenTwoCustomer, MarkThreeCustomer, KaraThreeCustomer]
     $ quota = 5
     $ initialize_customers(majorCustomerDayList)
@@ -100,6 +103,7 @@ label dayFour:
     jump customerWave
 
 label dayFive:
+    scene default bg
     $ majorCustomerDayList = [ReubenThreeCustomer, IlanaGiftCustomer]
     $ quota = 5
     $ initialize_customers(majorCustomerDayList)
