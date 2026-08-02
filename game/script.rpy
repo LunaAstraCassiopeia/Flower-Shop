@@ -85,6 +85,38 @@ transform sPosition5:
 transform sPosition6:
     pos (0.56, 0.4)
 
+transform shPosition0:
+    pos (0.11, 0.05)
+    zoom 0.75
+transform shPosition1:
+    pos (0.22, 0.03)
+    zoom 0.75
+transform shPosition2:
+    pos (0.32, 0.05)
+    zoom 0.75
+transform shPosition3:
+    pos (0.11, 0.29)
+    zoom 0.75
+transform shPosition4:
+    pos (0.215, 0.29)
+    zoom 0.75
+transform shPosition5:
+    pos (0.32, 0.29)
+    zoom 0.75
+transform shPosition6:
+    pos (0.11, 0.55)
+    zoom 0.75
+transform shPosition7:
+    pos (0.22, 0.55)
+    zoom 0.75
+transform leafTransform:
+    pos (0.35, 0.51)
+    zoom 0.75
+transform branchTransform:
+    pos (0.3, 0.51)
+    zoom 0.75
+    xzoom -1
+
 transform bouquetbackpos:
     pos (0.41, 0.04)
 transform bouquetfrontpos:
@@ -94,7 +126,7 @@ transform bouquetfrontpos:
 transform bookpos:
     pos (0.64, 0.27)
 transform openbookpos:
-    pos (0.43, 0.04)
+    pos (0.43, 0)
 transform leftarrowos:
     pos (0.455, 0.07)
 transform rightarrowpos:
@@ -109,19 +141,15 @@ transform nothing:
 screen flower_menu(customer):
     layer "flowers"
     tag _flower_menu
-    grid 3 2 at shift_right:
-        vbox:
-            spacing 10 
-            null height 20
-            grid 3 3:
-                spacing 32
-                for name in FlowerList:
-                    imagebutton auto flower_pic(name, "flower"):
-                        action [SensitiveIf((len(bouquet) <7) and not book_open), Function(add_flower, name, bouquet, meanings)]
-                grid 2 1:
-                    for name in AddonList:
-                        imagebutton auto flower_pic(name, "flower"):
-                            action [Function(set_addon, name, decor, meanings), SetVariable("decor", name)]
+    $ i = 0
+    for name in FlowerList:
+        imagebutton auto flower_pic(name, "bouquet") at get_shelftransform(i):
+            action [SensitiveIf((len(bouquet) <7) and not book_open), Function(add_flower, name, bouquet, meanings)]
+        $ i = i + 1
+    imagebutton auto flower_pic("Leaf", "bouquet") at leafTransform:
+        action [SensitiveIf(not book_open), Function(set_addon, "Leaf", decor, meanings), SetVariable("decor", "Leaf")]
+    imagebutton auto flower_pic("Stick", "bouquet") at branchTransform:
+        action [SensitiveIf(not book_open), Function(set_addon, "Stick", decor, meanings), SetVariable("decor", "Stick")]
     $ i = len(bouquet)
     for flowerName in bouquet:
         add "flowers/stem idle.png" at get_stem_transform(i)
@@ -192,6 +220,27 @@ init python:
         book_open = False
 
 
+    def get_shelftransform(index):
+        match index:
+            case 0:
+                return shPosition0
+            case 1:
+                return shPosition1
+            case 2:
+                return shPosition2
+            case 3:
+                return shPosition3
+            case 4:
+                return shPosition4
+            case 5:
+                return shPosition5
+            case 6:
+                return shPosition6
+            case 7:
+                return shPosition7
+            case _:
+                return shPosition0
+            
     def get_transform(index):
         match index:
             case 1:
