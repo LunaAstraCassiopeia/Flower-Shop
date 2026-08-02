@@ -16,6 +16,14 @@ image Kara Meh = "Kara/Kara Meh.png"
 image Kara Happy = "Kara/Kara Happy.png"
 image Kara Sucks Ass = "Kara/Kara Sucks Ass.png"
 
+image Reuben Meh = "Reuben/Reuben Meh.png"
+image Reuben Happy = "Reuben/Reuben Happy.png"
+image Reuben Sucks Ass = "Reuben/Reuben Sucks Ass.png"
+
+image Mark Meh = "Mark/Mark Meh.png"
+image Mark Happy = "Mark/Mark Happy.png"
+image Mark Sucks Ass = "Mark/Mark Sucks Ass.png"
+
 # all instances of customers are defined here.
 init python:
 
@@ -60,6 +68,45 @@ init python:
         "Sucks Ass": ["Hmm...", "It's an honest effort, at least!", "I'm not sure if she'd like these, but it's worth a shot!"],
     }
     KaraOneCustomer = Customer(karaOneWants, noPreferences, kara, karaOneEnter, karaOneExit, "Kara", True)
+
+    
+    karaTwoWants = {"Carnation": 4, "Bluebell": 2, "Forget-Me-Not": 1}
+    noPreferences = {"test": 0}
+    karaTwoEnter = ["Hi! It's me again...", "Do you remember that order from last time?", "Just that same one, again... maybe with something different, this time.", "Some more pink flowers, those accent ones and maybe a single flower that expresses some kind of love and remembrance would be nice."]
+    karaTwoExit = {
+        "Happy": ["Oh! I think she'd like these ones, yeah!", "These will cheer her up, definitely!"],
+        "Meh": ["Ah!", "I think this could work!", "Could use a little more, but I think she'd like this nonetheless."],
+        "Sucks Ass": ["Hmm...", "It's an honest effort, at least!", "I'm not sure if she'd like these, but it's worth a shot!"],
+    }
+    KaraTwoCustomer = Customer(karaTwoWants, noPreferences, kara, karaOneEnter, karaOneExit, "Kara", True)
+
+    # all mark instances!
+    
+    mark = Character("Mark")
+    
+    markOneWants = {"Orchid": 7}
+    noPreferences = {"test": 0}
+    markOneEnter = ["Hello!", "Placeholder.", "My mother is dead.", "Flowers for the funeral."]
+    markOneExit = {
+        "Happy": ["Wow! That was so gold!"],
+        "Meh": ["Ok."],
+        "Sucks Ass": ["Hey has anyone noticed this sucks ass?"],
+    }
+    MarkOneCustomer = Customer(markOneWants, noPreferences, mark, markOneEnter, markOneExit, "Mark", True)
+
+    # all mark instances!
+    
+    reuben = Character("Reuben")
+    
+    reubenOneWants = {"Lilies": 4, "Hyacinth": 3, "Stick": 1}
+    noPreferences = {"test": 0}
+    reubenOneEnter = ["You... you're the flower shop, right?", "BL:(Not THE flower shop. But yes.)", "A few months ago, did you come across a guy? One who wanted a hateful, overall negative bouquet?", "Ugh, I hate that guy! Just because I beat him in an olympiad doesn't mean he gets to do that!", "Seriously, what's wrong with him?", "I want a bouquet too. One with much of the same message, without the \"wanting to die\" part."]
+    reubenOneExit = {
+        "Happy": ["Thank you very much.", "Apologies for the trouble... I really do hope you don't have to run into him again."],
+        "Meh": ["It's okay... This is okay.", "I know these bouquets with negative connotations aren't really what... these are for.", "Thank you for trying, anyways."],
+        "Sucks Ass": ["...", "This won't do...", "I'll probably give this to someone else. Someone I actually like.", "Thank you, still. I'll try to make sure this doesn't go to waste."],
+    }
+    ReubenOneCustomer = Customer(reubenOneWants, noPreferences, reuben, reubenOneEnter, reubenOneExit, "Reuben", True)
 
     # minor characters
 
@@ -194,6 +241,90 @@ label customerCutscene:
         
         hide Kara Meh
         with dissolve
+
+    if customer == ReubenOneCustomer:
+        show Reuben Meh at right
+
+        peri "You know him...?"
+        reuben "Arthur?"
+        reuben "A bit, yeah... We fly out a lot to go to international competitions. Representatives of the school, the country, all that."
+        peri "Woah... that must be really nice."
+
+        show Reuben Happy at right
+
+        reuben "It is... I just came back from another Math contest."
+        blank "(Reuben grins for a bit, then sighs.)"
+
+        show Reuben Meh at right
+
+        reuben "I just wish that guy would stop bothering me sometimes."
+        reuben "He goes on and on about how he should be so much better than me..."
+        reuben "And then I beat him once and he blows up on me! "
+        reuben "I didn't even win this time, and he still finds ways to rub that in my face! God, I hate him!"
+        reuben "It's like he wants to do this so he can show off on me! Can't we both just get along and have fun every time we compete?"
+        peri "Have you tried talking to him? It really seems like you mean well..."
+        reuben "I have! And every time, he always snaps back at me..."
+        peri "Right..."
+        blank "(You recall your last interaction with Arthur.)"
+        peri "Well, I hope you get through to him sometime."
+        reuben "Thanks... sorry for the bother, too."
+        reuben "Well, I have to go now. The delegation's waiting for me, and all."
+        reuben "Thank you so much."
+
+        hide Reuben Meh
+        with dissolve
+
+    if customer == KaraTwoCustomer:
+        show Kara Meh at right
+
+        peri "So, how are you?"
+        kara "I'm doing well... it's my friend I'm a little worried for."
+        peri "Oh no... did her condition get worse?"
+        kara "A little... not too bad yet, thankfully."
+
+        show Kara Happy at right:
+
+        kara "I do hope she ends up liking these flowers, though..."
+        blank "(The room gets a little quiet. To lighten the mood a bit, you ask...)"
+        peri "You must care for her a lot, huh?"
+        kara "Mmm."
+        kara "She's one of the best friends I've ever had, I think."
+        kara "We've been friends since childhood, and I'm glad to have had her constantly throughout my life..."
+        kara "I like listening to her talk, hanging out with her, and..."
+        blank "(She pauses for a bit.)"
+
+        show Kara Sucks Ass at right:
+
+        kara "Every day I'm away I really do miss her..."
+        blank "(You really do hope Kara's friend gets better soon...)"
+        blank "(Another part of you, though it probably shouldn't, wonders if...)"
+        kara "Do you think I like her, or something like that?"
+        blank "(Crap.)"
+        peri "Kind of....? I don't mean to pry, of course..."
+        kara "No, no, it's okay, I get what you mean..."
+        kara "It's just..."
+        kara "I don't think it's in me to love like that, you know?"
+        kara "I feel like I have so much love in my heart, and I want to share that with everyone I meet... equally, I guess."
+        kara "I've never really felt like I loved anyone in a way I found to be different from other people..."
+        kara "And I'm content with that!"
+        kara "...does that make sense...?"
+        blank "(You nod.)"
+        peri "Thats very admirable of you."
+
+        show Kara Happy at right
+
+        kara "Thanks...!"
+        peri "I hope your friend gets better soon. And that she likes the flowers, too."
+        kara "I hope so too."
+
+        show Kara Meh at right
+
+        kara "Well, I better get going! Thank you so much for hearing me out!"
+        blank "(You watch Kara leave the shop.)" 
+
+        hide Kara Meh 
+        with dissolve
+
 
 
     jump customerWave

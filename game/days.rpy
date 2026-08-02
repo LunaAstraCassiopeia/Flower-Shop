@@ -58,6 +58,18 @@ label dayOne:
     
     jump customerWave
 
+label dayTwo:
+    $ majorCustomerDayList = [ReubenOneCustomer, MarkOneCustomer, KaraTwoCustomer]
+    $ quota = 5
+    $ initialize_customers(majorCustomerDayList)
+    
+    deb "Day two this time!!"
+
+    deb "[UnmetCustomerList]"
+    
+    jump customerWave
+
+
 label customerWave:
     while len(UnmetCustomerList) > 0 and quota > 0:
         $ bouquet = []
