@@ -55,9 +55,9 @@ init python:
             renpy.show(self.formatImage(char_status), at_list = [right])
             for line in self.exit_dialogue[char_status]:
                 if line[:3] == "BL:":
-                    blank(_(line[3:]), interact = inter)
+                    blank(_(line[3:]))
                 else:
-                    self.character(_(line), interact = inter)
+                    self.character(_(line))
             renpy.hide(self.formatImage(char_status))
             renpy.show(self.formatImage("Meh"), at_list=[right])
             self.character(_("My satisfaction score is [joyRating['satisfaction']]"))
