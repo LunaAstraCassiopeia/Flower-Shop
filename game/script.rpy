@@ -130,7 +130,7 @@ screen flower_menu(customer):
         imagebutton auto "flowers/bouquet front %s.png" at bouquetfrontpos:
             hovered [Function(show_bouquet)]
             unhovered [Function(hide_bouquet)]
-            action [Return(customer.calculateJoy(meanings))]
+            action [Return(customer.calculateJoy(meanings)), SensitiveIf(not book_open)]
     if(decor != ""):
         imagebutton auto flower_pic(decor, "bouquet") at addonpos:
             action [SensitiveIf(not book_open), Function(set_addon, name, decor, meanings), SetVariable("decor", "")]
