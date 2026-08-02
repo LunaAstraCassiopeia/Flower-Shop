@@ -57,7 +57,7 @@ transform addonpos:
 transform bookpos:
     pos (0.64, 0.27)
 transform openbookpos:
-    pos (0.46, 0.07)
+    pos (0.43, 0.04)
 transform leftarrowos:
     pos (0.455, 0.07)
 transform rightarrowpos:
