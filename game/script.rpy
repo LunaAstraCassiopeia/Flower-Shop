@@ -6,32 +6,43 @@ default page = 1
 default day = 0
 default book_open = False
 define deb = Character("Debug")
-define blank = Character("")
-define peri = Character("Periwinkle")
+define flowery = Character("Flowery")
 define config.layers = [ 'master', 'transient', 'flowers', 'book', 'screens', 'overlay' ]
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
 label start:
-
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
-
-    scene default bg
+    scene black
+    
     $ renpy.add_layer("book", above = "screens")
     $ init_globals()
     $ day = 1
+
+    blank "(You arrive at the airport.)"
+    blank "(5:42 AM. The Sun is just beginning to rise, but that doesn't stop the influx of people walking out of the gates.)"
+    blank "(\"Each of them has some reason they're going home,\" you think to yourself.)"
+    blank "(Some are here to visit family, some are coming back from international trips, some are just flying back to be in the comfort of their home country again.)"
+    blank "(But you're not here to leave or anything.)"
+    blank "(You hear the grating noise of a steel door opening, as you begin to set up shop for the day.)"
+    blank "(You realize that you forgot to lock the door when you closed. It's probably fine, right?)"
+    blank "(It's a quaint shop, located near the gifts and souvenirs section of the airport.)"
+    blank "(Instead of acrylic keychains, fridge magnets or vague merchandise relating to the country you're currently standing on...)"
+
+    scene default bg
+
+    blank "(Your shop specializes in selling flowers and custom bouquets.)"
+    peri "Now to make sure everything's in order..."
+    blank "(You check through all the colored baskets of flowers, making sure that none of them have wilted or have suddenly been stolen while you were away.)"
+    blank "(There's a sweet, floral scent that fills the space around you immediately.)"
+    peri "Everything seems good...{w=0.3} I just have to look for..."
+    blank "(You begin searching the drawers near your desk for something.)"
+    blank "(You're still pretty new to this business, so you kind of can't survive a day of work without it.)"
+    blank "(Despite this, you can't seem to find it. You start to panic.) "
+    peri "Oh no, oh no! Did I leave it at home?"
+    blank "(You circle around the shop, double- no, triple-checking places you swear you've looked a hundred times beforehand for where it might be.)"
+    blank "(You're thinking of looking for it at home, when suddenly...)"
+
     $ dayShift()
-
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
-
-    # These display lines of dialogue.
-    
-    # debug set of Customers
-    
     jump dayOne
 
 transform shift_right:

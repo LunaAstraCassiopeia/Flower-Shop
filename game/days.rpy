@@ -4,16 +4,24 @@ init python:
         match day:
             case 1:
                 renpy.jump("dayOne")
+            case 2:
+                renpy.jump("dayTwo")
+            case 3:
+                renpy.jump("dayThree")
+            case 4:
+                renpy.jump("dayFour")
+            case 5:
+                renpy.jump("dayFive")
             case _:
                 return
         return
 
 label dayOne:
-
-    ilana "Looking for this?"
-
+    
     show Ilana Hehe at right
     with dissolve
+
+    ilana "Looking for this?"
 
     peri "HEY!!!"
     blank "(Ilana hands you your flower manual.)"
@@ -49,11 +57,11 @@ label dayOne:
     $ print(joyRating)
 
     $ majorCustomerDayList = [ArthurOneCustomer, KaraOneCustomer]
-    $ quota = 5
+    $ quota = 4
     $ initialize_customers(majorCustomerDayList)
 
     deb "Hi!"
-
+ 
     deb "[UnmetCustomerList]"
     
     jump customerWave
@@ -62,8 +70,41 @@ label dayTwo:
     $ majorCustomerDayList = [ReubenOneCustomer, MarkOneCustomer, KaraTwoCustomer]
     $ quota = 5
     $ initialize_customers(majorCustomerDayList)
-    
+
     deb "Day two this time!!"
+
+    deb "[UnmetCustomerList]"
+    
+    jump customerWave
+    
+label dayThree:
+    $ majorCustomerDayList = [ArthurTwoCustomer, MarkTwoCustomer]
+    $ quota = 5
+    $ initialize_customers(majorCustomerDayList)
+    
+    deb "Day three~"
+
+    deb "[UnmetCustomerList]"
+    
+    jump customerWave
+
+label dayFour:
+    $ majorCustomerDayList = [ReubenTwoCustomer, MarkThreeCustomer, KaraThreeCustomer]
+    $ quota = 5
+    $ initialize_customers(majorCustomerDayList)
+    
+    deb "Day Four!!!"
+
+    deb "[UnmetCustomerList]"
+    
+    jump customerWave
+
+label dayFive:
+    $ majorCustomerDayList = [ReubenThreeCustomer, IlanaGiftCustomer]
+    $ quota = 5
+    $ initialize_customers(majorCustomerDayList)
+    
+    deb "Day Five!!!"
 
     deb "[UnmetCustomerList]"
     

@@ -6,6 +6,12 @@ init python:
                 renpy.jump("nightOne")
             case 2:
                 renpy.jump("nightTwo")
+            case 3:
+                renpy.jump("nightThree")
+            case 4:
+                renpy.jump("nightFour")
+            case 5:
+                renpy.jump("nightFive")
             case _:
                 return
         return
@@ -44,6 +50,12 @@ label nightOne:
     blank "(Still, you feel like you're always never prepared for the amount of customers you'd end up getting.)"
     blank "(As such, you've always found the closing time during these hectic days a little comforting.)"
     blank "(You end up talking to Ilana about anything at all, as your inventory is restocked for the months to come.)"
+
+    hide Ilana
+    with dissolve
+
+    scene black
+    with dissolve
     
     $ day = day + 1
     $ dayShift()
@@ -66,7 +78,7 @@ label nightTwo:
     ilana "Oh no! Are they both warriors, fighting for the love of a beautiful princess?"
     peri "Not like that at all? It's more... they're giving each other bad bouquets."
     ilana "How can a bouquet be bad?"
-    peri "Like, bad as in the "I hate you and want you to die" bad."
+    peri "Like, bad as in the \"I hate you and want you to die\" bad."
     ilana "Yeesh! You think it's a breakup?"
     peri "I tried to ask, but the first kid just ran off after I handed him the bouquet."
     ilana "Weird... A bouquet of flowers to express hatred..."
@@ -86,7 +98,7 @@ label nightTwo:
     ilana "Oh no... I hope he's well..."
     peri "Seems this is a thing he does every time he comes back. I get why you'd be concerned, though... must be hard."
     peri "There was another customer a while back, who bought a bouquet for her sick friend."
-    ilana "As a "get-well-soon" gift, I hope?"
+    ilana "As a \"get-well-soon\" gift, I hope?"
     peri "Seems like it."
     ilana "Aww, that's really nice! Glad there are some people out there who remember what bouquets are for."
     blank "(Right... right...)"
@@ -95,7 +107,199 @@ label nightTwo:
     blank "(Flowers mean a lot of different things, and that's part of why you found an interest in taking up something like this.)"
     blank "(It's fun to think about.)"
     blank "..."
+
+    scene black
+    with dissolve
+
     blank "(You and Ilana continue sorting the flowers.)"
+
+    hide Ilana
+    with dissolve
+
+    $ day = day + 1
+    $ dayShift()
+
+label nightThree:
+    scene night bg
+
+    blank "(Huh...)"
+    peri "Ilana should be here by now..."
+    blank "(You look around, and see...)"
+    blank "(...no one...?)"
+    peri "Maybe she's just late..."
+
+    scene black 
+
+    blank "(Having been forced to be left to your own devices, you write down all the orders you got today. You turn around, facing away from the shop's entrance for a second, when suddenly...)"
+
+    scene night bg
+    show Ilana Hehe at right
+
+    ilana "SPECIAL DELIVERY!"
+    peri "AAAHH?!"
+    blank "(Ilana slams the door wide open. You can't help but flinch a little.)"
+    peri "Don't do that! You could've..."
+    ilana "Heh, sorry! Was I too loud?"
+    peri "Kind of..."
+    blank "(Ilana sets down the flowers as she comes in.)"
+
+    show Ilana Meh at right
+
+    ilana "Here you are, Miss Peri."
+    blank "(...since when was she allowed to call you that?)"
+    blank "(Anyways, you two begin sorting the flowers once again.)"
+    ilana "So..."
+    blank "(...)"
+    ilana "How are you?"
+    peri "Work's been well, I suppose. I'm meeting more regulars than I thought I ever would..."
+    ilana "Regulars? As in, people who visit you frequently?"
+    peri "Yeah?"
+    ilana "Those nerds bother you again?"
+    peri "Yeah... I really can't help but wonder why they choose to hate on each other like this."
+    peri "Like, there has to be better ways to express your hatred for someone."
+    ilana "Are they in love?"
+    blank "(...)"
+    blank "(...as farfetched as that is...)"
+    peri "Who knows?"
+    blank "(...changing the topic)"
+    peri "I saw Mark again today, too. The one buying flowers for his mom."
+    ilana "Right..."
+    ilana "...and how about you? You been doing okay?"
+    peri "Hm?"
+    peri "I've been alright, I suppose. Things are getting busy again, is all."
+    blank "(Silence fills the air between you two as you continue unloading the flowers.)"
+    ilana "Say..."
+    ilana "Do you do anything after work?"
+    peri "What's that supposed to mean?"
+    peri "It's not like I'm some shut-in, spending her entire life in this flower shop..."
+
+    show Ilana Sucks Ass at right
+
+    ilana "Hey, you know I didn't mean it like that!"
+    blank "(You giggle playfully. Ilana gives you a kind of mean look.)"
+    peri "I write."
+
+    show Ilana Meh at right
+
+    ilana "Like, books? You're an author?"
+    peri "Not specifically... I mostly tend to journal. Write about my experiences in the shop, you know..."
+    peri "Though, I do like reading in my spare time too. I've tried writing some prose every now and then, but not enough to really get anywhere with it."
+    ilana "Oho?"
+    ilana "You should show me some of your writing sometime! I think you'd be great at it."
+
+    show Ilana Happy at right
+
+    blank "(You blush.)"
+    peri "Not a chance."
+    ilana "Come on!"
+    peri "No!"
+
+    show Ilana Hehe at right
+
+    ilana "You know you want to!"
+    peri "I do not!"
+    blank "(The two of you tease each other on for a little longer.)"
+    ilana "Say..."
+    
+    show Ilana Meh at right
+
+    ilana "Do you wanna hang out sometime? Like, outside of work?"
+    peri "If it gets you to shut up about my writing, then sure."
+    ilana "I know a few spots near the airport. Cafes, bars, restaurants... I'd love to try some of them out with you."
+    peri "That does sound nice..."
+
+    show Ilana Happy at right
+
+    ilana "It's a date, then! Sometime after we finish restocking, perhaps?"
+    peri "Yeah."
+    blank "(You continue sorting the flowers, Ilana joining you not long after.)"
+
+    scene black
+    with dissolve
+
+    blank "(She keeps insisting that you show her your writing.)"
+
+    $ day = day + 1
+    $ dayShift()
+    
+label nightFour:
+    scene night bg
+
+    show Ilana Meh at right
+    with dissolve
+    
+    ilana "Coming in."
+    peri "Hello."
+    blank "(As usual, Ilana places the box of flowers by your side.)"
+    blank "(You open the box, and the two of you begin unloading flowers.)"
+    blank "..."
+    blank "(The air gets awfully quiet in the shop.)"
+    blank "(By now, you know to expect Ilana to ask you how your day went.)"
+    blank "(You have an answer to it, even.)"
+    blank "(But somehow, that question never comes.)"
+    blank "(After some time, Ilana suddenly glances towards you.)"
+
+    show Ilana Sucks Ass at right
+
+    ilana "Could I ask you something?"
+    peri "What's up? Are you... okay?"
+
+    show Ilana Meh at right
+
+    ilana "No, no, I'm fine, I swear!"
+    blank "(She scratches the back of her head and smiles at you, as if to ensure she's doing alright.)"
+    ilana "There's just... something I've been meaning to ask you."
+    peri "What is it?"
+    ilana "Why'd you choose to set up shop here? Near an airport of all places?"
+    ilana "And why flowers?"
+    peri "Well..."
+    blank "(You ponder over it for a moment.)"
+    peri "I guess I started selling flowers and bouquets because of the amount of depth and meaning that goes into each one."
+    peri "The idea of a bouquet conveying a personal message, that of which you'll find out about by understanding what each individual flower represent..."
+
+    show Ilana Happy at right
+
+    peri "The idea of that is... amazing, to me."
+    peri "You would know, I think. You gave me that manual, after all."
+    blank "(You notice Ilana smiling until you attempt to make eye contact with her, after which she looks away and starts... blushing?)"
+
+    show Ilana Sucks Ass at right
+
+    peri "I opened a flower shop near the airport, because..."
+    blank "(You think back to all the people you've gotten to know. Arthur, Reuben, Kara, Mark...)"
+    peri "I think... the people I've gotten to know while working here have always been nice to hear from."
+    peri "Knowing why they're buying flowers, hearing about them and how these reasons change over time, figuring out what they want to convey with them..."
+    peri "...I guess what I'm trying to say is, I like hearing the stories people have, and what motivates them to come to the shop and buy things."
+    blank "(The atmosphere in the room seems to loosen up a bit.)"
+
+    show Ilana Meh at right
+
+    peri "What about you? Why do you keep coming back to restock for this flower shop in particular?"
+    ilana "Not important."
+    peri "You sure....?"
+    ilana "Noooooot important."
+    blank "(You laugh a bit, but try your best to hide it from Ilana.)"
+    blank "(Does she really not have any ulterior motives for coming here all the time?)"
+    blank "(You're not sure.)"
+    blank "(Either way, seeing her come into the flower shop, chatting with you as you two sort out the new restock she bought, just hearing from her, even if it only happens every few months...)"
+    blank "(You enjoy her company.)"
+
+    scene black
+    with dissolve
+
+    blank "(You get the feeling that she appreciates yours, too.)"
+
+
+    $ day = day + 1
+    $ dayShift()
+
+    
+    
+label nightFive:
+    scene night
+
+    blank "The End."
+
 
     $ day = day + 1
     $ dayShift()
