@@ -23,7 +23,7 @@ label nightOne:
  
     blank "(As you close up shop today, Ilana suddenly opens the door and lets herself in.)"
     
-    show Ilana Meh at right
+    show Ilana Meh 
     with dissolve
     
     blank "(Right. She also helps supply your shop with flowers.)"
@@ -69,7 +69,7 @@ label nightTwo:
     with dissolve
     play music "flowershop night.mp3" fadein 1 fadeout 0.5 if_changed loop volume 0.75
 
-    show Ilana Meh at right
+    show Ilana Meh 
     with dissolve
 
     ilana "I'm coming in!"
@@ -142,7 +142,7 @@ label nightThree:
     blank "(Having been forced to be left to your own devices, you write down all the orders you got today. You turn around, facing away from the shop's entrance for a second, when suddenly...)"
 
     scene night bg
-    show Ilana Hehe at right
+    show Ilana Hehe 
     play music "flowershop night.mp3" fadein 0.5 volume 0.75
 
     ilana "SPECIAL DELIVERY!"
@@ -153,7 +153,7 @@ label nightThree:
     peri "Kind of..."
     blank "(Ilana sets down the flowers as she comes in.)"
 
-    show Ilana Meh at right
+    show Ilana Meh 
 
     ilana "Here you are, Miss Peri."
     blank "(...since when was she allowed to call you that?)"
@@ -183,13 +183,13 @@ label nightThree:
     peri "What's that supposed to mean?"
     peri "It's not like I'm some shut-in, spending her entire life in this flower shop..."
 
-    show Ilana Sucks Ass at right
+    show Ilana Sucks Ass 
 
     ilana "Hey, you know I didn't mean it like that!"
     blank "(You giggle playfully. Ilana gives you a kind of mean look.)"
     peri "I write."
 
-    show Ilana Meh at right
+    show Ilana Meh 
 
     ilana "Like, books? You're an author?"
     peri "Not specifically... I mostly tend to journal. Write about my experiences in the shop, you know..."
@@ -197,28 +197,28 @@ label nightThree:
     ilana "Oho?"
     ilana "You should show me some of your writing sometime! I think you'd be great at it."
 
-    show Ilana Happy at right
+    show Ilana Happy 
 
     blank "(You blush.)"
     peri "Not a chance."
     ilana "Come on!"
     peri "No!"
 
-    show Ilana Hehe at right
+    show Ilana Hehe 
 
     ilana "You know you want to!"
     peri "I do not!"
     blank "(The two of you tease each other on for a little longer.)"
     ilana "Say..."
     
-    show Ilana Meh at right
+    show Ilana Meh 
 
     ilana "Do you wanna hang out sometime? Like, outside of work?"
     peri "If it gets you to shut up about my writing, then sure."
     ilana "I know a few spots near the airport. Cafes, bars, restaurants... I'd love to try some of them out with you."
     peri "That does sound nice..."
 
-    show Ilana Happy at right
+    show Ilana Happy 
 
     ilana "It's a date, then! Sometime after we finish restocking, perhaps?"
     peri "Yeah."
@@ -238,7 +238,7 @@ label nightFour:
     with dissolve
     play music "flowershop night.mp3" fadein 0.5 fadeout 0.5 if_changed loop volume 0.75
 
-    show Ilana Meh at right
+    show Ilana Meh 
     with dissolve
     
     ilana "Coming in."
@@ -252,12 +252,12 @@ label nightFour:
     blank "(But somehow, that question never comes.)"
     blank "(After some time, Ilana suddenly glances towards you.)"
 
-    show Ilana Sucks Ass at right
+    show Ilana Sucks Ass 
 
     ilana "Could I ask you something?"
     peri "What's up? Are you... okay?"
 
-    show Ilana Meh at right
+    show Ilana Meh 
 
     ilana "No, no, I'm fine, I swear!"
     blank "(She scratches the back of her head and smiles at you, as if to ensure she's doing alright.)"
@@ -270,13 +270,13 @@ label nightFour:
     peri "I guess I started selling flowers and bouquets because of the amount of depth and meaning that goes into each one."
     peri "The idea of a bouquet conveying a personal message, that of which you'll find out about by understanding what each individual flower represent..."
 
-    show Ilana Happy at right
+    show Ilana Happy 
 
     peri "The idea of that is... amazing, to me."
     peri "You would know, I think. You gave me that manual, after all."
     blank "(You notice Ilana smiling until you attempt to make eye contact with her, after which she looks away and starts... blushing?)"
 
-    show Ilana Sucks Ass at right
+    show Ilana Sucks Ass 
 
     peri "I opened a flower shop near the airport, because..."
     blank "(You think back to all the people you've gotten to know. Arthur, Reuben, Kara, Mark...)"
@@ -285,7 +285,7 @@ label nightFour:
     peri "...I guess what I'm trying to say is, I like hearing the stories people have, and what motivates them to come to the shop and buy things."
     blank "(The atmosphere in the room seems to loosen up a bit.)"
 
-    show Ilana Meh at right
+    show Ilana Meh 
 
     peri "What about you? Why do you keep coming back to restock for this flower shop in particular?"
     ilana "Not important."

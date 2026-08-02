@@ -11,6 +11,8 @@ image Ilana Hehe = "Ilana/Ilana Hehe.png"
 image Arthur Meh = "Arthur/Arthur Meh.png"
 image Arthur Happy = "Arthur/Arthur Happy.png"
 image Arthur Sucks Ass = "Arthur/Arthur Sucks Ass.png"
+image Arthur Sucks Ass Blush = "Arthur/Arthur Sucks Ass 2.png"
+image Arthur Happy Blush = "Arthur/Arthur Happy 2.png"
 
 image Kara Meh = "Kara/Kara Meh.png"
 image Kara Happy = "Kara/Kara Happy.png"
@@ -19,6 +21,8 @@ image Kara Sucks Ass = "Kara/Kara Sucks Ass.png"
 image Reuben Meh = "Reuben/Reuben Meh.png"
 image Reuben Happy = "Reuben/Reuben Happy.png"
 image Reuben Sucks Ass = "Reuben/Reuben Sucks Ass.png"
+image Reuben Sucks Ass Blush = "Reuben/Reuben Sucks Ass 2.png"
+image Reuben Happy Blush = "Reuben/Reuben Happy 2.png"
 
 image Mark Meh = "Mark/Mark Meh.png"
 image Mark Happy = "Mark/Mark Happy.png"
@@ -89,12 +93,12 @@ init python:
     }
     ArthurOneCustomer = Customer(arthurOneWants, noPreferences, arthur, arthurOneEnter, arthurOneExit, "Arthur", True)
     
-    arthurTwoWants = {"Lily": 4, "Orchid": 3}
-    arthurTwoEnter = ["Fuck you give me flowers.", "I want to kill his cat.", "And then funeral flowers for said cat.", "BL:(...?)", "I don't want to pay for more than one bouqet.", "BL:(...Cat killing flowers and funeral flowers...)"]
+    arthurTwoWants = {"Lily": 2, "Orchid": 2, "Hydrangea": 2, "Hyacinth": 1}
+    arthurTwoEnter = ["You.", "BL:(Him again?)", "You've met Reuben?", "BL:(You have.)", "Ugh, that guy. Trying to take the moral high ground, as always.", "BL:(You're not sure whether to agree or disagree here.)", "BL:(Probably disagree.)", "Give me the same bouquet. Flowers that convey hate, death, and the fact that I'm superior to him. And maybe a flower that tells him that I'm envious of him."]
     arthurTwoExit = {
-        "Happy": ["Perfect.", "His cat will never see it coming."],
-        "Meh": ["This will have to do.", "I don't think it'll finish the job, but it will have to suffice."],
-        "Sucks Ass": ["...", "How am I supposed to kill people with this?"],
+        "Happy": ["Perfect.", "This will show him."],
+        "Meh": ["This will have to do.", "I don't think it'll get my whole point across, but it will have to suffice."],
+        "Sucks Ass": ["...", "Are you trying to make me look like a fool?", "In front of Him?"],
     }
     ArthurTwoCustomer = Customer(arthurTwoWants, noPreferences, arthur, arthurTwoEnter, arthurTwoExit, "Arthur", True)
     
@@ -180,12 +184,12 @@ init python:
     }
     ReubenTwoCustomer = Customer(reubenTwoWants, noPreferences, reuben, reubenTwoEnter, reubenTwoExit, "Reuben", True)
 
-    reubenThreeWants = {"Rose": 7}
-    reubenThreeEnter = ["I'm gay for Arthur", "Give me a bouquet of roses"]
+    reubenThreeWants = {"Rose": 3, "Lily": 3, "Hydrangea": 1}
+    reubenThreeEnter = ["BL:(Oh God, again?)", "Hi.", "BL:(Here it comes...)", "I need... a different set of flowers, this time.", "BL:(...?)", "Still for the same guy, just...", "I want to make an honest effort to make amends with him.", "I want to tell Arthur that I recognize his passion, but not in a way that makes me envious of him. Two different kinds of flowers that convey those, and a final one that tells him that I want to understand him."]
     reubenThreeExit = {
-        "Happy": ["Flowers"],
-        "Meh": ["Sorry little guy!"],
-        "Sucks Ass": ["This is so Human"],
+        "Happy": ["Thank you.", "I hope he takes this well..."],
+        "Meh": ["It's okay... This is okay.", "Sorry, I know this comes off as strange coming from me...", "Thank you, this will still work."],
+        "Sucks Ass": ["...", "Look. I recall saying I don't hate him anymore.", "...", "What? I'm serious!"],
     }
     ReubenThreeCustomer = Customer(reubenThreeWants, noPreferences, reuben, reubenThreeEnter, reubenThreeExit, "Reuben", True)
 
@@ -239,12 +243,12 @@ init python:
 label customerCutscene:
     # Unlimited If Statement Works
     if customer == ArthurOneCustomer:
-        show Arthur Happy at right
+        show Arthur Happy 
 
         blank "(You wonder if you should even be giving bouquets like these to random people.)"
         peri "Can I ask..?"
 
-        show Arthur Meh at right
+        show Arthur Meh 
 
         arthur "It's none of your business. You wouldn't get it."
         blank "(Rude...)"
@@ -257,17 +261,43 @@ label customerCutscene:
         blank "(Before you can get any other words out, Arthur storms out of the shop.)"
 
     if customer == ArthurTwoCustomer:
-        show Arthur Meh at right
+        show Arthur Meh
+        
+        blank "(You recall your encounter with Reuben a few months ago.)"
+        peri "So it IS you..."
+        arthur "Yes. It is me."
+        blank "(...)"
 
-        arthur "They say to hit a man right at his heart."
-        arthur "I'm aiming for a heart attack next."
+        show Arthur Sucks Ass
 
-        hide Arthur Meh
+        arthur "I don't know what kind of lies and misinformation he told you while he was here, but I want you to know that they're all lies."
+        blank "(You stay silent.)"
+        arthur "...?"
+        blank "(...)"
+
+        show Arthur Meh
+
+        arthur "Did he... say anything?"
+        peri "No... not really..."
+        blank "(Arthur is taken aback.)"
+        peri "If anything, he really just wants to get along with you."
+
+        show Arthur Sucks Ass
+
+        arthur "I don't... I don't believe that!"
+        peri "Listen. I'm not really one to intervene with these things, but..."
+        peri "I think you should try talking to him? Hear him out, even just once?"
+        arthur "I don't need your advice, okay? I can handle this on my own."
+
+        hide Arthur Sucks Ass
         with dissolve
+
+        blank "(You try to think of something to say, but Arthur storms out of the shop before you can come up with something.)"
+        blank "(You hope that what you said got through to him. In some way.)"
 
     
     if customer == KaraOneCustomer:
-        show Kara Meh at right
+        show Kara Meh 
 
         peri "So, what brings you here?"
         kara "Coming home from overseas work... you know how it is."
@@ -278,12 +308,12 @@ label customerCutscene:
         peri "I see..."
         peri "That's really sweet of you!"
 
-        show Kara Happy at right
+        show Kara Happy 
 
         kara "Hehe, I sure hope so..."
         peri "I hope she gets better soon."
 
-        show Kara Meh at right
+        show Kara Meh 
 
         kara "Thanks... though, it might be a while."
         blank "(You nod. Kara waves at you as she leaves the store.)"
@@ -293,14 +323,14 @@ label customerCutscene:
         
 
     if customer == KaraTwoCustomer:
-        show Kara Meh at right
+        show Kara Meh 
 
         peri "So, how are you?"
         kara "I'm doing well... it's my friend I'm a little worried for."
         peri "Oh no... did her condition get worse?"
         kara "A little... not too bad yet, thankfully."
 
-        show Kara Happy at right
+        show Kara Happy 
 
         kara "I do hope she ends up liking these flowers, though..."
         blank "(The room gets a little quiet. To lighten the mood a bit, you ask...)"
@@ -311,7 +341,7 @@ label customerCutscene:
         kara "I like listening to her talk, hanging out with her, and..."
         blank "(She pauses for a bit.)"
 
-        show Kara Sucks Ass at right
+        show Kara Sucks Ass 
 
         kara "Every day I'm away I really do miss her..."
         blank "(You really do hope Kara's friend gets better soon...)"
@@ -329,13 +359,13 @@ label customerCutscene:
         blank "(You nod.)"
         peri "Thats very admirable of you."
 
-        show Kara Happy at right
+        show Kara Happy 
 
         kara "Thanks...!"
         peri "I hope your friend gets better soon. And that she likes the flowers, too."
         kara "I hope so too."
 
-        show Kara Meh at right
+        show Kara Meh 
 
         kara "Well, I better get going! Thank you so much for hearing me out!"
         blank "(You watch Kara leave the shop.)" 
@@ -344,12 +374,12 @@ label customerCutscene:
         with dissolve
         
     if customer == KaraThreeCustomer:
-        show Kara Meh at right
+        show Kara Meh 
 
         peri "You seem a lot happier today."
         kara "Well..."
 
-        show Kara Happy at right
+        show Kara Happy 
 
         blank "(Kara's smile is seen from ear to ear.)"
         kara "My friend's being discharged from the hospital today!"
@@ -368,7 +398,7 @@ label customerCutscene:
         with dissolve
 
     if customer == MarkOneCustomer:
-        show Mark Meh at right
+        show Mark Meh 
 
         peri "I'm... I'm so sorry."
         mark "It's alright."
@@ -380,13 +410,13 @@ label customerCutscene:
         mark "I can't help but feel bad sometimes, but someone has to make ends meet, right?"
         blank "(You nod. There's an awkward silence between you two.)"
 
-        show Mark Sucks Ass at right
+        show Mark Sucks Ass 
 
         mark "Hahaha! Was that too much? My apologies."
         peri "No, no, not at all! I get what you mean."
         peri "Being so far from home all the time must be hard."
 
-        show Mark Meh at right
+        show Mark Meh 
 
         mark "You get used to it. Anyways, I do have to get going now."
         mark "Good luck with the rest of your shift."
@@ -397,7 +427,7 @@ label customerCutscene:
         with dissolve
         
     if customer == MarkTwoCustomer:
-        show Mark Meh at right
+        show Mark Meh 
 
         peri "Why the orchids, all of a sudden?"
         mark "I looked into it on my own, and saw that orchids are meant to symbolize new beginnings."
@@ -407,13 +437,13 @@ label customerCutscene:
         mark "Indeed. I won't have to fly back every few months anymore, haha!"
         blank "(Mark sighs.)"
 
-        show Mark Sucks Ass at right
+        show Mark Sucks Ass 
 
         mark "I wish my mother were here to see this. It feels like things are finally looking up for me. My family, too."
         peri "I'm happy for you."
         mark "Thank you."
 
-        show Mark Meh at right
+        show Mark Meh 
 
         mark "Well! I have to get going now."
         mark "Good luck with the shop."
@@ -422,12 +452,12 @@ label customerCutscene:
         with dissolve
         
     if customer == MarkThreeCustomer:
-        show Mark Meh at right
+        show Mark Meh 
 
         blank "(Almost out of the corner of your eye, you see two children running towards the shop, one boy and one girl, and a figure that seems to be their mother chasing after them.)"
         mike "DAAAAAAD!"
 
-        show Mark Happy at right
+        show Mark Happy 
 
         blank "(One of the kids reaches towards Mark, tightly embracing him.)"
         mark "Mike, Mikayla, what a surprise to see you two here!"
@@ -449,7 +479,7 @@ label customerCutscene:
         mark "Indeed, hahaha!"
         blank "(Mark turns to you.)"
 
-        show Mark Sucks Ass at right
+        show Mark Sucks Ass 
         mark "Thank you, again. For all the help, and joy you've brought us here."
         mika "Thank you, Miss... uh..."
         peri "Periwinkle! It's no problem at all."
@@ -464,19 +494,19 @@ label customerCutscene:
         blank "(You watch as the family leaves the shop, and you can't help but feel fulfilled.)"
 
     if customer == ReubenOneCustomer:
-        show Reuben Meh at right
+        show Reuben Meh 
 
         peri "You know him...?"
         reuben "Arthur?"
         reuben "A bit, yeah... We fly out a lot to go to international competitions. Representatives of the school, the country, all that."
         peri "Woah... that must be really nice."
 
-        show Reuben Happy at right
+        show Reuben Happy 
 
         reuben "It is... I just came back from another Math contest."
         blank "(Reuben grins for a bit, then sighs.)"
 
-        show Reuben Meh at right
+        show Reuben Meh 
 
         reuben "I just wish that guy would stop bothering me sometimes."
         reuben "He goes on and on about how he should be so much better than me..."
@@ -496,7 +526,7 @@ label customerCutscene:
         with dissolve
 
     if customer == ReubenTwoCustomer:
-        show Reuben Meh at right
+        show Reuben Meh 
 
         peri "It happened again, I'm assuming?"
         reuben "Yeah... Geology competition this time."
@@ -509,14 +539,14 @@ label customerCutscene:
         blank "(Certainly less expensive ways, too.)"
         peri "If you wanted to shame or humiliate someone so badly, why do it with flowers?"
 
-        show Reuben Happy at right
+        show Reuben Happy 
 
         reuben "..."
         blank "(The room is silent. Reuben is deep in thought.)"
         peri "You don't actually want for that to happen to him, do you?"
         blank "(Reuben pauses, then inhales deeply.)"
 
-        show Reuben Meh at right
+        show Reuben Meh 
 
         reuben "No..."
         blank "(You nod.)"
@@ -525,7 +555,7 @@ label customerCutscene:
         peri "I don't know... try to be honest with him? Make an earnest, genuine attempt, then if he snaps back at you despite that then that's that. You could try buying him a nicer set of flowers next time."
         blank "(You meant that last sentence as a joke. Reuben, however, takes this advice to heart, and nods.)"
 
-        show Reuben Happy at right
+        show Reuben Happy 
 
         reuben "I'll keep that in mind. Thank you so much."
         
@@ -533,44 +563,115 @@ label customerCutscene:
         with dissolve
         
     if customer == ReubenThreeCustomer:
-        show Reuben Meh at right
 
-        reuben "I will summon arthur"
-        reuben "OH GAY BOY!!!!!"
+        show Reuben Meh
 
-        show Arthur Sucks Ass at left
+        peri "Did... something happen?"
+        reuben "Not much, just... I thought about what you said all those months ago..."
+        reuben "I want to try giving him this. And. Be nice to him. You know?"
+        blank "(You smile.)"
+        peri "You should do that."
+        peri "I think... Arthur has a few things he should sort out with you, too."
 
-        arthur "Reuben??? I thought I killed you!!!"
-        reuben "You dids... and I have a confession to make"
-        reuben "I'm not actually reuben..."
+        show Reuben Sucks Ass at left
+        with move
+        show Arthur Sucks Ass at right
 
-        arthur "????"
+        blank "(As if on cue, Arthur storms into the store.)"
+        arthur "...what are YOU doing here?"
+        blank "(Reuben flinches a little, with the bouquet currently in his hands.)"
+        arthur "What? Another bouquet, just to spite me? To rub the fact that you're so much better than me in my face?"
+
+        show Reuben Happy at left
+
+        reuben "That's not what I intend to do..."
+
+        show Arthur Meh at right
+
+        arthur "Huh?"
+
+        reuben "Not this time, at least..."
+        blank "(The room falls silent for a little bit.)"
+        blank "(You wonder if you're intruding, but...)"
+        
+        show Reuben Meh at left
+
+        reuben "Look."
+        blank "(Reuben extends the bouquet to Arthur.)"
+        reuben "These are for you."
+
+        show Reuben Happy at left
+
+        reuben "Not because I hate you, or want you to die, or think I'm better than you..."
+
+        show Reuben Happy Blush at left
+
+        reuben "But because I want you to know that I respect you quite a lot."
+
+        show Arthur Sucks Ass at right
+
+        blank "(Arthur looks... confused.)"
+        reuben "The amount of passion, energy, and commitment you put into... everything."
+        reuben "I know that I've been kind of... petty, recently. With all the hateful bouquets I've been giving you recently."
+        reuben "And I do truly apologize for that! I know what it feels like to have lost in something. Especially something on as large of a scale as an international competition."
+        reuben "But I hope you know that I don't see you as any less of an individual despite that."
+
+        show Arthur Sucks Ass Blush at right
+
+        arthur "..."
+        reuben "I hope we get to a kind of... understanding between ourselves. I truly only want us to get along."
+        blank "(Reuben extends the bouquet once more, with Arthur responding by holding it gently in his hands.)"
+        reuben "And besides..."
+        reuben "It's kind of weird that we're hating on each other with flowers, of all things, isn't it?"
+        blank "(The bouquet is received by Arthur.)"
+
+        show Arthur Meh at right
+        show Reuben Meh at left
+
+        arthur "If you're being serious then... I'm sorry too."
+        arthur "This whole flower thing was kind of... rash, wasn't it?"
+        blank "(You mutter to yourself.)"
+        peri "Tell me about it..."
+
+        show Arthur Happy at right
+        arthur "And... thank you."
+        blank "(He looks at you.)"
+        arthur "Sorry... about all this. I think I was a bit mean to you, too."
+        peri "I get it. It's okay."
+        blank "(Reuben gestures towards Arthur.)"
+        reuben "Do you want to talk for a bit?"
+
+        show Arthur Happy Blush at right
+
+        arthur "..."
+        arthur "...yeah, sure."
+        reuben "Then, we'll leave the shop now, Thank you so much for the help."
 
         hide Reuben Meh
-        show flowery at right
-
-        show Arthur Happy at left
-
-        arthur "FLOWERY!?!??!!?!?!"
-        Flowery "Flowery"
-        arthur "omg i love you so much lets get married"
-        Flowery "Heh, how do you like my Jarona?"
-        
-        hide Flowery
-        hide Arthur Sucks Ass
         with dissolve
 
-        blank "(Okay.)"
+        blank "(Reuben exits the shop, with Arthur following suit soon after.)"
+
+        hide Arthur Happy Blush
+        with dissolve
+
+        peri "Let's hope I never have to go through that again, huh...?"
+    
+    if customer == IlanaGiftCustomer:         
+        peri "What was that about...?"
+        blank "(Ilana isn't usually one to visit at mornings.)"
+        blank "(Usually she just does this to tease you. But ordering flowers, furthermore bouquets...)"
+        blank "(Is she...?)"
 
     # Minor Customers
 
     if customer == TomiCustomer:
-        show Tomura Meh at right
+        show Tomura Meh 
 
         peri "Say..."
         peri "You must really care about this person, huh?"
 
-        show Tomura Happy at right
+        show Tomura Happy 
 
         tomi "Yes! I feel kind of bad that we don't get to talk that much, especially since I have to fly out so frequently."
         peri "Right... well I hope they take these well!"
@@ -587,7 +688,7 @@ label customerCutscene:
 
     if customer == CloveCustomer:
 
-        show Clove Meh at right
+        show Clove Meh 
 
         peri "Your boyfriend's competing in international competitions? Wow, that's incredible."
         clove "Isn't it? It's kinda hard to believe he's even mine sometimes!"
@@ -596,7 +697,7 @@ label customerCutscene:
         clove "Mhm! I pick them from the garden in our home."
         peri "I think that maybe whatever you'd make for him means more than any award, then. He can get a medal from anywhere, but only one you exists, right?"
         
-        show Clove Happy at right
+        show Clove Happy 
 
         clove "Haha, that's true. Thanks for that, I think I needed it."
         clove "Take care!"

@@ -18,7 +18,7 @@ init python:
 
 label dayOne:
     
-    show Ilana Hehe at right
+    show Ilana Hehe 
     with dissolve
 
     ilana "Looking for this?"
@@ -26,7 +26,7 @@ label dayOne:
     peri "HEY!!!"
     blank "(Ilana hands you your flower manual.)"
 
-    show Ilana Meh at right
+    show Ilana Meh 
 
     peri "...thank goodness, it's just you..."
     ilana "You really should keep a better eye on your shop."
@@ -34,12 +34,12 @@ label dayOne:
     peri "I leave the lock open once..."
     ilana "To think I'd give this to you, only for you to leave this so carelessly in the shop like this..."
     
-    show Ilana Sucks Ass at right
+    show Ilana Sucks Ass 
 
     ilana "You hate me or something?"
     blank "(Ilana sighs very exaggeratedly, then giggles as you hit her very lightly.)"
     
-    show Ilana Meh at right
+    show Ilana Meh 
 
     ilana "Come on, you and I both know I was kidding!"
     peri "I guess..."
