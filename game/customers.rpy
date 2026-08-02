@@ -29,9 +29,6 @@ init python:
     import random
 
     def blip_voice(event, interact=True, blip_file = "mid blip", **kwargs):
-        if not interact:
-            return
-
         if event == "show_done":
             blips = make_blips(blip_file)
             renpy.sound.play(blips, loop=True)
@@ -210,7 +207,6 @@ init python:
     CloveCustomer= Customer(cloveWants, noPreferences, clove, cloveEnter, cloveExit, "Clove", True)
 
     tomiWants = {"Forget-Me-Not": 4, "Bluebell": 3}
-    tomi = Character("Tomura")
     tomiEnter = ["Hi..!", 
     "I'm planning on visiting a good friend of mine today, one I haven't talked to in a while...", 
     "They like a lot of blue flowers!",
