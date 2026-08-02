@@ -24,7 +24,7 @@ init python:
             return joy
 
         def runOnEnter(self):
-            renpy.show(self.formatImage("Meh"), at_list=[right])
+            renpy.show(self.formatImage("Meh"))
             renpy.with_statement(dissolve)
             idx = 0
             for line in self.enter_dialogue:
@@ -52,14 +52,14 @@ init python:
                 char_status += "Meh"
             elif joyRating["satisfaction"] < 10:
                 char_status += "Sucks Ass"
-            renpy.show(self.formatImage(char_status), at_list = [right])
+            renpy.show(self.formatImage(char_status))
             for line in self.exit_dialogue[char_status]:
                 if line[:3] == "BL:":
                     blank(_(line[3:]))
                 else:
                     self.character(_(line))
             renpy.hide(self.formatImage(char_status))
-            renpy.show(self.formatImage("Meh"), at_list=[right])
+            renpy.show(self.formatImage("Meh"))
             self.character(_("My satisfaction score is [joyRating['satisfaction']]"))
             if not self.hasCutscene:
                 renpy.hide(self.formatImage("Meh"))
