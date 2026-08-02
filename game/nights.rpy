@@ -309,10 +309,86 @@ label nightFour:
     
     
 label nightFive:
+    scene night bg
     with long_dissolve
+    play music "flowershop night.mp3" fadein 0.5 fadeout 0.5 if_changed loop volume 0.75
 
-    blank "The End."
+    show Ilana Hehe
+    with dissolve
 
+    ilana "I'm coming in!"
+    blank "(Ilana shuffles into the shop, putting down a fresh batch of flowers near you once again.)"
+
+    show Ilana Meh
+
+    peri "Should we start?"
+    ilana "Not yet. I..."
+    ilana "I have something to show you, first."
+
+    hide Ilana Meh
+    with dissolve
+
+    blank "(Ilana exits the store.)"
+    blank "(Somewhere in the distance, you hear muffled noises of a car door opening, and someone reaching into what you can only assume is somewhere in the passenger seat, to grab something.)"
+    blank "(...)"
+    blank "(Not long after, Ilana comes back into the store. Her hands are behind her back, seemingly to hide something?)"
+
+    show Ilana Happy
+
+    peri "What's all this about..."
+
+    show Ilana Sucks Ass
+
+    blank "(You can see Ilana tense up a bit, before responding.)"
+
+    show Ilana Meh
+
+    ilana "I've been thinking, a bit."
+    ilana "About this flower shop, about the people who go to it, and about..."
+    ilana "...you."
+    ilana "And I'm starting to realize how much this flower shop must mean to you."
+    ilana "All the stories I've heard from you, all the people you've met..."
+    ilana "It has to be nice, right? Being a part of something as grand, yet humble and down-to-earth as this."
+    ilana "What I'm trying to say is..."
+    ilana "You said you liked hearing about the stories people have whenever you meet them, here, in the flower shop."
+    ilana "..."
+
+    show Ilana Happy
+
+    ilana "And I like hearing about these stories from you."
+    ilana "So... here."
+
+    scene black
+    with dissolve
+    blank "(Ilana finally reveals what she's been holding behind her back this entire time.)"
+
+    scene ilana gift
+
+    ilana "I know, I know, this is a bouquet that I bought from YOU, but..."
+    ilana "I want you to have this."
+    peri "...!"
+    blank "(Inspecting the bouquet with your hands, you realize that there's a small necklace hidden inside.)"
+    blank "(The necklace just barely fits you, and on its center looks to be a rock, carved out into the shape of a flower.)"
+    peri "Th- thank you! You shouldn't have-!"
+    ilana "It's okay, really...!"
+    ilana "I hope you look at both of these and remember all the love you've managed to spread to everyone."
+    ilana "To me, if nothing else."
+    blank "(You can't help but tear up. Ilana pulls you into an embrace, and you hug her tightly in return.)"
+    ilana "Now, come on. We still have these flowers to sort through, yeah?"
+    blank "(You hug Ilana again, trying to regain your composure as you begin sorting through these flowers again, as usual.)"
+    blank "(...)"
+
+    scene black
+    with long_dissolve
+    stop music fadeout 1
+
+    blank "(The next few months couldn't have went any more differently.)"
+    blank "(Guess it comes with the fact that your shop is in an airport, right?)"
+    blank "(You meet a lot of new faces, people who come and go for a variety of different reasons...)"
+    blank "(Some of them still come back. Arthur came in a week ago to buy flowers for Reuben.)"
+    blank "(But every single time, you end up helping them craft a part of their story.)"
+    blank "(Every single time, you help them reach their dreams.)"
+    blank "(Just a little more.)"
 
     $ day = day + 1
     $ dayShift()
