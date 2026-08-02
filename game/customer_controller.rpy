@@ -4,13 +4,14 @@ init python:
     UnmetCustomerList = []
 
     class Customer:
-        def __init__(self, wants: dict[str, int], preferences: dict[str, int], character, enter_dialogue: list[str], exit_dialogue: dict[str, list[str]], name: str):
+        def __init__(self, wants: dict[str, int], preferences: dict[str, int], character, enter_dialogue: list[str], exit_dialogue: dict[str, list[str]], name: str, hasCutscene: bool):
             self.preferences = preferences
             self.wants = wants
             self.character = character
             self.enter_dialogue = enter_dialogue
             self.exit_dialogue = exit_dialogue
             self.header = name
+            self.hasCutscene = hasCutscene
         
         def calculateJoy(self, bouquet):
             joy = is_similar(bouquet, self.wants)
@@ -57,8 +58,9 @@ init python:
             renpy.hide(self.formatImage(char_status))
             renpy.show(self.formatImage("Meh"), at_list=[right])
             self.character(_("My satisfaction score is [joyRating['satisfaction']]"))
-            renpy.hide(self.formatImage("Meh"))
-            renpy.with_statement(dissolve)
+            if not self.hasCutscene:
+                renpy.hide(self.formatImage("Meh"))
+                renpy.with_statement(dissolve)
             renpy.hide_screen("flower_menu")
             renpy.with_statement(dissolve)
             return

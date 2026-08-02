@@ -31,7 +31,7 @@ init python:
         "Meh": ["I mean... you're kind of there?", "I told you I wanted more of those white ones, right?", "Ah, well. At least you got halfway there.", "Anyways, you should have everything you need now. I'll be on my way, I'm kinda busy today.", "See you later!"],
         "Sucks Ass": ["...This isn't what I asked for?", "...Like, at all?", "You're doing this on purpose, aren't you?", "Anyways, you should have everything you need now. I'll be on my way, I'm kinda busy today.", "See you later!"],
     }
-    IlanaTutorialCustomer = Customer(ilanaTutorialWants, noPreferences, ilana, ilanaTutorialEnter, ilanaTutorialExit, "Ilana")
+    IlanaTutorialCustomer = Customer(ilanaTutorialWants, noPreferences, ilana, ilanaTutorialEnter, ilanaTutorialExit, "Ilana", False)
 
     # all arthur instances!
 
@@ -45,7 +45,7 @@ init python:
         "Meh": ["This will have to do.", "I don't think it'll fully get the point across, but it will have to suffice."],
         "Sucks Ass": ["...", "Is this not the exact opposite of what I said I wanted?"],
     }
-    ArthurOneCustomer = Customer(arthurOneWants, noPreferences, arthur, arthurOneEnter, arthurOneExit, "Arthur")
+    ArthurOneCustomer = Customer(arthurOneWants, noPreferences, arthur, arthurOneEnter, arthurOneExit, "Arthur", True)
     
     # all kara instances!
 
@@ -59,7 +59,7 @@ init python:
         "Meh": ["Ah!", "I think this could work!", "Could use a little more, but I think she'd like this nonetheless."],
         "Sucks Ass": ["Hmm...", "It's an honest effort, at least!", "I'm not sure if she'd like these, but it's worth a shot!"],
     }
-    KaraOneCustomer = Customer(karaOneWants, noPreferences, kara, karaOneEnter, karaOneExit, "Kara")
+    KaraOneCustomer = Customer(karaOneWants, noPreferences, kara, karaOneEnter, karaOneExit, "Kara", True)
 
     # minor characters
 
@@ -71,7 +71,7 @@ init python:
         "Meh": ["It's okay!", "I guess..."],
         "Sucks Ass": ["Wow...", "I didn't know this could suck so much ass..."],
     }
-    RoseCustomer = Customer(roseWants, noPreferences, Rose, roseEnter, roseExit, "Rose")
+    RoseCustomer = Customer(roseWants, noPreferences, Rose, roseEnter, roseExit, "Rose", False)
 
     carnieWants = {"Carnation": 5}
     Carnation = Character("Carnation")
@@ -81,7 +81,7 @@ init python:
         "Meh": ["It's okay!", "I guess...", "This is fine..."],
         "Sucks Ass": ["Wow...", "This sucks..."],
     }
-    CarnationCustomer= Customer(carnieWants, noPreferences, Carnation, carnieEnter, carnieExit, "Carnation")
+    CarnationCustomer= Customer(carnieWants, noPreferences, Carnation, carnieEnter, carnieExit, "Carnation", False)
     
     hydraWants = {"Hydrangea": 5}
     Hydrangea = Character("Hydrangea")
@@ -91,7 +91,7 @@ init python:
         "Meh": ["It's okay!", "I guess...", "This is fine..."],
         "Sucks Ass": ["Wow...", "This sucks..."],
     }
-    HydrangeaCustomer = Customer(hydraWants, noPreferences, Hydrangea, hydraEnter, hydraExit, "Hydrangea")
+    HydrangeaCustomer = Customer(hydraWants, noPreferences, Hydrangea, hydraEnter, hydraExit, "Hydrangea", False)
 
     tomiWants = {"Forget-Me-Not": 4, "Bluebell": 3}
     tomi = Character("Tomura")
@@ -106,13 +106,13 @@ init python:
         "Meh": ["Ah..?", "You really think they'd like these..?", "Well, thank you regardless."],
         "Sucks Ass": ["Huh...", "Are these really the right flowers for this?"],
     }
-    TomiCustomer = Customer(tomiWants, noPreferences, tomi, tomiEnter, tomiExit, "Tomura")
+    TomiCustomer = Customer(tomiWants, noPreferences, tomi, tomiEnter, tomiExit, "Tomura", True)
 
 
     def initialize_customers(custList: list[Customer]):
         global UnmetCustomerList
         global minorCustomerMasterlist
-        minorCustomerMasterlist = [CarnationCustomer, HydrangeaCustomer, RoseCustomer]
+        minorCustomerMasterlist = [CarnationCustomer, HydrangeaCustomer, RoseCustomer, TomiCustomer]
         
         UnmetCustomerList = []
         for customer in custList:
@@ -141,7 +141,6 @@ label customerCutscene:
         peri "Say..."
         peri "You must really care about this person, huh?"
 
-        hide Tomura Meh
         show Tomura Happy at right
 
         tomi "Yes! I feel kind of bad that we don't get to talk that much, especially since I have to fly out so frequently."
@@ -150,6 +149,7 @@ label customerCutscene:
         tomi "Thank you very much!"
 
         hide Tomura Happy
+        with dissolve
     
     if customer == ArthurOneCustomer:
         show Arthur Happy at right
@@ -157,7 +157,6 @@ label customerCutscene:
         blank "(You wonder if you should even be giving bouquets like these to random people.)"
         peri "Can I ask..?"
 
-        hide Arthur Happy
         show Arthur Meh at right
 
         arthur "It's none of your business. You wouldn't get it."
@@ -166,6 +165,7 @@ label customerCutscene:
         arthur "I know what I want to do, thank you very much!"
 
         hide Arthur Meh
+        with dissolve
 
         blank "(Before you can get any other words out, Arthur storms out of the shop.)"
 
@@ -182,19 +182,18 @@ label customerCutscene:
         peri "I see..."
         peri "That's really sweet of you!"
 
-        hide Kara Meh
         show Kara Happy at right
 
         kara "Hehe, I sure hope so..."
         peri "I hope she gets better soon."
 
-        hide Kara Happy
         show Kara Meh at right
 
         kara "Thanks... though, it might be a while."
         blank "(You nod. Kara waves at you as she leaves the store.)"
         
         hide Kara Meh
+        with dissolve
 
 
     jump customerWave

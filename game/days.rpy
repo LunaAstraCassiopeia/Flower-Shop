@@ -17,7 +17,6 @@ label dayOne:
     peri "HEY!!!"
     blank "(Ilana hands you your flower manual.)"
 
-    hide Ilana Hehe
     show Ilana Meh at right
 
     peri "...thank goodness, it's just you..."
@@ -26,13 +25,11 @@ label dayOne:
     peri "I leave the lock open once..."
     ilana "To think I'd give this to you, only for you to leave this so carelessly in the shop like this..."
     
-    hide Ilana Meh
     show Ilana Sucks Ass at right
 
     ilana "You hate me or something?"
     blank "(Ilana sighs very exaggeratedly, then giggles as you hit her very lightly.)"
     
-    hide Ilana Suck Ass
     show Ilana Meh at right
 
     ilana "Come on, you and I both know I was kidding!"
