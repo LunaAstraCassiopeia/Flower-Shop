@@ -196,7 +196,7 @@ init python:
     # minor characters
 
     tourWants = {"Rose": 7, "Leaf": 1}
-    tourPreferences = {"Rose": -0.2}
+    tourPreferences = {"Rose": 0.2}
     tourEnter = ["BL:(This is just a turtle.)", "BL:(Another turtle pokes out of the right sleeve and hands you a paper.)", "BL:(It's kind of gross, but you can barely make out a drawing of a leaf. And... something red....?)"]
     tourExit = {
         "Happy": [":>"],

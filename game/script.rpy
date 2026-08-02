@@ -8,6 +8,7 @@ default book_open = False
 define deb = Character("Debug")
 define flowery = Character("Flowery")
 define config.layers = [ 'master', 'transient', 'flowers', 'book', 'screens', 'overlay' ]
+define long_dissolve = Dissolve(1.0)
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
@@ -30,7 +31,8 @@ label start:
     blank "(Instead of acrylic keychains, fridge magnets or vague merchandise relating to the country you're currently standing on...)"
 
     scene default bg
-    play music "flowershop day.mp3" fadein 0.5 if_changed loop volume 0.75
+    with long_dissolve
+    play music "flowershop day.mp3" if_changed loop volume 0.75
 
     blank "(Your shop specializes in selling flowers and custom bouquets.)"
     peri "Now to make sure everything's in order..."
