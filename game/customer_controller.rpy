@@ -46,7 +46,7 @@ init python:
             renpy.hide_screen("book_button")
             renpy.hide("Default Person")
             char_status = ""
-            if joyRating["satisfaction"] < 0.3:
+            if joyRating["satisfaction"] < 0.5:
                 char_status += "Happy"
             elif joyRating["satisfaction"] < 1:
                 char_status += "Meh"
