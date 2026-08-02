@@ -55,37 +55,50 @@ transform shift_right:
     
 transform position0:
     pos (0.53, 0.26)
+    xzoom 1
 transform position1:
-    pos (0.47, 0.225)
+    pos (0.47, 0.22)
+    xzoom 1
 transform position2:
-    pos (0.59, 0.215)
+    pos (0.59, 0.21)
     xzoom -1
 transform position3:
     pos (0.52, 0.16)
+    xzoom 1
 transform position4:
-    pos (0.48, 0.15)
+    pos (0.48, 0.1)
+    xzoom 1
 transform position5:
     pos (0.57, 0.14)
     xzoom -1
 transform position6:
     pos (0.51, 0.07)
+    xzoom 1
 transform addonpos:
     pos (0.58, 0.07)
+    xzoom 1
     
 transform sPosition0:
-    pos (0.56, 0.4)
+    pos (0.48, 0.4)
+    rotate 0
 transform sPosition1:
-    pos (0.53, 0.365)
+    pos (0.45, 0.365)
+    rotate 345
 transform sPosition2:
-    pos (0.59, 0.365)
+    pos (0.51, 0.363)
+    rotate 15
 transform sPosition3:
-    pos (0.56, 0.30)
+    pos (0.48, 0.30)
+    rotate 359
 transform sPosition4:
-    pos (0.56, 0.4)
+    pos (0.47, 0.4)
+    rotate 349
 transform sPosition5:
-    pos (0.56, 0.28)
+    pos (0.5, 0.28)
+    rotate 12
 transform sPosition6:
-    pos (0.56, 0.4)
+    pos (0.48, 0.4)
+    rotate 0
 
 transform shPosition0:
     pos (0.11, 0.05)

@@ -28,6 +28,14 @@ image Mark Meh = "Mark/Mark Meh.png"
 image Mark Happy = "Mark/Mark Happy.png"
 image Mark Sucks Ass = "Mark/Mark Sucks Ass.png"
 
+image Tour Meh = "Tour Telle/Tour Telle Meh.png"
+image Tour Happy = "Tour Telle/Tour Telle Happy.png"
+image Tour Sucks Ass = "Tour Telle/Tour Telle Sucks Ass.png"
+
+image Clove Meh = "Clove/Clove Meh.png"
+image Clove Happy = "Clove/Clove Happy.png"
+image Clove Sucks Ass = "Clove/Clove Sucks Ass.png"
+
 # all instances of customers are defined here.
 init python:
     import random
