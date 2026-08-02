@@ -136,8 +136,8 @@ screen flower_menu(customer):
             action [SensitiveIf(not book_open), Function(set_addon, name, decor, meanings), SetVariable("decor", "")]
     $ i = len(bouquet)
     for flowerName in bouquet:
-        imagebutton auto flower_pic(flowerName, "bouquet") at get_transform(i):
-            action [SensitiveIf(not book_open), Function(remove_flower, flowerName, bouquet, meanings)]
+        imagebutton auto flower_pic(bouquet[i], "bouquet") at get_transform(i):
+            action [SensitiveIf(not book_open), Function(remove_flower, bouquet[i], bouquet, meanings)]
         $ i = i - 1
 
 screen book_button():
