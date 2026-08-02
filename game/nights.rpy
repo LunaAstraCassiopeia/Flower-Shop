@@ -19,7 +19,7 @@ init python:
 label nightOne:
     scene night bg
     with long_dissolve
-    play music "flowershop night.mp3" fadein 1 fadeout 0.5 if_changed loop volume 0.75
+    play music "departures.mp3" fadein 1 fadeout 0.5 if_changed loop volume 0.75
  
     blank "(As you close up shop today, Ilana suddenly opens the door and lets herself in.)"
     
@@ -67,7 +67,7 @@ label nightOne:
 label nightTwo:
     scene night bg
     with long_dissolve
-    play music "flowershop night.mp3" fadein 1 fadeout 0.5 if_changed loop volume 0.75
+    play music "departures.mp3" fadein 1 fadeout 0.5 if_changed loop volume 0.75
 
     show Ilana Meh 
     with dissolve
@@ -143,7 +143,7 @@ label nightThree:
 
     scene night bg
     show Ilana Hehe 
-    play music "flowershop night.mp3" fadein 0.5 volume 0.75
+    play music "departures.mp3" fadein 0.5 volume 0.75
 
     ilana "SPECIAL DELIVERY!"
     peri "AAAHH?!"
@@ -236,7 +236,7 @@ label nightThree:
 label nightFour:
     scene night bg
     with long_dissolve
-    play music "flowershop night.mp3" fadein 0.5 fadeout 0.5 if_changed loop volume 0.75
+    play music "departures.mp3" fadein 0.5 fadeout 0.5 if_changed loop volume 0.75
 
     show Ilana Meh 
     with dissolve
@@ -311,7 +311,7 @@ label nightFour:
 label nightFive:
     scene night bg
     with long_dissolve
-    play music "flowershop night.mp3" fadein 0.5 fadeout 0.5 if_changed loop volume 0.75
+    play music "departures.mp3" fadein 0.5 fadeout 0.5 if_changed loop volume 0.75
 
     show Ilana Hehe
     with dissolve

@@ -32,7 +32,7 @@ label start:
 
     scene default bg
     with long_dissolve
-    play music "flowershop day.mp3" if_changed loop volume 0.75
+    play music "arrivals.mp3" if_changed loop volume 0.75
 
     blank "(Your shop specializes in selling flowers and custom bouquets.)"
     peri "Now to make sure everything's in order..."
@@ -59,12 +59,14 @@ transform position1:
     pos (0.47, 0.225)
 transform position2:
     pos (0.59, 0.215)
+    xzoom -1
 transform position3:
     pos (0.52, 0.16)
 transform position4:
     pos (0.48, 0.15)
 transform position5:
     pos (0.57, 0.14)
+    xzoom -1
 transform position6:
     pos (0.51, 0.07)
 transform addonpos:
