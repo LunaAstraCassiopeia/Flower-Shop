@@ -18,7 +18,7 @@ init python:
 
 label nightOne:
     scene night bg
-    with dissolve
+    with long_dissolve
     play music "flowershop night.mp3" fadein 1 fadeout 0.5 if_changed loop volume 0.75
  
     blank "(As you close up shop today, Ilana suddenly opens the door and lets herself in.)"
@@ -59,14 +59,14 @@ label nightOne:
     stop music fadeout 1
 
     scene black
-    with dissolve
+    with long_dissolve
     
     $ day = day + 1
     $ dayShift()
 
 label nightTwo:
     scene night bg
-    with dissolve
+    with long_dissolve
     play music "flowershop night.mp3" fadein 1 fadeout 0.5 if_changed loop volume 0.75
 
     show Ilana Meh at right
@@ -115,7 +115,7 @@ label nightTwo:
     blank "..."
 
     scene black
-    with dissolve
+    with long_dissolve
     stop music fadeout 1
 
     blank "(You and Ilana continue sorting the flowers.)"
@@ -128,7 +128,7 @@ label nightTwo:
 
 label nightThree:
     scene night bg
-    with dissolve
+    with long_dissolve
     stop music fadeout 0.5
 
     blank "(Huh...)"
@@ -225,7 +225,7 @@ label nightThree:
     blank "(You continue sorting the flowers, Ilana joining you not long after.)"
 
     scene black
-    with dissolve
+    with long_dissolve
     stop music fadeout 1
 
     blank "(She keeps insisting that you show her your writing.)"
@@ -235,7 +235,7 @@ label nightThree:
     
 label nightFour:
     scene night bg
-    with dissolve
+    with long_dissolve
     play music "flowershop night.mp3" fadein 0.5 fadeout 0.5 if_changed loop volume 0.75
 
     show Ilana Meh at right
@@ -298,7 +298,7 @@ label nightFour:
     blank "(You enjoy her company.)"
 
     scene black
-    with dissolve
+    with long_dissolve
     stop music fadeout 1
     blank "(You get the feeling that she appreciates yours, too.)"
 
@@ -309,7 +309,7 @@ label nightFour:
     
     
 label nightFive:
-    scene night
+    with long_dissolve
 
     blank "The End."
 

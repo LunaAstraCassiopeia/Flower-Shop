@@ -68,6 +68,7 @@ label dayOne:
 
 label dayTwo:
     scene default bg
+    with long_dissolve
     play music "flowershop day.mp3" fadein 0.5 if_changed loop volume 0.75
     $ majorCustomerDayList = [ReubenOneCustomer, MarkOneCustomer, KaraTwoCustomer]
     $ quota = 5
@@ -81,6 +82,7 @@ label dayTwo:
     
 label dayThree:
     scene default bg
+    with long_dissolve
     play music "flowershop day.mp3" fadein 0.5 if_changed loop volume 0.75
     $ majorCustomerDayList = [ArthurTwoCustomer, MarkTwoCustomer]
     $ quota = 5
@@ -94,6 +96,7 @@ label dayThree:
 
 label dayFour:
     scene default bg
+    with long_dissolve
     play music "flowershop day.mp3" fadein 0.5 if_changed loop volume 0.75
     $ majorCustomerDayList = [ReubenTwoCustomer, MarkThreeCustomer, KaraThreeCustomer]
     $ quota = 5
@@ -107,6 +110,7 @@ label dayFour:
 
 label dayFive:
     scene default bg
+    with long_dissolve
     play music "flowershop day.mp3" fadein 0.5 if_changed loop volume 0.75
     $ majorCustomerDayList = [ReubenThreeCustomer, IlanaGiftCustomer]
     $ quota = 5
