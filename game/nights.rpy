@@ -1,5 +1,6 @@
 init python:
     def nightShift():
+        renpy.force_autosave(take_screenshot=True, block=False)
         match day:
             case 1:
                 renpy.jump("nightOne")
