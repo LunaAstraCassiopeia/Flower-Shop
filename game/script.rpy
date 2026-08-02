@@ -54,19 +54,41 @@ transform shift_right:
 transform position0:
     pos (0.53, 0.26)
 transform position1:
-    pos (0.47, 0.255)
+    pos (0.47, 0.225)
 transform position2:
-    pos (0.59, 0.245)
+    pos (0.59, 0.215)
 transform position3:
-    pos (0.485, 0.18)
+    pos (0.52, 0.16)
 transform position4:
-    pos (0.56, 0.17)
+    pos (0.48, 0.15)
 transform position5:
-    pos (0.51, 0.1)
+    pos (0.57, 0.14)
 transform position6:
-    pos (0.52, 0.19)
+    pos (0.51, 0.07)
 transform addonpos:
-    pos (0.58, 0.1)
+    pos (0.58, 0.07)
+    
+transform sPosition0:
+    pos (0.56, 0.4)
+transform sPosition1:
+    pos (0.53, 0.365)
+transform sPosition2:
+    pos (0.59, 0.365)
+transform sPosition3:
+    pos (0.56, 0.30)
+transform sPosition4:
+    pos (0.56, 0.4)
+transform sPosition5:
+    pos (0.56, 0.28)
+transform sPosition6:
+    pos (0.56, 0.4)
+
+transform bouquetbackpos:
+    pos (0.41, 0.04)
+transform bouquetfrontpos:
+    pos (0.44, 0.28)
+
+
 transform bookpos:
     pos (0.64, 0.27)
 transform openbookpos:
@@ -98,18 +120,23 @@ screen flower_menu(customer):
                     for name in AddonList:
                         imagebutton auto flower_pic(name, "flower"):
                             action [Function(set_addon, name, decor, meanings), SetVariable("decor", name)]
+    $ i = len(bouquet)
+    for flowerName in bouquet:
+        add "flowers/stem idle.png" at get_stem_transform(i)
+        $ i = i - 1
+    if len(bouquet) > 0:
+        imagebutton auto "flowers/bouquet front %s.png" at bouquetfrontpos:
+            hovered [Function(show_bouquet)]
+            unhovered [Function(hide_bouquet)]
+            action [Return(customer.calculateJoy(meanings))]
     if(decor != ""):
         imagebutton auto flower_pic(decor, "bouquet") at addonpos:
             action [SensitiveIf(not book_open), Function(set_addon, name, decor, meanings), SetVariable("decor", "")]
-    $ i = 0
+    $ i = len(bouquet)
     for flowerName in bouquet:
         imagebutton auto flower_pic(flowerName, "bouquet") at get_transform(i):
             action [SensitiveIf(not book_open), Function(remove_flower, flowerName, bouquet, meanings)]
-        $ i = i + 1
-    frame:
-        vbox:
-            textbutton _("submit"):
-                action Return(customer.calculateJoy(meanings))
+        $ i = i - 1
 
 screen book_button():
     zorder -1
@@ -137,6 +164,12 @@ init python:
         renpy.show("manual page " + str(current_page), at_list={openbookpos}, layer = "book")
         renpy.show_screen("book_screen")
         book_open = True
+        
+    def show_bouquet():
+        renpy.show("bouquet back hover", at_list={bouquetbackpos})
+        
+    def hide_bouquet():
+        renpy.hide("bouquet back hover")
 
     def change_page(current_page: int, shift: int):
         global page
@@ -159,19 +192,38 @@ init python:
 
     def get_transform(index):
         match index:
-            case 0:
-                return position0
             case 1:
-                return position1
+                return position0
             case 2:
-                return position2
+                return position1
             case 3:
-                return position3
+                return position2
             case 4:
-                return position4
+                return position3
             case 5:
-                return position5
+                return position4
             case 6:
+                return position5
+            case 7:
                 return position6
             case _:
                 return position0
+
+    def get_stem_transform(index):
+        match index:
+            case 1:
+                return sPosition0
+            case 2:
+                return sPosition1
+            case 3:
+                return sPosition2
+            case 4:
+                return sPosition3
+            case 5:
+                return sPosition4
+            case 6:
+                return sPosition5
+            case 7:
+                return sPosition6
+            case _:
+                return sPosition0
