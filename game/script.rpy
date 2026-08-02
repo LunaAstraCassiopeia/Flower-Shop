@@ -5,6 +5,8 @@ default decor = ""
 default page = 1
 default day = 0
 default book_open = False
+default egg = False
+default in_man = False
 define deb = Character("Debug")
 define flowery = Character("Flowery")
 define config.layers = [ 'master', 'transient', 'flowers', 'book', 'screens', 'overlay' ]
@@ -193,7 +195,7 @@ screen book_button():
 screen book_screen():
     if (page > 1):
         imagebutton auto "left arrow %s" at leftarrowos:
-            action [SensitiveIf(page > 1), Function(change_page, page, -1)]
+            action [SensitiveIf(page > 1 and not in_man), Function(change_page, page, -1)]
         imagebutton auto "exit button %s" at exitbuttonpos:
             action [Function(close_book), SetVariable("book_open", False)]
     else:
@@ -201,7 +203,7 @@ screen book_screen():
             action [Function(close_book), SetVariable("book_open", False)]
     if (page < 5):
         imagebutton auto "right arrow %s" at rightarrowpos:
-            action [SensitiveIf(page < 5), Function(change_page, page, 1)]
+            action [SensitiveIf(page < 5 and not in_man), Function(change_page, page, 1)]
 
 init python:
     import random
@@ -209,6 +211,8 @@ init python:
         global book_open
         renpy.hide_screen("book_button")
         renpy.show("manual page " + str(current_page), at_list={openbookpos}, layer = "book")
+        if page == 1 and egg:
+            renpy.show("egg", at_list={openbookpos}, layer = "book")
         renpy.show_screen("book_screen")
         book_open = True
         
@@ -221,18 +225,33 @@ init python:
     def change_page(current_page: int, shift: int):
         global page
         global book_open
+        global egg
+        global in_man
         book_open = True
         renpy.hide("manual page " + str(current_page), layer = "book")
+        renpy.hide("egg", layer = "book")
         page = current_page + shift
-        if(random.random() > 0.99):
+        if(random.random() > 0.999 and not egg):
+            renpy.music.play("man.mp3",loop=True)
+            renpy.show("black")
+            egg = True
+            in_man = True
             renpy.show("manual page tree", at_list={openbookpos}, layer = "book")
         else:
             renpy.show("manual page " + str(page), at_list={openbookpos}, layer = "book")
+            if page == 1 and egg:
+                renpy.show("egg", at_list={openbookpos}, layer = "book")
     
     def close_book():
         global book_open
+        global in_man
+        if in_man:
+            in_man = False
+            renpy.hide("black")
+            renpy.music.play("arrivals.mp3", fadein=5, if_changed=True, loop=True, relative_volume=0.75)
         renpy.hide_screen("book_screen")
         renpy.hide("manual page " + str(page), layer = "book")
+        renpy.hide("egg", layer = "book")
         renpy.show_screen("book_button")
         book_open = False
 

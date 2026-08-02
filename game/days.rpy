@@ -67,6 +67,9 @@ label dayOne:
     jump customerWave
 
 label dayTwo:
+    scene titlecard day 2
+    with dissolve
+    show ctc
     scene default bg
     with long_dissolve
     play music "arrivals.mp3" fadein 0.5 if_changed loop volume 0.75
@@ -81,6 +84,9 @@ label dayTwo:
     jump customerWave
     
 label dayThree:
+    scene titlecard day 3
+    with dissolve
+    show ctc
     scene default bg
     with long_dissolve
     play music "arrivals.mp3" fadein 0.5 if_changed loop volume 0.75
@@ -95,6 +101,9 @@ label dayThree:
     jump customerWave
 
 label dayFour:
+    scene titlecard day 4
+    with dissolve
+    show ctc
     scene default bg
     with long_dissolve
     play music "arrivals.mp3" fadein 0.5 if_changed loop volume 0.75
@@ -109,6 +118,9 @@ label dayFour:
     jump customerWave
 
 label dayFive:
+    scene titlecard day 5
+    with dissolve
+    show ctc
     scene default bg
     with long_dissolve
     play music "arrivals.mp3" fadein 0.5 if_changed loop volume 0.75
