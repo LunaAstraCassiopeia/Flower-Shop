@@ -10,9 +10,8 @@ init python:
         return joy
 
     def add_flower(name: str, bouquet: list, meanings: dict):
-        if len(bouquet) >= 7:
-            return
-        bouquet.append(name)
+        index = bouquet.index(None)
+        bouquet[index] = name
         print(name)
         for key, val in get_flower_meanings(name).items():
             if key in meanings:
@@ -22,12 +21,12 @@ init python:
         print(meanings)
         return
 
-    def remove_flower(name: str, bouquet: list, meanings: dict):
-        if name in bouquet:
-            bouquet.remove(name)
-            for key, val in get_flower_meanings(name).items():
+    def remove_flower(index: int, bouquet: list, meanings: dict):
+        if bouquet[index]:
+            for key, val in get_flower_meanings(bouquet[index]).items():
                 if key in meanings:
                     meanings[key] -= val
+            bouquet[index] = None
         return
     
     def set_addon(name: str, meanings: dict):
@@ -118,7 +117,7 @@ init python:
         global AddonList
         global page
         meanings = {}
-        bouquet = []
+        bouquet = [None, None, None, None, None, None, None]
         decor = ""
         FlowerList = ["Rose", "Lily", "Hyacinth", "Forget-Me-Not", "Bluebell", "Hydrangea", "Carnation", "Orchid"]
         AddonList = ["Stick", "Leaf"]

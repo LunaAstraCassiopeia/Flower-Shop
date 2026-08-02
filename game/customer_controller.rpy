@@ -77,7 +77,7 @@ init python:
             self.runAfterFlowers = AfterMethod
 
     def getNewCustomer():
-        bouquet = []
+        bouquet = [None, None, None, None, None, None, None]
         meanings = {}
         decor = ""
         customer = random.choice(UnmetCustomerList)
@@ -85,7 +85,7 @@ init python:
         return customer
 
     def getMinorCustomer():
-        bouquet = []
+        bouquet = [None, None, None, None, None, None, None]
         meanings = {}
         decor = ""
         customer = random.choice(minorCustomerMasterlist)

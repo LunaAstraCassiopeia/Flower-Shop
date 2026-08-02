@@ -49,7 +49,7 @@ label dayOne:
     blank "(You giggle.)"
     peri "You want anything specific?"
 
-    $ bouquet = []
+    $ bouquet = [None, None, None, None, None, None, None]
     $ meanings = {}
     $ decor = ""
     $ joyRating = IlanaTutorialCustomer.runOnEnter()
@@ -125,7 +125,7 @@ label dayFive:
 
 label customerWave:
     while len(UnmetCustomerList) > 0 and quota > 0:
-        $ bouquet = []
+        $ bouquet = [None, None, None, None, None, None, None]
         $ meanings = {}
         $ decor = ""
         $ customer = getNewCustomer()

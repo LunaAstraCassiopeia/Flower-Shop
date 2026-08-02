@@ -1,5 +1,5 @@
 ﻿# The script of the game goes in this file.
-default bouquet = []
+default bouquet = [None, None, None, None, None, None, None]
 default meanings = {}
 default decor = ""
 default page = 1
@@ -91,14 +91,14 @@ transform sPosition3:
     pos (0.48, 0.30)
     rotate 359
 transform sPosition4:
-    pos (0.47, 0.4)
+    pos (0.45, 0.25)
     rotate 349
 transform sPosition5:
     pos (0.5, 0.28)
     rotate 12
 transform sPosition6:
-    pos (0.48, 0.4)
-    rotate 0
+    pos (0.48, 0.23)
+    rotate 348
 
 transform shPosition0:
     pos (0.11, 0.05)
@@ -159,7 +159,7 @@ screen flower_menu(customer):
     $ i = 0
     for name in FlowerList:
         imagebutton auto flower_pic(name, "bouquet") at get_shelftransform(i):
-            action [SensitiveIf((len(bouquet) <7) and not book_open), Function(add_flower, name, bouquet, meanings)]
+            action [SensitiveIf((None in bouquet) and not book_open), Function(add_flower, name, bouquet, meanings)]
         $ i = i + 1
     imagebutton auto flower_pic("Leaf", "bouquet") at leafTransform:
         action [SensitiveIf(not book_open), Function(set_addon, "Leaf", meanings)]
@@ -167,9 +167,10 @@ screen flower_menu(customer):
         action [SensitiveIf(not book_open), Function(set_addon, "Stick", meanings)]
     $ i = len(bouquet)
     for flowerName in bouquet:
-        add "flowers/stem idle.png" at get_stem_transform(i)
+        if bouquet[i-1] is not None:
+            add "flowers/stem idle.png" at get_stem_transform(i)
         $ i = i - 1
-    if len(bouquet) > 0:
+    if len(bouquet) > 0 and bouquet.count(None) < 7:
         imagebutton auto "flowers/bouquet front %s.png" at bouquetfrontpos:
             hovered [Function(show_bouquet)]
             unhovered [Function(hide_bouquet)]
@@ -179,8 +180,9 @@ screen flower_menu(customer):
             action [SensitiveIf(not book_open), Function(set_addon, name, decor, meanings), SetVariable("decor", "")]
     $ i = len(bouquet)
     for flowerName in bouquet:
-        imagebutton auto flower_pic(bouquet[i-1], "bouquet") at get_transform(i):
-            action [SensitiveIf(not book_open), Function(remove_flower, bouquet[i-1], bouquet, meanings)]
+        if bouquet[i-1] is not None:
+            imagebutton auto flower_pic(bouquet[i-1], "bouquet") at get_transform(i):
+                action [SensitiveIf(not book_open), Function(remove_flower, i-1, bouquet, meanings)]
         $ i = i - 1
 
 screen book_button():
