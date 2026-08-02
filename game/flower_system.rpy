@@ -30,13 +30,17 @@ init python:
                     meanings[key] -= val
         return
     
-    def set_addon(name: str, addon: str, meanings: dict):
-        for key, val in get_flower_meanings(addon).items():
+    def set_addon(name: str, meanings: dict):
+        global decor
+        for key, val in get_flower_meanings(decor).items():
             if key in meanings:
                 meanings[key] -= val
+        decor = name
         for key, val in get_flower_meanings(name).items():
             if key in meanings:
                 meanings[key] += val
+            else:
+                meanings[key] = val
         return
 
     def unique_combo(bouquet: dict, baseJoy: dict) -> dict:

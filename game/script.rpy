@@ -149,9 +149,9 @@ screen flower_menu(customer):
             action [SensitiveIf((len(bouquet) <7) and not book_open), Function(add_flower, name, bouquet, meanings)]
         $ i = i + 1
     imagebutton auto flower_pic("Leaf", "bouquet") at leafTransform:
-        action [SensitiveIf(not book_open), Function(set_addon, "Leaf", decor, meanings), SetVariable("decor", "Leaf")]
+        action [SensitiveIf(not book_open), Function(set_addon, "Leaf", meanings)]
     imagebutton auto flower_pic("Stick", "bouquet") at branchTransform:
-        action [SensitiveIf(not book_open), Function(set_addon, "Stick", decor, meanings), SetVariable("decor", "Stick")]
+        action [SensitiveIf(not book_open), Function(set_addon, "Stick", meanings)]
     $ i = len(bouquet)
     for flowerName in bouquet:
         add "flowers/stem idle.png" at get_stem_transform(i)
