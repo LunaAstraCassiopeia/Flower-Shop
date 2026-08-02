@@ -17,6 +17,7 @@ label start:
     $ renpy.add_layer("book", above = "screens")
     $ init_globals()
     $ day = 1
+    stop music fadeout 0.5
 
     blank "(You arrive at the airport.)"
     blank "(5:42 AM. The Sun is just beginning to rise, but that doesn't stop the influx of people walking out of the gates.)"
@@ -29,6 +30,7 @@ label start:
     blank "(Instead of acrylic keychains, fridge magnets or vague merchandise relating to the country you're currently standing on...)"
 
     scene default bg
+    play music "flowershop day.mp3" fadein 0.5 if_changed loop volume 0.75
 
     blank "(Your shop specializes in selling flowers and custom bouquets.)"
     peri "Now to make sure everything's in order..."

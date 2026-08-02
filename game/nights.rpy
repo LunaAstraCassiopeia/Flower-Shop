@@ -19,6 +19,7 @@ init python:
 label nightOne:
     scene night bg
     with dissolve
+    play music "flowershop night.mp3" fadein 1 fadeout 0.5 if_changed loop volume 0.75
  
     blank "(As you close up shop today, Ilana suddenly opens the door and lets herself in.)"
     
@@ -55,6 +56,8 @@ label nightOne:
     hide Ilana
     with dissolve
 
+    stop music fadeout 1
+
     scene black
     with dissolve
     
@@ -64,6 +67,7 @@ label nightOne:
 label nightTwo:
     scene night bg
     with dissolve
+    play music "flowershop night.mp3" fadein 1 fadeout 0.5 if_changed loop volume 0.75
 
     show Ilana Meh at right
     with dissolve
@@ -112,6 +116,7 @@ label nightTwo:
 
     scene black
     with dissolve
+    stop music fadeout 1
 
     blank "(You and Ilana continue sorting the flowers.)"
 
@@ -124,6 +129,7 @@ label nightTwo:
 label nightThree:
     scene night bg
     with dissolve
+    stop music fadeout 0.5
 
     blank "(Huh...)"
     peri "Ilana should be here by now..."
@@ -137,6 +143,7 @@ label nightThree:
 
     scene night bg
     show Ilana Hehe at right
+    play music "flowershop night.mp3" fadein 0.5 volume 0.75
 
     ilana "SPECIAL DELIVERY!"
     peri "AAAHH?!"
@@ -219,6 +226,7 @@ label nightThree:
 
     scene black
     with dissolve
+    stop music fadeout 1
 
     blank "(She keeps insisting that you show her your writing.)"
 
@@ -228,6 +236,7 @@ label nightThree:
 label nightFour:
     scene night bg
     with dissolve
+    play music "flowershop night.mp3" fadein 0.5 fadeout 0.5 if_changed loop volume 0.75
 
     show Ilana Meh at right
     with dissolve
@@ -290,7 +299,7 @@ label nightFour:
 
     scene black
     with dissolve
-
+    stop music fadeout 1
     blank "(You get the feeling that she appreciates yours, too.)"
 
 
