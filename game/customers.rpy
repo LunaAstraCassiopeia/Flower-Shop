@@ -51,6 +51,10 @@ init python:
     clove = Character("Clove", callback=blip_voice, cb_blip_file = "mid blip")
     tour = Character("Tour Telle", callback=blip_voice, cb_blip_file = "low blip")
     tomi = Character("Tomura", callback=blip_voice, cb_blip_file = "mid blip")
+    mich = Character("Michelle", callback=blip_voice, cb_blip_file = "mid blip")
+    mika = Character("Mikaela", callback=blip_voice, cb_blip_file = "high blip")
+    mike = Character("Mike", callback=blip_voice, cb_blip_file = "high blip")
+
 
     # all ilana instances!
     
@@ -148,7 +152,7 @@ init python:
     MarkTwoCustomer = Customer(markTwoWants, noPreferences, mark, markTwoEnter, markTwoExit, "Mark", True)
     
     markThreeWants = {"Carnation": 1, "Orchid": 2, "Forget-Me-Not": 2, "Bluebell": 2}
-    markThreeEnter = ["Hello.", "Placeholder.", "My mother came back from the dead.", "Flowers for the mother's."]
+    markThreeEnter = ["Hi!", "I'd like a bouquet again, but...", "This time it's for my family.", "I'd like more of those orchids, if you still have those. I know my kids also like a lot of blue flowers, and I'd still like for flowers to give to my mother."]
     markThreeExit = {
         "Happy": ["Ah.", "This bouquet is perfect.", "I just know all of them will love this."],
         "Meh": ["Mmm.", "These work.", "Not entirely what I had in mind, but you got there anyhow."],
@@ -156,7 +160,7 @@ init python:
     }
     MarkThreeCustomer = Customer(markThreeWants, noPreferences, mark, markThreeEnter, markThreeExit, "Mark", True)
 
-    # all mark instances!
+    # all reuben instances!
     
     reubenOneWants = {"Lily": 4, "Hyacinth": 3}
     reubenOneEnter = ["You... you're the flower shop, right?", "BL:(Not THE flower shop. But yes.)", "A few months ago, did you come across a guy? One who wanted a hateful, overall negative bouquet?", "Ugh, I hate that guy! Just because I beat him in an olympiad doesn't mean he gets to do that!", "Seriously, what's wrong with him?", "I want a bouquet too. One with much of the same message, without the \"wanting to die\" part."]
@@ -420,10 +424,44 @@ label customerCutscene:
     if customer == MarkThreeCustomer:
         show Mark Meh at right
 
-        mark "Mother 3"
+        blank "(Almost out of the corner of your eye, you see two children running towards the shop, one boy and one girl, and a figure that seems to be their mother chasing after them.)"
+        mike "DAAAAAAD!"
 
-        hide Mark Meh
+        show Mark Happy at right
+
+        blank "(One of the kids reaches towards Mark, tightly embracing him.)"
+        mark "Mike, Mikayla, what a surprise to see you two here!"
+        blank "(He glances over at what seems to be the kids' mother, his wife.)"
+        mark "I didn't know you would be visiting!"
+        mich "Well, it's the least we could do!"
+        mika "Mom told us about your new job! You get to stay here now?"
+        mark "Yes I can! I missed spending more time with you all, you have no idea."
+        blank "(You obviously can't help but smile.)"
+        peri "Here. I think your dad meant to give you these."
+        blank "(You hand the children the bouquet.)"
+        mika "Oooh, pretty!"
+        if joyRating["Bluebell"] > -1 or joyRating["Forget-Me-Not"] > -1:
+            mike "So blue!"
+        else:
+            mike "Where's the blue?"
+        blank "(Mark's wife laughs.)"
+        mich "Guess we're not the only one with surprises today, huh? "
+        mark "Indeed, hahaha!"
+        blank "(Mark turns to you.)"
+
+        show Mark Sucks Ass at right
+        mark "Thank you, again. For all the help, and joy you've brought us here."
+        mika "Thank you, Miss... uh..."
+        peri "Periwinkle! It's no problem at all."
+        mark "Well, we'll get going now. I know we might not see each other that much now, but know that you were lovely to work with."
+        mika "Thank you, Miss Periwinkle!"
+        mike "Bye!!!"
+        mich "Thank you."
+        
+        hide Mark Sucks Ass
         with dissolve
+
+        blank "(You watch as the family leaves the shop, and you can't help but feel fulfilled.)"
 
     if customer == ReubenOneCustomer:
         show Reuben Meh at right
