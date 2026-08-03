@@ -177,7 +177,7 @@ screen flower_menu(customer):
             action [Return(customer.calculateJoy(meanings)), SensitiveIf(not book_open)]
     if(decor != ""):
         imagebutton auto flower_pic(decor, "bouquet") at addonpos:
-            action [SensitiveIf(not book_open), Function(set_addon, name, decor, meanings), SetVariable("decor", "")]
+            action [SensitiveIf(not book_open), Function(set_addon, name, meanings), SetVariable("decor", "")]
     $ i = len(bouquet)
     for flowerName in bouquet:
         if bouquet[i-1] is not None:
