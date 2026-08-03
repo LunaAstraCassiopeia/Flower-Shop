@@ -19,6 +19,8 @@
 /log.txt
 /save_dump.txt
 /traceback.txt
+/game/background.txt
+/game/egg.txt
 
 # Launcher-generated files.
 /dialogue.tab

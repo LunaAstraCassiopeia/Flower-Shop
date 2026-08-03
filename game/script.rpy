@@ -4,6 +4,7 @@ default meanings = {}
 default decor = ""
 default page = 1
 default day = 0
+default use_background = "default bg"
 default book_open = False
 default egg = False
 default in_man = False
@@ -11,12 +12,21 @@ define deb = Character("Debug")
 define flowery = Character("Flowery")
 define config.layers = [ 'master', 'transient', 'flowers', 'book', 'screens', 'overlay' ]
 define long_dissolve = Dissolve(1.0)
+image main_menu_buttons = "gui/main_menu_top.png"
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
 label start:
 
     scene black
+
+    python hide:
+        import os
+        global egg
+        if os.path.exists(config.gamedir + "/egg.txt"):
+            egg = True
+        with open(config.gamedir + "/background.txt", "w") as f:
+            f.write("night bg")
     
     $ renpy.add_layer("book", above = "screens")
     $ init_globals()
@@ -235,6 +245,8 @@ init python:
         renpy.hide("egg", layer = "book")
         page = current_page + shift
         if(random.random() > 0.999 and not egg):
+            with open(config.gamedir + "/egg.txt", "w") as f:
+                f.write(" ")
             renpy.music.play("man.mp3",loop=True)
             renpy.show("black")
             egg = True
@@ -317,3 +329,46 @@ init python:
                 return sPosition6
             case _:
                 return sPosition0
+
+style major_text is text:
+    size 85
+    color "#4c4c4b"
+    hover_color "#c7b398"
+    font "fonts/Zyzol-Round.otf"
+
+style minor_text is text:
+    size 55
+    color "#4c4c4b"
+    hover_color "#c7b398"
+    font "fonts/Zyzol-Round.otf"
+
+transform majortextpos:
+    pos (0.139, 0.54)
+transform minortextpos:
+    pos (0.139, 0.66)
+
+screen main_menu():
+    python:
+        import os
+        global use_background
+        if os.path.exists(config.gamedir + "/background.txt"):
+            use_background = "night bg"
+    tag menu
+    add use_background
+    add "main_menu_buttons"
+    textbutton _("New Game") at majortextpos:
+        text_style "major_text"
+        action Start()
+    grid 1 4 at minortextpos:
+        textbutton _("Continue"):
+            text_style "minor_text"
+            action ShowMenu("load")
+        textbutton _("Settings"):
+            text_style "minor_text"
+            action ShowMenu("preferences")
+        textbutton _("About"):
+            text_style "minor_text"
+            action ShowMenu("about")
+        textbutton _("Quit"):
+            text_style "minor_text"
+            action Quit(confirm=not main_menu)
