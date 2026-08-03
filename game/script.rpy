@@ -13,7 +13,6 @@ define long_dissolve = Dissolve(1.0)
 # name of the character.
 
 label start:
-    jump nightFive
     
     scene black
     
