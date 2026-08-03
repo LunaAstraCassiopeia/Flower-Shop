@@ -372,6 +372,7 @@ label nightFive:
     play music "flight.mp3" if_changed loop volume 0.75
     scene ilana gift 
     with long_dissolve
+    pause 1.0
 
     ilana "I know, I know, this is a bouquet that I bought from YOU, but..."
     ilana "I want you to have this."

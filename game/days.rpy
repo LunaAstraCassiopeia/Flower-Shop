@@ -69,8 +69,8 @@ label dayOne:
 
 label dayTwo:
     scene titlecard day 2
-    with dissolve
-    show ctc
+    with long_dissolve
+    pause 1.0
     scene default bg
     with long_dissolve
     play music "arrivals.mp3" fadein 0.5 if_changed loop volume 0.75
@@ -86,8 +86,8 @@ label dayTwo:
     
 label dayThree:
     scene titlecard day 3
-    with dissolve
-    show ctc
+    with long_dissolve
+    pause 1.0
     scene default bg
     with long_dissolve
     play music "arrivals.mp3" fadein 0.5 if_changed loop volume 0.75
@@ -103,8 +103,8 @@ label dayThree:
 
 label dayFour:
     scene titlecard day 4
-    with dissolve
-    show ctc
+    with long_dissolve
+    pause 1.0
     scene default bg
     with long_dissolve
     play music "arrivals.mp3" fadein 0.5 if_changed loop volume 0.75
@@ -120,8 +120,8 @@ label dayFour:
 
 label dayFive:
     scene titlecard day 5
-    with dissolve
-    show ctc
+    with long_dissolve
+    pause 1.0
     scene default bg
     with long_dissolve
     play music "arrivals.mp3" fadein 0.5 if_changed loop volume 0.75
@@ -147,11 +147,11 @@ label customerWave:
         $ joyRating = customer.runOnEnter()
         $ renpy.block_rollback()
         $ customer.runAfterFlowers(joyRating)
+        jump customerCutscene
         $ print(joyRating)
         $ quota -= 1
-        $ total_satisfaction += joyRating
-        $ print(f"{total_satisfaction=}")
-        jump customerCutscene
+        $ total_satisfaction += joyRating["satisfaction"]
+        $ print(customer == ReubenThreeCustomer)
     
     $ nightShift()
     # This ends the game.

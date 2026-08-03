@@ -27,7 +27,7 @@ label start:
             egg = True
         with open(config.gamedir + "/background.txt", "w") as f:
             f.write("night bg")
-    
+    $ minorCustomerMasterlist = [TourOneCustomer, CloveOneCustomer, TomiOneCustomer, AveryOneCustomer, FloweriOneCustomer, OliverOneCustomer]
     $ renpy.add_layer("book", above = "screens")
     $ init_globals()
     $ day = 1
@@ -165,7 +165,6 @@ transform exitbuttonpos:
     
 transform nothing:
     align (0,0) alpha 0.0
-        
 
 screen flower_menu(customer):
     layer "flowers"
