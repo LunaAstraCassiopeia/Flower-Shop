@@ -129,11 +129,13 @@ label customerWave:
         $ meanings = {}
         $ decor = ""
         $ customer = getNewCustomer()
+        play sound "welcome.mp3"
         $ joyRating = customer.runOnEnter()
         $ customer.runAfterFlowers(joyRating)
         $ print(joyRating)
         $ quota -= 1
         jump customerCutscene
+        play sound "come again sometime.mp3"
     
     $ nightShift()
     # This ends the game.

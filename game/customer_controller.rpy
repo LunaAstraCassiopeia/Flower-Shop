@@ -25,7 +25,7 @@ init python:
 
         def runOnEnter(self):
             renpy.show(self.formatImage("Meh"))
-            renpy.with_statement(dissolve)
+            renpy.with_statement(long_dissolve)
             idx = 0
             for line in self.enter_dialogue:
                 inter = idx + 1 != len(self.enter_dialogue)
@@ -52,7 +52,9 @@ init python:
                 char_status += "Meh"
             elif joyRating["satisfaction"] < 10:
                 char_status += "Sucks Ass"
+            renpy.sound.play("bouquet done.mp3")
             renpy.show(self.formatImage(char_status))
+            renpy.with_statement(long_dissolve)
             for line in self.exit_dialogue[char_status]:
                 if line[:3] == "BL:":
                     blank(_(line[3:]))

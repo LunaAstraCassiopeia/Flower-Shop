@@ -13,6 +13,8 @@ define long_dissolve = Dissolve(1.0)
 # name of the character.
 
 label start:
+    jump nightFive
+    
     scene black
     
     $ renpy.add_layer("book", above = "screens")
@@ -223,6 +225,7 @@ init python:
         global book_open
         book_open = True
         renpy.hide("manual page " + str(current_page), layer = "book")
+        renpy.sound.play("pageflick.mp3")
         page = current_page + shift
         if(random.random() > 0.99):
             renpy.show("manual page tree", at_list={openbookpos}, layer = "book")

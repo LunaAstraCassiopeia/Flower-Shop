@@ -311,7 +311,7 @@ label nightFour:
 label nightFive:
     scene night bg
     with long_dissolve
-    play music "departures.mp3" fadein 0.5 fadeout 0.5 if_changed loop volume 0.75
+    stop music fadeout 1
 
     show Ilana Hehe
     with dissolve
@@ -332,6 +332,8 @@ label nightFive:
     blank "(Somewhere in the distance, you hear muffled noises of a car door opening, and someone reaching into what you can only assume is somewhere in the passenger seat, to grab something.)"
     blank "(...)"
     blank "(Not long after, Ilana comes back into the store. Her hands are behind her back, seemingly to hide something?)"
+
+    play music "departures.mp3" fadein 0.5 fadeout 0.5 if_changed loop volume 0.75
 
     show Ilana Happy
 
@@ -355,14 +357,18 @@ label nightFive:
 
     show Ilana Happy
 
+    stop music fadeout 2.0
+
     ilana "And I like hearing about these stories from you."
     ilana "So... here."
 
     scene black
     with dissolve
-    blank "(Ilana finally reveals what she's been holding behind her back this entire time.)"
+    blank "(Ilana finally reveals what she's been hiding behind her back this entire time.)"
 
+    play music "flight.mp3" if_changed loop volume 0.75
     scene ilana gift
+    with long_dissolve
 
     ilana "I know, I know, this is a bouquet that I bought from YOU, but..."
     ilana "I want you to have this."
