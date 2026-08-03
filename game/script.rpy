@@ -17,7 +17,7 @@ define long_dissolve = Dissolve(1.0)
 label start:
 
     scene black
-    
+    $ minorCustomerMasterlist = [TourOneCustomer, CloveOneCustomer, TomiOneCustomer, AveryOneCustomer, FloweriOneCustomer, OliverOneCustomer]
     $ renpy.add_layer("book", above = "screens")
     $ init_globals()
     $ day = 1

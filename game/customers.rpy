@@ -36,6 +36,18 @@ image Clove Meh = "Clove/Clove Meh.png"
 image Clove Happy = "Clove/Clove Happy.png"
 image Clove Sucks Ass = "Clove/Clove Sucks Ass.png"
 
+image Avery Meh = "Avery/Avery Meh.png"
+image Avery Happy = "Avery/Avery Happy.png"
+image Avery Sucks Ass = "Avery/Avery Sucks Ass.png"
+
+image Floweri Meh = "Floweri/Floweri Meh.png"
+image Floweri Happy = "Floweri/Floweri Happy.png"
+image Floweri Sucks Ass = "Floweri/Floweri Sucks Ass.png"
+
+image Oliver Meh = "Oliver/Oliver Meh.png"
+image Oliver Happy = "Oliver/Oliver Happy.png"
+image Oliver Sucks Ass = "Oliver/Oliver Sucks Ass.png"
+
 # all instances of customers are defined here.
 init python:
     import random
@@ -63,6 +75,9 @@ init python:
     clove = Character("Clove", callback=blip_voice, cb_blip_file = "mid blip")
     tour = Character("Tour Telle", callback=blip_voice, cb_blip_file = "low blip")
     tomi = Character("Tomura", callback=blip_voice, cb_blip_file = "mid blip")
+    avery = Character("Avery", callback=blip_voice, cb_blip_file="high blip")
+    floweri = Character("Floweri" callback=blip_voice, cb_blip_file="low blip")
+    oliver = Character("Oliver" callback=blip_voice, cb_blip_file="low blip")
     mich = Character("Michelle", callback=blip_voice, cb_blip_file = "mid blip")
     mika = Character("Mikaela", callback=blip_voice, cb_blip_file = "high blip")
     mike = Character("Mike", callback=blip_voice, cb_blip_file = "high blip")
@@ -201,46 +216,242 @@ init python:
     }
     ReubenThreeCustomer = Customer(reubenThreeWants, noPreferences, reuben, reubenThreeEnter, reubenThreeExit, "Reuben", True)
 
-    # minor characters
+    # MINOR CHARACTERS START HERE
 
-    tourWants = {"Rose": 7, "Leaf": 1}
-    tourPreferences = {"Rose": -0.2}
-    tourEnter = ["BL:(This is just a turtle.)", "BL:(Another turtle pokes out of the right sleeve and hands you a paper.)", "BL:(It's kind of gross, but you can barely make out a drawing of a leaf. And... something red....?)"]
-    tourExit = {
+    # All Tour Telle instances
+    
+    tourOneWants = {"Rose": 7, "Leaf": 1}
+    tourOnePreferences = {"Rose": -0.2}
+    tourOneEnter = ["BL:(This is just a turtle.)", "BL:(Another turtle pokes out of the right sleeve and hands you a paper.)", "BL:(It's kind of gross, but you can barely make out a drawing of a leaf. And... something red....?)"]
+    tourOneExit = {
         "Happy": [":>"],
         "Meh": [":|"],
         "Sucks Ass": [":{"],
     }
-    TourCustomer = Customer(tourWants, tourPreferences, tour, tourEnter, tourExit, "Tour", False)
+    TourOneCustomer = Customer(tourOneWants, tourOnePreferences, tour, tourOneEnter, tourOneExit, "Tour", False)
 
-    cloveWants = {"Carnation": 3, "Rose": 3, "Bluebell": 1}
-    cloveEnter = ["Hello there! Haha, this is a really lovely shop. I love what you've done here!", "It really… Okay, gotta focus!", "My boyfriend's gonna come back from a fencing competition really far from here in an hour, and I really wanna surprise him with a nice bouquet!", "Usually, I'd use my own flowers, but it's not their season, I guess.", "I'd like a bouquet that says \"Congratulations, love!\". Could you do that for me?"]
-    cloveExit = {
+    tourTwoWants = {"Lily": 7, "Leaf": 1}
+    tourTwoPreferences = {"Lily": -0.2}
+    tourTwoEnter = ["BL:(Those damned turtles are BACK???)", "BL:(Tortoises?)", "BL:(You don't have the energy to recall the technicalities of it.)", "BL:(You're handed another sheet of paper.)", "BL:(This time, there's a drawing of a yellow cat, with claw markings on its face.)"]
+    tourTwoExit = {
+        "Happy": [">:-3"],
+        "Meh": [":|"],
+        "Sucks Ass": [">:("],
+    }
+    TourTwoCustomer = Customer(tourTwoWants, tourTwoPreferences, tour, tourTwoEnter, tourTwoExit, "Tour", False)
+
+    # All Clove instances
+    
+    cloveOneWants = {"Carnation": 3, "Rose": 3, "Bluebell": 1}
+    cloveOneEnter = ["Hello there! Haha, this is a really lovely shop. I love what you've done here!", "It really… Okay, gotta focus!", "My boyfriend's gonna come back from a fencing competition really far from here in an hour, and I really wanna surprise him with a nice bouquet!", "Usually, I'd use my own flowers, but it's not their season, I guess.", "I'd like a bouquet that says \"Congratulations, love!\". Could you do that for me?"]
+    cloveOneExit = {
         "Happy": ["Oh!! This is perfect!", "Cinthus will love this! Thanks a bunch!"],
         "Meh": ["Mhm, this is good!", "Thank you!"],
         "Sucks Ass": ["Ah... Hm...", "This'll be nice, I think..."],
     }
-    CloveCustomer= Customer(cloveWants, noPreferences, clove, cloveEnter, cloveExit, "Clove", True)
+    CloveOneCustomer= Customer(cloveOneWants, noPreferences, clove, cloveOneEnter, cloveOneExit, "Clove", True)
 
-    tomiWants = {"Forget-Me-Not": 4, "Bluebell": 3}
-    tomiEnter = ["Hi..!", 
+    cloveTwoWants = {"Carnation": 3, "Orchid": 3, "Bluebell": 1}
+    cloveTwoEnter = [
+        "Hi again! Guess who forgot to get a gift, haha…", 
+        "This isn’t for my boyfriend this time, it’s for another friend of mine!", 
+        "She’ll be coming back from work for the first time in a few months, so I wanna get her something nifty.", 
+        "If I’d remembered earlier, I would’ve probably gifted her something more practical, but…", 
+        "All’s well that ends well, right?",
+        "Anyway! I have a more specific message I’d like to give her: “Congrats on your new job, and thanks for taking the time to come back!"]
+    cloveTwoExit = {
+        "Happy": ["Oh!! This is perfect!", "Es will definitely appreciate this! Thanks a bunch!"],
+        "Meh": ["Mhm, this is good!", "Thank you!"],
+        "Sucks Ass": ["Ah... Hm...", "This'll be nice, I think..."],
+    }
+    CloveTwoCustomer= Customer(cloveTwoWants, noPreferences, clove, cloveTwoEnter, cloveTwoExit, "Clove", True)
+
+    # all Tomura instances
+
+    tomiOneWants = {"Forget-Me-Not": 4, "Bluebell": 3}
+    tomiOneEnter = ["Hi..!", 
     "I'm planning on visiting a good friend of mine today, one I haven't talked to in a while...", 
     "They like a lot of blue flowers!",
     "They're very good with flower language, and I want a bouquet that conveys how constant they've been in my life, even despite not meeting for a bit...",
     "I hope they never forget me!",
     "Could you help me out?"]
-    tomiExit = {
+    tomiOneExit = {
         "Happy": ["Oh..!", "I recall them saying they really liked these flowers!", "Thank you so much!"],
         "Meh": ["Ah..?", "You really think they'd like these..?", "Well, thank you regardless."],
         "Sucks Ass": ["Huh...", "Are these really the right flowers for this?"],
     }
-    TomiCustomer = Customer(tomiWants, noPreferences, tomi, tomiEnter, tomiExit, "Tomura", True)
+    TomiOneCustomer = Customer(tomiOneWants, noPreferences, tomi, tomiOneEnter, tomiOneExit, "Tomura", True)
 
+    tomiTwoWants = {"Carnation": 4, "Bluebell": 3}
+    tomiTwoEnter = ["Hello again!", 
+    "My friend and I are performing together before I leave again, so I was thinking of getting flowers to celebrate.", 
+    "Could you give me something to congratulate us?",
+    "Don’t forget– they really like blue!"]
+    tomiTwoExit = {
+        "Happy": ["Ah!!!", "These are perfect! Thank you!"],
+        "Meh": ["Hmm…", "It’s very pretty, but I don’t know if they’d get the message. Thank you still!"],
+        "Sucks Ass": ["Huh...", "Are these really the right flowers for this?"],
+    }
+    TomiTwoCustomer = Customer(tomiTwoWants, noPreferences, tomi, tomiTwoEnter, tomiTwoExit, "Tomura", True)
+
+    # all Avery instances
+    
+    averyOneWants = {"Orchid": 5, "Vanilla": 2}
+    averyOneEnter = [
+        "Ooh, is this shop new here?",
+        "It's not often I get to see fellow florists, especially not in the wild like this!",
+        "BL:(She extends a hand out to you.)",
+        "Avery! Nice to meet ya!",
+        "BL:(You shake her hand!)",
+        "Mind if I test your knowledge a bit?",
+        "I'm thinking of... a bouquet like tea. With a bit of vanilla, but not too much."
+    ]
+    averyOneExit = {
+        "Happy": [
+            "Yup!",
+            "You sure do know your flowers, alright!"
+        ],
+        "Meh": [
+            "Mmm!",
+            "Not quite the answer I was looking for, but I see the thought behind this.",
+            "Good job!",
+        ],
+        "Sucks Ass": [
+            "...",
+            "What kind of tea have you been drinking?",
+            "Kidding, I'm kidding! It's okay!",
+            "I suppose all teas are kind of floral, anyways.",
+        ]
+    }
+    AveryOneCustomer = Customer(averyOneWants, noPreferences, avery, averyOneEnter, averyOneExit, "Avery", True)
+
+    averyTwoWants = {"Hyacinth": 3, "Bluebell": 2, "Carnation": 2}
+    averyTwoEnter = [
+        "Heyyy!",
+        "Glad to see you around still!",
+        "BL:(Like there was a chance you wouldn't be...?)",
+        "Mind if I order a weird bouquet again?",
+        "BL:(Can you really say no...?)",
+        "Three kinds of flowers this time! A bouquet about mythology, folklore, and history, please!",
+    ]
+    averyTwoExit = {
+        "Happy": [
+            "Yup!",
+            "You sure do know your flowers, alright!"
+        ],
+        "Meh": [
+            "Mmm!",
+            "Not quite the answer I was looking for, but I see the thought behind this.",
+            "Good job!",
+        ],
+        "Sucks Ass": [
+            "...",
+            "What myths have you been reading up on...?",
+            "Kidding, I'm kidding! It's okay!",
+        ]
+    }
+    AveryTwoCustomer = Customer(averyTwoWants, noPreferences, avery, averyTwoEnter, averyTwoExit, "Avery", True)
+
+    # all Floweri instances
+
+    floweriOneWants = {"Rose": 1, "Lily": 1, "Hyacinth": 1, "Forget-Me-Not": 1, "Bluebell": 1, "Hydrangea": 1, "Carnation": 1, "Leaf": 1}
+    floweriOneEnter = [
+        "Hey there!",
+        "Lovely shop you have here!",
+        "My friend… I’d like to cheer him up. He’s been real down lately.",
+        "He loves flowers too! I think a little bit of everything would be nice.",
+        "Give me the whole rainbow!",
+    ]
+    floweriOneExit = {
+        "Happy": [
+            "All according to plan!",
+            "How lovely!",
+        ],
+        "Meh": [
+            "Well, you got it!",
+            "Mostly,",
+        ],
+        "Sucks Ass": [
+            "You're eating my flesh with this one!"
+        ]
+    }
+    FloweriOneCustomer = Customer(floweriOneWants, noPreferences, floweri, floweriOneEnter, floweriOneExit, "Floweri", True)
+
+    floweriTwoWants = {"Rose": 1, "Lily": 1, "Hyacinth": 1, "Forget-Me-Not": 1, "Bluebell": 1, "Hydrangea": 1, "Carnation": 1, "Leaf": 1}
+    floweriTwoEnter = [
+        "Hey there!",
+        "Lovely shop you have here!",
+        "My friend… I’d like to cheer him up. He’s been real down lately.",
+        "He loves flowers too! I think a little bit of everything would be nice.",
+        "Give me the whole rainbow!",
+    ]
+    floweriTwoExit = {
+        "Happy": [
+            "All according to plan!",
+            "How lovely!",
+        ],
+        "Meh": [
+            "Well, you got it!",
+            "Mostly,",
+        ],
+        "Sucks Ass": [
+            "You're eating my flesh with this one!"
+        ]
+    }
+    FloweriTwoCustomer = Customer(floweriTwoWants, noPreferences, floweri, floweriTwoEnter, floweriTwoExit, "Floweri", True)
+
+    # all Oliver instances
+
+    oliverOneWants = {"Rose": 1, "Lily": 1, "Hyacinth": 1, "Forget-Me-Not": 1, "Bluebell": 1, "Hydrangea": 1, "Carnation": 1, "Leaf": 1}
+    oliverOneEnter = [
+        "Hey there!",
+        "Lovely shop you have here!",
+        "My friend… I’d like to cheer him up. He’s been real down lately.",
+        "He loves flowers too! I think a little bit of everything would be nice.",
+        "Give me the whole rainbow!",
+    ]
+    oliverOneExit = {
+        "Happy": [
+            "All according to plan!",
+            "How lovely!",
+        ],
+        "Meh": [
+            "Well, you got it!",
+            "Mostly,",
+        ],
+        "Sucks Ass": [
+            "You're eating my flesh with this one!"
+        ]
+    }
+    OliverOneCustomer = Customer(oliverOneWants, noPreferences, oliver, oliverOneEnter, oliverOneExit, "Oliver", True)
+
+    oliverTwoWants = {"Rose": 1, "Lily": 1, "Hyacinth": 1, "Forget-Me-Not": 1, "Bluebell": 1, "Hydrangea": 1, "Carnation": 1, "Leaf": 1}
+    oliverTwoEnter = [
+        "Hey there!",
+        "Lovely shop you have here!",
+        "My friend… I’d like to cheer him up. He’s been real down lately.",
+        "He loves flowers too! I think a little bit of everything would be nice.",
+        "Give me the whole rainbow!",
+    ]
+    oliverTwoExit = {
+        "Happy": [
+            "All according to plan!",
+            "How lovely!",
+        ],
+        "Meh": [
+            "Well, you got it!",
+            "Mostly,",
+        ],
+        "Sucks Ass": [
+            "You're eating my flesh with this one!"
+        ]
+    }
+    OliverTwoCustomer = Customer(oliverTwoWants, noPreferences, oliver, oliverTwoEnter, oliverTwoExit, "Oliver", True)
+    
 
     def initialize_customers(custList: list[Customer]):
         global UnmetCustomerList
         global minorCustomerMasterlist
-        minorCustomerMasterlist = [TourCustomer, CloveCustomer, TomiCustomer]
         
         UnmetCustomerList = []
         for customer in custList:
@@ -673,7 +884,9 @@ label customerCutscene:
 
     # Minor Customers
 
-    if customer == TomiCustomer:
+    # Tomi cutscenes
+    if customer == TomiOneCustomer:
+        $ minorCustomerMasterlist.append(TomiTwoCustomer)
         show Tomura Meh 
 
         peri "Say..."
@@ -689,12 +902,41 @@ label customerCutscene:
         hide Tomura Happy
         with dissolve
     
-    if customer == TourCustomer:
+    if customer == TomiTwoCustomer:
+        show Tomura Meh
+        peri "So, you perform?"
+
+        peri "What is it that you play?"
+
+        tomura "Oh! Haha, you might not believe it.."
+
+        show Tomura Happy
+        tomura "I’m an opera singer! In training. I do normal vocal things too."
+
+        peri "Really? Wow! That’s…"
+
+        tomura "I know. I don’t look like it, no?"
+
+        peri "Haha, I wasn’t gonna say that. Just that that’s really cool!"
+
+        tomura "Anyhow, we’re doing a set downtown this evening. Come if you’re not busy!" 
+        with dissolve
+
+    # Tour Telle cutscenes
+    if customer == TourOneCustomer:
+        $ minorCustomerMasterlist.append(TourTwoCustomer)
 
         peri "..."
         peri "...am I dreaming??"
+    
+    if customer == TourTwoCustomer:
+        peri "..."
 
-    if customer == CloveCustomer:
+        peri "...wait? Is that cat gonna be okay?"
+
+    # Clove cutscenes
+    if customer == CloveOneCustomer:
+        $ minorCustomerMasterlist.append(CloveTwoCustomer)
 
         show Clove Meh 
 
@@ -712,6 +954,137 @@ label customerCutscene:
 
         hide Clove Happy
         with dissolve
+    
+    if customer == CloveTwoCustomer:
+
+        show Clove Meh
+
+        peri "Your friend got a new job, huh? What was her job before?"
+        
+        show Clove Sucks Ass
+
+        clove "Eheh… I don’t think I can say…"
+
+        peri "(...What is that supposed to mean?)"
+
+        show Clove Happy
+
+        clove "But!! Um!! Her new job’s really quaint! She’s working as a Laboratory Aide in a college, and she’s using their facilities to study ecosystem simulations! It’s a nice change of pace for her, haha."
+        peri "I hope she has an easier time with her new job, then."
+        clove "Heh, with her, I think that’s the opposite of what she wants."
+        clove "...Ah!! I forgot the time! I gotta go now!"
+        clove "Thank you so much again! It was really nice talking to you!"
+
+        hide Clove Happy
+        with dissolve
+    
+    # Avery cutscenes
+    if customer == AveryOneCustomer:
+        $ minorCustomerMasterlist.append(AveryTwoCustomer)
+
+        show Avery Meh
+
+        peri "So, you grow flowers too?"
+
+        show Avery Happy
+
+        avery "Yeah! Have a whole greenhouse of plants, actually, haha..."
+        peri "That's nice..."
+        peri "..."
+        peri "...you're not trying to put me out of business, are you?"
+
+        show Avery Sucks Ass
+
+        avery "WHAAAT! Of course not!!!"
+        avery "I just like seeing other people like me out in the open, you know?"
+
+        show Avery Happy
+        avery "Flowers are great! Wouldn't you agree?"
+        peri "Yeah."
+        blank "(You sigh in relief. Your shop lives to see another day.)"
+
+        hide Avery Happy
+        with dissolve
+
+    if customer == AveryTwoCustomer:
+        
+        show Avery Meh
+
+        peri "You sure seem to know a lot about flowers, don't you?"
+
+        show Avery Happy
+
+        avery "You could say that!"
+        avery "I like learning the little details about each of them."
+        blank "(For obvious reasons, you relate to this quite a bit.)"
+        avery "So..."
+
+        show Avery Sucks Ass
+
+        avery "Are these the only flowers in your shop?"
+        peri "Ack!"
+        peri "Yes...? Is there anything wrong with that?"
+
+        show Avery Meh
+
+        avery "Ah, well...! These do seem to be very popular ones, so I can't blame you for having these in stock, but..."
+
+        show Avery Happy
+
+        avery "I think it wouldn't hurt to have some variety! Maybe some chrysanthemums, tulips, you know?"
+        avery "There are tons more things you can convey with flowers that aren't just the ones you have here!"
+        blank "(You're not really sure you need Avery to tell you that, but...)"
+        avery "I have a few I'm growing right now that I could drop off here sometime, if you'd like!"
+        peri "That's a bit much... but, thanks anyways." 
+        blank "(You can't really tell if the advice is too overbearing...)"
+        blank "(...but seeing someone as enthusiastic about flowers as you are is nice, right?)"
+
+        hide Avery Happy
+        with dissolve
+
+    if customer == FloweriOneCustomer:
+        $ minorCustomerMasterlist.append(FloweriTwoCustomer)
+
+        show Floweri Meh
+        blank "(This guy is kinda weird.)"
+        peri "Did you say... your king?"
+
+        show Floweri Happy
+
+        floweri "Heh, yes!"
+        peri "Are you like, some sort of medieval LARPer... or...?"
+
+        show Floweri Sucks Ass
+
+        floweri "Get a chance! Of course not!"
+
+        show Floweri Happy
+
+        floweri "I’ll take these now."
+        floweri "Here I come San Francisco!"
+
+        hide Floweri Happy
+        with dissolve 
+        
+        blank "(We're not in the United States...)"
+    
+    if customer == FloweriTwoCustomer:
+        # PLACEHOLDER --- CHANGE LATER
+        show Floweri Meh
+        blank "Hahahahaflowershahahahaha"
+    
+    # Oliver cutscenes
+    if customer == OliverOneCustomer:
+        # PLACEHOLDER --- CHANGE LATER
+        $ minorCustomerMasterlist.append(OliverTwoCustomer)
+
+        show Oliver Meh
+        oliver "dogggggggggg"
+
+    if customer == OliverTwoCustomer:
+
+        show Oliver Meh
+        oliver "woof woof!!!!!"
 
     play sound "come again sometime.mp3"
     pause 1.0
