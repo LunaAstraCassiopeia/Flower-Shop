@@ -10,11 +10,16 @@ init python:
         return joy
 
     def add_flower(name: str, bouquet: list, meanings: dict):
+        global full_bouquet
         try:
             index = bouquet.index(None)
             bouquet[index] = name
             renpy.sound.play("get flower.mp3")
-            print(name)
+            filled = True
+            for fl in bouquet:
+                if fl == None:
+                    filled = False
+            full_bouquet = filled
             for key, val in get_flower_meanings(name).items():
                 if key in meanings:
                     meanings[key] += val
@@ -26,7 +31,9 @@ init python:
         return
 
     def remove_flower(index: int, bouquet: list, meanings: dict):
+        global full_bouquet
         if bouquet[index]:
+            full_bouquet = False
             for key, val in get_flower_meanings(bouquet[index]).items():
                 if key in meanings:
                     meanings[key] -= val

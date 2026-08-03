@@ -6,6 +6,7 @@ default page = 1
 default day = 0
 default use_background = "default bg"
 default book_open = False
+default full_bouquet = False
 default egg = False
 default in_man = False
 define deb = Character("Debug")
@@ -187,9 +188,9 @@ screen flower_menu(customer):
         $ i = i - 1
     if len(bouquet) > 0 and bouquet.count(None) < 7:
         imagebutton auto "flowers/bouquet front %s.png" at bouquetfrontpos:
-            hovered [Function(show_bouquet)]
+            hovered [SensitiveIf(full_bouquet), Function(show_bouquet)]
             unhovered [Function(hide_bouquet)]
-            action [Return(customer.calculateJoy(meanings)), SensitiveIf(not book_open)]
+            action [SensitiveIf(full_bouquet), Return(customer.calculateJoy(meanings)), SensitiveIf(not book_open)]
     if(decor != ""):
         imagebutton auto flower_pic(decor, "bouquet") at addonpos:
             action [SensitiveIf(not book_open), Function(set_addon, name, meanings), SetVariable("decor", "")]

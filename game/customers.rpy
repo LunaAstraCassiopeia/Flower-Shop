@@ -87,7 +87,7 @@ init python:
     
     ilanaTutorialWants = {"Orchid": 7}
     noPreferences = {"test": 0}
-    ilanaTutorialEnter = ["Those flowers... I forget what they're called...", "The, uh, white ones?", "About innocence and new beginnings and stuff...", "Give me an entire bouquet of those. Seven of 'em.", "...", "Don't just stare at me like that! Use your manual to figure out what I mean!", "BL:{cps=0}(Pick out flowers by selecting them on the left, then click on their stems to give the customer their bouquet! You can click on flowers to remove them from the bouquet.)"]
+    ilanaTutorialEnter = ["Those flowers... I forget what they're called...", "The, uh, white ones?", "About innocence and new beginnings and stuff...", "Give me an entire bouquet of those. Seven of 'em.", "...", "Don't just stare at me like that! Use your manual to figure out what I mean!", "BL:{cps=0}(Pick out flowers by selecting them on the left, then after a full bouquet of seven flowers, click on their stems to give the customer their bouquet! You can click on flowers to remove them from the bouquet.)"]
     ilanaTutorialExit = {
         "Happy": ["There you go.", "Exactly what I asked.", "Told you you should've kept that book safe!", "Anyways, you should have everything you need now. I'll be on my way, I'm kinda busy today.", "See you later!"],
         "Meh": ["I mean... you're kind of there?", "I told you I wanted more of those white ones, right?", "Ah, well. At least you got halfway there.", "Anyways, you should have everything you need now. I'll be on my way, I'm kinda busy today.", "See you later!"],
