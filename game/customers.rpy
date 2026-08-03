@@ -805,6 +805,9 @@ label customerCutscene:
 
         show Reuben Sucks Ass at left
         with move
+        play sound "punch.mp3"
+        with hpunch
+        pause 0.5
         show Arthur Sucks Ass at right
 
         blank "(As if on cue, Arthur storms into the store.)"

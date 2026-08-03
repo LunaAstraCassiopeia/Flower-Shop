@@ -35,6 +35,7 @@ label start:
     $ day = 1
     $ total_satisfaction = 0
 
+    jump dayFive
     stop music fadeout 0.5
 
     blank "(You arrive at the airport.)"
@@ -246,7 +247,7 @@ init python:
         renpy.hide("egg", layer = "book")
         page = current_page + shift
         renpy.show("manual page " + str(page), at_list={openbookpos}, layer = "book")
-        
+
         # it's a surprise tool that will help us later
 
         # if(random.random() > 0.999 and not egg):

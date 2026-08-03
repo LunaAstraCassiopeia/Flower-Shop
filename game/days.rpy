@@ -37,6 +37,11 @@ label dayOne:
     show Ilana Sucks Ass 
 
     ilana "You hate me or something?"
+
+    play sound "punch.mp3"
+    with vpunch
+    pause 0.5
+
     blank "(Ilana sighs very exaggeratedly, then giggles as you hit her very lightly.)"
     
     show Ilana Meh 

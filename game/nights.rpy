@@ -148,6 +148,9 @@ label nightThree:
     show Ilana Hehe at tint_blue, center
     play music "departures.mp3" fadein 0.5 volume 0.75
 
+    play sound "punch.mp3"
+    with vpunch
+    
     ilana "SPECIAL DELIVERY!"
     peri "AAAHH?!"
     blank "(Ilana slams the door wide open. You can't help but flinch a little.)"
@@ -360,11 +363,10 @@ label nightFive:
 
     show Ilana Happy at tint_blue, center
 
-    stop music fadeout 2.0
-
     ilana "And I like hearing about these stories from you."
     ilana "So... here."
 
+    stop music fadeout 2.0
     scene black
     with dissolve
     blank "(Ilana finally reveals what she's been hiding behind her back this entire time.)"
