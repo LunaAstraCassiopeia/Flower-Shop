@@ -15,11 +15,13 @@ define long_dissolve = Dissolve(1.0)
 # name of the character.
 
 label start:
+
     scene black
     
     $ renpy.add_layer("book", above = "screens")
     $ init_globals()
     $ day = 1
+    $ total_satisfaction = 0
     stop music fadeout 0.5
 
     blank "(You arrive at the airport.)"
@@ -179,7 +181,7 @@ screen flower_menu(customer):
             action [Return(customer.calculateJoy(meanings)), SensitiveIf(not book_open)]
     if(decor != ""):
         imagebutton auto flower_pic(decor, "bouquet") at addonpos:
-            action [SensitiveIf(not book_open), Function(set_addon, name, decor, meanings), SetVariable("decor", "")]
+            action [SensitiveIf(not book_open), Function(set_addon, name, meanings), SetVariable("decor", "")]
     $ i = len(bouquet)
     for flowerName in bouquet:
         if bouquet[i-1] is not None:
@@ -229,6 +231,7 @@ init python:
         global in_man
         book_open = True
         renpy.hide("manual page " + str(current_page), layer = "book")
+        renpy.sound.play("pageflick.mp3")
         renpy.hide("egg", layer = "book")
         page = current_page + shift
         if(random.random() > 0.999 and not egg):

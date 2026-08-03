@@ -10,15 +10,19 @@ init python:
         return joy
 
     def add_flower(name: str, bouquet: list, meanings: dict):
-        index = bouquet.index(None)
-        bouquet[index] = name
-        print(name)
-        for key, val in get_flower_meanings(name).items():
-            if key in meanings:
-                meanings[key] += val
-            else:
-                meanings[key] = val
-        print(meanings)
+        try:
+            index = bouquet.index(None)
+            bouquet[index] = name
+            renpy.sound.play("get flower.mp3")
+            print(name)
+            for key, val in get_flower_meanings(name).items():
+                if key in meanings:
+                    meanings[key] += val
+                else:
+                    meanings[key] = val
+            print(meanings)
+        except ValueError as e:
+            return
         return
 
     def remove_flower(index: int, bouquet: list, meanings: dict):
@@ -27,6 +31,7 @@ init python:
                 if key in meanings:
                     meanings[key] -= val
             bouquet[index] = None
+            renpy.sound.play("bye bye flower.mp3")
         return
     
     def set_addon(name: str, meanings: dict):

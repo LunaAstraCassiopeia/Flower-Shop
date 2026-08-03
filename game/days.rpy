@@ -142,12 +142,15 @@ label customerWave:
         $ meanings = {}
         $ decor = ""
         $ customer = getNewCustomer()
+        play sound "welcome.mp3"
         $ renpy.block_rollback()
         $ joyRating = customer.runOnEnter()
         $ renpy.block_rollback()
         $ customer.runAfterFlowers(joyRating)
         $ print(joyRating)
         $ quota -= 1
+        $ total_satisfaction += joyRating
+        $ print(f"{total_satisfaction=}")
         jump customerCutscene
     
     $ nightShift()
