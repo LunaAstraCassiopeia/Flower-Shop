@@ -62,7 +62,6 @@ init python:
                     self.character(_(line))
             renpy.hide(self.formatImage(char_status))
             renpy.show(self.formatImage("Meh"))
-            self.character(_("My satisfaction score is [joyRating['satisfaction']]"))
             if not self.hasCutscene:
                 renpy.hide(self.formatImage("Meh"))
                 renpy.with_statement(dissolve)

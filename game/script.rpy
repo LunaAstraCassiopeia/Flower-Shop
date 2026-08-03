@@ -245,18 +245,22 @@ init python:
         renpy.sound.play("pageflick.mp3")
         renpy.hide("egg", layer = "book")
         page = current_page + shift
-        if(random.random() > 0.999 and not egg):
-            with open(config.gamedir + "/egg.txt", "w") as f:
-                f.write(" ")
-            renpy.music.play("man.mp3",loop=True)
-            renpy.show("black")
-            egg = True
-            in_man = True
-            renpy.show("manual page tree", at_list={openbookpos}, layer = "book")
-        else:
-            renpy.show("manual page " + str(page), at_list={openbookpos}, layer = "book")
-            if page == 1 and egg:
-                renpy.show("egg", at_list={openbookpos}, layer = "book")
+        renpy.show("manual page " + str(page), at_list={openbookpos}, layer = "book")
+        
+        # it's a surprise tool that will help us later
+
+        # if(random.random() > 0.999 and not egg):
+        #     with open(config.gamedir + "/egg.txt", "w") as f:
+        #         f.write(" ")
+        #     renpy.music.play("man.mp3",loop=True)
+        #     renpy.show("black")
+        #     egg = True
+        #     in_man = True
+        #     renpy.show("manual page tree", at_list={openbookpos}, layer = "book")
+        # else:
+        #     renpy.show("manual page " + str(page), at_list={openbookpos}, layer = "book")
+        #     if page == 1 and egg:
+        #         renpy.show("egg", at_list={openbookpos}, layer = "book")
     
     def close_book():
         global book_open

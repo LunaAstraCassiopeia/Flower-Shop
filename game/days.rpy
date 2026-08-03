@@ -60,10 +60,6 @@ label dayOne:
     $ majorCustomerDayList = [ArthurOneCustomer, KaraOneCustomer]
     $ quota = 4
     $ initialize_customers(majorCustomerDayList)
-
-    deb "Hi!"
- 
-    deb "[UnmetCustomerList]"
     
     jump customerWave
 
@@ -77,10 +73,6 @@ label dayTwo:
     $ majorCustomerDayList = [ReubenOneCustomer, MarkOneCustomer, KaraTwoCustomer]
     $ quota = 5
     $ initialize_customers(majorCustomerDayList)
-
-    deb "Day two this time!!"
-
-    deb "[UnmetCustomerList]"
     
     jump customerWave
     
@@ -95,10 +87,6 @@ label dayThree:
     $ quota = 5
     $ initialize_customers(majorCustomerDayList)
     
-    deb "Day three~"
-
-    deb "[UnmetCustomerList]"
-    
     jump customerWave
 
 label dayFour:
@@ -112,10 +100,6 @@ label dayFour:
     $ quota = 5
     $ initialize_customers(majorCustomerDayList)
     
-    deb "Day Four!!!"
-
-    deb "[UnmetCustomerList]"
-    
     jump customerWave
 
 label dayFive:
@@ -128,10 +112,6 @@ label dayFive:
     $ majorCustomerDayList = [ReubenThreeCustomer, IlanaGiftCustomer]
     $ quota = 5
     $ initialize_customers(majorCustomerDayList)
-    
-    deb "Day Five!!!"
-
-    deb "[UnmetCustomerList]"
     
     jump customerWave
 
