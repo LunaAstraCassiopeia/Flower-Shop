@@ -419,5 +419,6 @@ label nightFive:
     blank "(Every single time, you help them reach their dreams.)"
     blank "(Even just a little more.)"
 
-    $ day = day + 1
-    $ dayShift()
+    stop music fadeout 0.5
+
+    jump end_credits

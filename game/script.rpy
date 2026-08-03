@@ -6,6 +6,7 @@ default page = 1
 default day = 0
 default use_background = "default bg"
 default book_open = False
+default full_bouquet = False
 default egg = False
 default in_man = False
 define deb = Character("Debug")
@@ -19,6 +20,7 @@ image main_menu_buttons = "gui/main_menu_top.png"
 label start:
 
     scene black
+    with long_dissolve
 
     python hide:
         import os
@@ -32,6 +34,7 @@ label start:
     $ init_globals()
     $ day = 1
     $ total_satisfaction = 0
+
     stop music fadeout 0.5
 
     blank "(You arrive at the airport.)"
@@ -152,7 +155,7 @@ transform bouquetfrontpos:
 
 
 transform bookpos:
-    pos (0.64, 0.27)
+    pos (0.75, 0.27)
 transform openbookpos:
     pos (0.43, 0)
 transform leftarrowos:
@@ -171,12 +174,12 @@ screen flower_menu(customer):
     $ i = 0
     for name in FlowerList:
         imagebutton auto flower_pic(name, "bouquet") at get_shelftransform(i):
-            action [SensitiveIf((None in bouquet) and not book_open), Function(add_flower, name, bouquet, meanings)]
+            action [SensitiveIf((None in bouquet)), Function(add_flower, name, bouquet, meanings)]
         $ i = i + 1
     imagebutton auto flower_pic("Leaf", "bouquet") at leafTransform:
-        action [SensitiveIf(not book_open), Function(set_addon, "Leaf", meanings)]
+        action [Function(set_addon, "Leaf", meanings)]
     imagebutton auto flower_pic("Stick", "bouquet") at branchTransform:
-        action [SensitiveIf(not book_open), Function(set_addon, "Stick", meanings)]
+        action [Function(set_addon, "Stick", meanings)]
     $ i = len(bouquet)
     for flowerName in bouquet:
         if bouquet[i-1] is not None:
@@ -184,9 +187,9 @@ screen flower_menu(customer):
         $ i = i - 1
     if len(bouquet) > 0 and bouquet.count(None) < 7:
         imagebutton auto "flowers/bouquet front %s.png" at bouquetfrontpos:
-            hovered [Function(show_bouquet)]
+            hovered [SensitiveIf(full_bouquet and not book_open), Function(show_bouquet)]
             unhovered [Function(hide_bouquet)]
-            action [Return(customer.calculateJoy(meanings)), SensitiveIf(not book_open)]
+            action [SensitiveIf(full_bouquet and not book_open), Return(customer.calculateJoy(meanings))]
     if(decor != ""):
         imagebutton auto flower_pic(decor, "bouquet") at addonpos:
             action [SensitiveIf(not book_open), Function(set_addon, name, meanings), SetVariable("decor", "")]
@@ -370,3 +373,47 @@ screen main_menu():
         textbutton _("Quit"):
             text_style "minor_text"
             action Quit(confirm=not main_menu)
+
+label end_credits:
+    play music "flight.mp3" if_changed loop
+    window hide
+
+    scene credits 1
+    with Dissolve(1.0)
+
+    pause 3.0
+
+    scene credits 2
+    with Dissolve(1.0)
+
+    pause 3.0
+
+    scene credits 3
+    with Dissolve(1.0)
+
+    pause 3.0
+
+    scene credits 4
+    with Dissolve(1.0)
+
+    pause 3.0
+
+    scene credits 5
+    with Dissolve(1.0)
+
+    pause 3.0
+
+    scene credits 6
+    with Dissolve(1.0)
+
+    pause 3.0
+
+    scene credits 7
+    with Dissolve(1.0)
+
+    pause 3.0
+
+    scene black
+    with Dissolve(1.0)
+
+    return
