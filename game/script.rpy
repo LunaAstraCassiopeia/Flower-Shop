@@ -156,7 +156,7 @@ transform bouquetfrontpos:
 
 
 transform bookpos:
-    pos (0.64, 0.27)
+    pos (0.75, 0.27)
 transform openbookpos:
     pos (0.43, 0)
 transform leftarrowos:
@@ -175,12 +175,12 @@ screen flower_menu(customer):
     $ i = 0
     for name in FlowerList:
         imagebutton auto flower_pic(name, "bouquet") at get_shelftransform(i):
-            action [SensitiveIf((None in bouquet) and not book_open), Function(add_flower, name, bouquet, meanings)]
+            action [SensitiveIf((None in bouquet)), Function(add_flower, name, bouquet, meanings)]
         $ i = i + 1
     imagebutton auto flower_pic("Leaf", "bouquet") at leafTransform:
-        action [SensitiveIf(not book_open), Function(set_addon, "Leaf", meanings)]
+        action [Function(set_addon, "Leaf", meanings)]
     imagebutton auto flower_pic("Stick", "bouquet") at branchTransform:
-        action [SensitiveIf(not book_open), Function(set_addon, "Stick", meanings)]
+        action [Function(set_addon, "Stick", meanings)]
     $ i = len(bouquet)
     for flowerName in bouquet:
         if bouquet[i-1] is not None:
@@ -188,9 +188,9 @@ screen flower_menu(customer):
         $ i = i - 1
     if len(bouquet) > 0 and bouquet.count(None) < 7:
         imagebutton auto "flowers/bouquet front %s.png" at bouquetfrontpos:
-            hovered [SensitiveIf(full_bouquet), Function(show_bouquet)]
+            hovered [SensitiveIf(full_bouquet and not book_open), Function(show_bouquet)]
             unhovered [Function(hide_bouquet)]
-            action [SensitiveIf(full_bouquet), Return(customer.calculateJoy(meanings)), SensitiveIf(not book_open)]
+            action [SensitiveIf(full_bouquet and not book_open), Return(customer.calculateJoy(meanings))]
     if(decor != ""):
         imagebutton auto flower_pic(decor, "bouquet") at addonpos:
             action [SensitiveIf(not book_open), Function(set_addon, name, meanings), SetVariable("decor", "")]
