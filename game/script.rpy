@@ -95,25 +95,25 @@ transform addonpos:
     pos (0.58, 0.07)
     
 transform sPosition0:
-    pos (0.48, 0.4)
+    pos (0.48, 0.35)
     rotate 0
 transform sPosition1:
-    pos (0.45, 0.365)
+    pos (0.45, 0.315)
     rotate 345
 transform sPosition2:
-    pos (0.51, 0.363)
+    pos (0.51, 0.313)
     rotate 15
 transform sPosition3:
-    pos (0.48, 0.30)
+    pos (0.48, 0.25)
     rotate 359
 transform sPosition4:
-    pos (0.45, 0.25)
+    pos (0.45, 0.2)
     rotate 349
 transform sPosition5:
-    pos (0.5, 0.28)
+    pos (0.5, 0.23)
     rotate 12
 transform sPosition6:
-    pos (0.48, 0.23)
+    pos (0.48, 0.20)
     rotate 348
 
 transform shPosition0:
