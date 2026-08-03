@@ -35,7 +35,6 @@ label start:
     $ day = 1
     $ total_satisfaction = 0
 
-    jump dayFive
     stop music fadeout 0.5
 
     blank "(You arrive at the airport.)"
@@ -414,6 +413,11 @@ label end_credits:
     pause 3.0
 
     scene credits 7
+    with Dissolve(1.0)
+
+    pause 3.0
+
+    scene credits 8
     with Dissolve(1.0)
 
     pause 3.0

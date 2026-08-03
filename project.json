@@ -2,7 +2,7 @@
   "build_update": false,
   "packages": [
     "pc",
-    "win"
+    "mac"
   ],
   "add_from": true,
   "force_recompile": true,
