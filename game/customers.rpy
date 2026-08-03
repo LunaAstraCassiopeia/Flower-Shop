@@ -76,8 +76,8 @@ init python:
     tour = Character("Tour Telle", callback=blip_voice, cb_blip_file = "low blip")
     tomi = Character("Tomura", callback=blip_voice, cb_blip_file = "mid blip")
     avery = Character("Avery", callback=blip_voice, cb_blip_file="high blip")
-    floweri = Character("Floweri" callback=blip_voice, cb_blip_file="low blip")
-    oliver = Character("Oliver" callback=blip_voice, cb_blip_file="low blip")
+    floweri = Character("Floweri", callback=blip_voice, cb_blip_file="low blip")
+    oliver = Character("Oliver", callback=blip_voice, cb_blip_file="low blip")
     mich = Character("Michelle", callback=blip_voice, cb_blip_file = "mid blip")
     mika = Character("Mikaela", callback=blip_voice, cb_blip_file = "high blip")
     mike = Character("Mike", callback=blip_voice, cb_blip_file = "high blip")
@@ -296,7 +296,7 @@ init python:
 
     # all Avery instances
     
-    averyOneWants = {"Orchid": 5, "Vanilla": 2}
+    averyOneWants = {"Rose": 5, "Orchid": 2}
     averyOneEnter = [
         "Ooh, is this shop new here?",
         "It's not often I get to see fellow florists, especially not in the wild like this!",
@@ -908,18 +908,20 @@ label customerCutscene:
 
         peri "What is it that you play?"
 
-        tomura "Oh! Haha, you might not believe it.."
+        tomi "Oh! Haha, you might not believe it.."
 
         show Tomura Happy
-        tomura "I’m an opera singer! In training. I do normal vocal things too."
+        tomi "I’m an opera singer! In training. I do normal vocal things too."
 
         peri "Really? Wow! That’s…"
 
-        tomura "I know. I don’t look like it, no?"
+        tomi "I know. I don’t look like it, no?"
 
         peri "Haha, I wasn’t gonna say that. Just that that’s really cool!"
 
-        tomura "Anyhow, we’re doing a set downtown this evening. Come if you’re not busy!" 
+        tomi "Anyhow, we’re doing a set downtown this evening. Come if you’re not busy!" 
+
+        hide Tomura Happy
         with dissolve
 
     # Tour Telle cutscenes
@@ -1072,6 +1074,9 @@ label customerCutscene:
         # PLACEHOLDER --- CHANGE LATER
         show Floweri Meh
         blank "Hahahahaflowershahahahaha"
+
+        hide Floweri Happy
+        with dissolve 
     
     # Oliver cutscenes
     if customer == OliverOneCustomer:
@@ -1081,10 +1086,16 @@ label customerCutscene:
         show Oliver Meh
         oliver "dogggggggggg"
 
-    if customer == OliverTwoCustomer:
+        hide Oliver Meh
+        with dissolve
 
+    if customer == OliverTwoCustomer:
+        # PLACEHOLDER --- CHANGE LATER
         show Oliver Meh
         oliver "woof woof!!!!!"
+
+        hide Oliver Meh
+        with dissolve
 
     play sound "come again sometime.mp3"
     pause 1.0

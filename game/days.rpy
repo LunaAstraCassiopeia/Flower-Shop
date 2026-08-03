@@ -147,11 +147,11 @@ label customerWave:
         $ joyRating = customer.runOnEnter()
         $ renpy.block_rollback()
         $ customer.runAfterFlowers(joyRating)
+        jump customerCutscene
         $ print(joyRating)
         $ quota -= 1
-        $ total_satisfaction += joyRating
-        $ print(f"{total_satisfaction=}")
-        jump customerCutscene
+        $ total_satisfaction += joyRating["satisfaction"]
+        $ print(customer == ReubenThreeCustomer)
     
     $ nightShift()
     # This ends the game.

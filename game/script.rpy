@@ -21,7 +21,7 @@ label start:
     $ renpy.add_layer("book", above = "screens")
     $ init_globals()
     $ day = 1
-    $ total_satisfaction = 0
+    $ total_satisfaction = 1238
     stop music fadeout 0.5
 
     blank "(You arrive at the airport.)"
