@@ -68,29 +68,28 @@ transform shift_right:
     linear 0.5 alpha 1.0
     
 transform position0:
-    pos (0.53, 0.26)
-    xzoom 1
+    pos (0.50, 0.23)
+    rotate 0
 transform position1:
-    pos (0.47, 0.22)
-    xzoom 1
+    pos (0.44, 0.19)
+    rotate 345
 transform position2:
-    pos (0.59, 0.21)
-    xzoom -1
+    pos (0.56, 0.18)
+    rotate 15
 transform position3:
-    pos (0.52, 0.16)
-    xzoom 1
+    pos (0.49, 0.13)
+    rotate 359
 transform position4:
-    pos (0.48, 0.1)
-    xzoom 1
+    pos (0.45, 0.07)
+    rotate 349
 transform position5:
-    pos (0.57, 0.14)
-    xzoom -1
+    pos (0.54, 0.11)
+    rotate 12
 transform position6:
-    pos (0.51, 0.07)
-    xzoom 1
+    pos (0.48, 0.04)
+    rotate 348
 transform addonpos:
     pos (0.58, 0.07)
-    xzoom 1
     
 transform sPosition0:
     pos (0.48, 0.4)
@@ -118,7 +117,7 @@ transform shPosition0:
     pos (0.11, 0.05)
     zoom 0.75
 transform shPosition1:
-    pos (0.22, 0.03)
+    pos (0.22, 0.035)
     zoom 0.75
 transform shPosition2:
     pos (0.32, 0.05)
@@ -157,11 +156,11 @@ transform bookpos:
 transform openbookpos:
     pos (0.43, 0)
 transform leftarrowos:
-    pos (0.455, 0.07)
+    pos (0.455, 0.04)
 transform rightarrowpos:
-    pos (0.935, 0.07)
+    pos (0.935, 0.04)
 transform exitbuttonpos:
-    pos (0.455, 0.19)
+    pos (0.455, 0.16)
     
 transform nothing:
     align (0,0) alpha 0.0
