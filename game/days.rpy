@@ -138,6 +138,8 @@ label dayFive:
 
 label customerWave:
     while len(UnmetCustomerList) > 0 and quota > 0:
+        $ pauselength = renpy.random.randint(0,3)
+        pause pauselength
         $ bouquet = [None, None, None, None, None, None, None]
         $ meanings = {}
         $ decor = ""
