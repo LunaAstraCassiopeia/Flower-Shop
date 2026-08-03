@@ -199,7 +199,7 @@ init python:
     ReubenOneCustomer = Customer(reubenOneWants, noPreferences, reuben, reubenOneEnter, reubenOneExit, "Reuben", True)
     
     reubenTwoWants = {"Lily": 3,"Rose": 2, "Hyacinth": 2, "Stick": 1}
-    reubenTwoEnter = ["BL:(Him again...)", "BL:Yeah, same as last time.", "BL:(While you're working, he begins ranting to himself...)", "He's just been the bane of my existence! A thorn in my side! A stick in the mud! I envy him so much."]
+    reubenTwoEnter = ["BL:(Him again...)", "Yeah, same as last time.", "BL:(While you're working, he begins ranting to himself...)", "He's just been the bane of my existence! A thorn in my side! A stick in the mud! I envy him so much."]
     reubenTwoExit = {
         "Happy": ["Thank you, again.", "Apologies for the ranting... I can't believe I had to do this again..."],
         "Meh": ["It's okay... This is okay.", "Sorry, I know I wasn't really specific with my request. I was just...", "Thank you, this will still work."],
