@@ -377,13 +377,14 @@ init python:
     }
     FloweriOneCustomer = Customer(floweriOneWants, noPreferences, floweri, floweriOneEnter, floweriOneExit, "Floweri", True)
 
-    floweriTwoWants = {"Rose": 1, "Lily": 1, "Hyacinth": 1, "Forget-Me-Not": 1, "Bluebell": 1, "Hydrangea": 1, "Carnation": 1, "Leaf": 1}
+    floweriTwoWants = {"Carnation": 4, "Bluebell": 3}
     floweriTwoEnter = [
-        "Hey there!",
-        "Lovely shop you have here!",
-        "My friend… I’d like to cheer him up. He’s been real down lately.",
-        "He loves flowers too! I think a little bit of everything would be nice.",
-        "Give me the whole rainbow!",
+        "Sorry to keep you waiting!",
+        "BL:(Waiting for what...?)",
+        "This one's for a new friend.",
+        "I've been kinda hard on him in the past, and I wanna give him something because of that!",
+        "He loves flowers, too! One that's pink, and another that's blue.",
+        "A little more of the pink one, though. For the fans!",
     ]
     floweriTwoExit = {
         "Happy": [
@@ -402,48 +403,57 @@ init python:
 
     # all Oliver instances
 
-    oliverOneWants = {"Rose": 1, "Lily": 1, "Hyacinth": 1, "Forget-Me-Not": 1, "Bluebell": 1, "Hydrangea": 1, "Carnation": 1, "Leaf": 1}
+    oliverOneWants = {"Hyacinth": 7, "Stick": 1}
     oliverOneEnter = [
-        "Hey there!",
-        "Lovely shop you have here!",
-        "My friend… I’d like to cheer him up. He’s been real down lately.",
-        "He loves flowers too! I think a little bit of everything would be nice.",
-        "Give me the whole rainbow!",
+        "Hi...",
+        "BL:(You look down, to see an entire pack of dogs on a leash.)",
+        "BL:(They look... tired.)",
+        "Yeah, so, look.",
+        "I don't really need a flower.",
+        "I'm dogsitting. The dogs need something to bite on.",
+        "I really just need a stick. Or something with a strong smell. To keep me awake.",
     ]
     oliverOneExit = {
         "Happy": [
-            "All according to plan!",
-            "How lovely!",
+            "Yeah.",
+            "This is good.",
+            "Thanks.",
         ],
         "Meh": [
-            "Well, you got it!",
-            "Mostly,",
+            "Sure.",
+            "This is okay.",
         ],
         "Sucks Ass": [
-            "You're eating my flesh with this one!"
+            "What the hell is this?",
+            "Sorry, I didn't mean to be rude...",
         ]
     }
     OliverOneCustomer = Customer(oliverOneWants, noPreferences, oliver, oliverOneEnter, oliverOneExit, "Oliver", True)
 
-    oliverTwoWants = {"Rose": 1, "Lily": 1, "Hyacinth": 1, "Forget-Me-Not": 1, "Bluebell": 1, "Hydrangea": 1, "Carnation": 1, "Leaf": 1}
+    oliverTwoWants = {"Hyacinth": 4, "Carnation": 3, "Stick": 1}
     oliverTwoEnter = [
-        "Hey there!",
-        "Lovely shop you have here!",
-        "My friend… I’d like to cheer him up. He’s been real down lately.",
-        "He loves flowers too! I think a little bit of everything would be nice.",
-        "Give me the whole rainbow!",
+        "Good morning.",
+        "BL:(The guy with the dogs again?)",
+        "BL:(This time, they don't look tired at all. Thank God.)",
+        "I'm buying for family this time...",
+        "They're flying back today, and I thought it would be fine to bring the dogs along too.",
+        "More of those flowers with the strong smell. And maybe some more to give to my family. And another stick. For the dogs.",
     ]
     oliverTwoExit = {
         "Happy": [
-            "All according to plan!",
-            "How lovely!",
+            "Yeah.",
+            "I think they'd love these.",
+            "Thanks.",
         ],
         "Meh": [
-            "Well, you got it!",
-            "Mostly,",
+            "Sure.",
+            "This is okay.",
         ],
         "Sucks Ass": [
-            "You're eating my flesh with this one!"
+            "...",
+            "Well, I could always give these to the dogs.",
+            "If my family won't want it.",
+            "They'll probably want it, though.",
         ]
     }
     OliverTwoCustomer = Customer(oliverTwoWants, noPreferences, oliver, oliverTwoEnter, oliverTwoExit, "Oliver", True)
@@ -1071,28 +1081,60 @@ label customerCutscene:
         blank "(We're not in the United States...)"
     
     if customer == FloweriTwoCustomer:
-        # PLACEHOLDER --- CHANGE LATER
         show Floweri Meh
-        blank "Hahahahaflowershahahahaha"
+        blank "(You're now starting to wonder who this guy even is.)"
+
+        peri "Well... I hope your friend likes these."
+
+        floweri "Yes!"
+
+        floweri "I'll be taking these, now."
+
+        show Floweri Happy
+
+        floweri "May flowers bloom in your heart!"
 
         hide Floweri Happy
         with dissolve 
+
+        blank "(...Okay.)"
     
     # Oliver cutscenes
     if customer == OliverOneCustomer:
-        # PLACEHOLDER --- CHANGE LATER
         $ minorCustomerMasterlist.append(OliverTwoCustomer)
 
         show Oliver Meh
-        oliver "dogggggggggg"
+
+        peri "How do you..."
+        oliver "Have so many?"
+        oliver "I don't know how I ended up here either."
+        oliver "The family, they all have this trip to go to."
+        oliver "They insisted on bringing all their dogs. To the airport."
+        peri "..."
+        oliver "I know."
+        oliver "Anyways, thanks."
+        blank "(Oliver leaves the shop, dogs looking a little happier than before.)"
+        blank "(Poor guy.)"
 
         hide Oliver Meh
         with dissolve
 
     if customer == OliverTwoCustomer:
-        # PLACEHOLDER --- CHANGE LATER
         show Oliver Meh
-        oliver "woof woof!!!!!"
+
+        blank "(You hand Oliver the bouquet.)"
+        blank "(Oliver takes extra care to lift it upwards, high enough that the dogs can't reach it.)"
+        peri "They're full of energy today, huh?"
+        oliver "Somewhat. With the family coming back, and all."
+        blank "(You can see one of the dogs trying to climb on Oliver's leg.)"
+        peri "How long have you had them for? Or your family, rather?"
+        oliver "About a year, at this point. We got them when they were still puppies, so..."
+        blank "(Another dog tries to climb on their leg.)"
+        oliver "Hey! Get off!"
+        blank "(Oliver stumbles, and the stick falls off the bouquet.)"
+        blank "(The dogs, obviously, all run to the stick, which rolls near the entrance of the shop.)"
+        oliver "Get back here!"
+        blank "(Oliver chases after the dogs, and they all end up running to outside the shop.)"
 
         hide Oliver Meh
         with dissolve

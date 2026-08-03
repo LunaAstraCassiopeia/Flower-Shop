@@ -19,7 +19,8 @@ image main_menu_buttons = "gui/main_menu_top.png"
 label start:
 
     scene black
-
+    with long_dissolve
+    
     python hide:
         import os
         global egg
