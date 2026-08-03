@@ -207,8 +207,8 @@ init python:
     }
     ReubenTwoCustomer = Customer(reubenTwoWants, noPreferences, reuben, reubenTwoEnter, reubenTwoExit, "Reuben", True)
 
-    reubenThreeWants = {"Rose": 3, "Lily": 3, "Hydrangea": 1}
-    reubenThreeEnter = ["BL:(Oh God, again?)", "Hi.", "BL:(Here it comes...)", "I need... a different set of flowers, this time.", "BL:(...?)", "Still for the same guy, just...", "I want to make an honest effort to make amends with him.", "I want to tell Arthur that I recognize his passion, but not in a way that makes me envious of him. Two different kinds of flowers that convey those, and a final one that tells him that I want to understand him."]
+    reubenThreeWants = {"Rose": 3, "Forget-Me-Not": 2, "Hydrangea": 2}
+    reubenThreeEnter = ["BL:(Oh God, again?)", "Hi.", "BL:(Here it comes...)", "I need... a different set of flowers, this time.", "BL:(...?)", "Still for the same guy, just...", "I want to make an honest effort to make amends with him.", "First and foremost, I want to tell Arthur that I recognize his efforts, and want to celebrate him for it. I also want to tell him that I want to be friends, and maybe get to a point where I'm able to understand him."]
     reubenThreeExit = {
         "Happy": ["Thank you.", "I hope he takes this well..."],
         "Meh": ["It's okay... This is okay.", "Sorry, I know this comes off as strange coming from me...", "Thank you, this will still work."],
@@ -232,7 +232,7 @@ init python:
 
     tourTwoWants = {"Lily": 7, "Leaf": 1}
     tourTwoPreferences = {"Lily": -0.2}
-    tourTwoEnter = ["BL:(Those damned turtles are BACK???)", "BL:(Tortoises?)", "BL:(You don't have the energy to recall the technicalities of it.)", "BL:(You're handed another sheet of paper.)", "BL:(This time, there's a drawing of a yellow cat, with claw markings on its face.)"]
+    tourTwoEnter = ["BL:(Those damned turtles are BACK???)", "BL:(Tortoises?)", "BL:(You don't have the energy to recall the technicalities of it.)", "BL:(You're handed another sheet of paper.)", "BL:(This time, there's a drawing of a orange cat, with claw markings on its face.)" "BL:(To add further insult to injury, the cat is also crossed out.)"]
     tourTwoExit = {
         "Happy": [">:-3"],
         "Meh": [":|"],
