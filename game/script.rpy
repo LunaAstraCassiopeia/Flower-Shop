@@ -20,7 +20,7 @@ label start:
 
     scene black
     with long_dissolve
-    
+
     python hide:
         import os
         global egg
@@ -33,6 +33,7 @@ label start:
     $ init_globals()
     $ day = 1
     $ total_satisfaction = 0
+
     stop music fadeout 0.5
 
     blank "(You arrive at the airport.)"
@@ -372,3 +373,47 @@ screen main_menu():
         textbutton _("Quit"):
             text_style "minor_text"
             action Quit(confirm=not main_menu)
+
+label end_credits:
+    play music "flight.mp3" if_changed loop
+    window hide
+
+    scene credits 1
+    with Dissolve(1.0)
+
+    pause 3.0
+
+    scene credits 2
+    with Dissolve(1.0)
+
+    pause 3.0
+
+    scene credits 3
+    with Dissolve(1.0)
+
+    pause 3.0
+
+    scene credits 4
+    with Dissolve(1.0)
+
+    pause 3.0
+
+    scene credits 5
+    with Dissolve(1.0)
+
+    pause 3.0
+
+    scene credits 6
+    with Dissolve(1.0)
+
+    pause 3.0
+
+    scene credits 7
+    with Dissolve(1.0)
+
+    pause 3.0
+
+    scene black
+    with Dissolve(1.0)
+
+    return

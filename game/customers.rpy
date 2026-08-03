@@ -358,7 +358,8 @@ init python:
     floweriOneEnter = [
         "Hey there!",
         "Lovely shop you have here!",
-        "My friend… I’d like to cheer him up. He’s been real down lately.",
+        "My friend... My king...",
+        "I’d like to cheer him up. He’s been real down lately.",
         "He loves flowers too! I think a little bit of everything would be nice.",
         "Give me the whole rainbow!",
     ]

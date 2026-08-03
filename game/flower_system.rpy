@@ -36,6 +36,7 @@ init python:
     
     def set_addon(name: str, meanings: dict):
         global decor
+        renpy.sound.play("get flower.mp3")
         for key, val in get_flower_meanings(decor).items():
             if key in meanings:
                 meanings[key] -= val
