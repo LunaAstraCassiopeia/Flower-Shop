@@ -388,13 +388,32 @@ label nightFive:
     with long_dissolve
     stop music fadeout 1
 
-    blank "(The next few months couldn't have went any more differently.)"
-    blank "(Guess it comes with the fact that your shop is in an airport, right?)"
-    blank "(You meet a lot of new faces, people who come and go for a variety of different reasons...)"
-    blank "(Some of them still come back. Arthur came in a week ago to buy flowers for Reuben.)"
-    blank "(But every single time, you end up helping them craft a part of their story.)"
+    $ ending_score = total_satisfaction / 25
+    if ending_score <= 0.6: # Good End
+        blank "(The next few months couldn't have went any more differently.)"
+        blank "(Guess it comes with the fact that your shop is in an airport, right?)"
+        blank "(You meet a lot of new faces, people who come and go for a variety of different reasons...)"
+        blank "(Some of them still come back. Arthur came in a week ago to buy flowers for Reuben.)"
+        blank "(Kara took her friend to visit your shop. She's quite nice.)"
+        blank "(Mark's family still comes, despite not needing to fly out anymore. His kids insist on getting a bouquet full of bluebells.)"
+
+
+    if 0.6 < ending_score <= 1: # Meh End
+        blank "(The next few months, though fulfilling in their own right, also feel a little stagnant.)"
+        blank "(You get a few new faces, even those that come back again.)"
+        blank "(More new stories to hear about, and more to help grow.)"
+        blank "(You note that some of them don't show up again, and that's okay!)"
+        blank "(You're in an airport, and all. Not everyone needs to be going back here.)"
+
+    if 1 < ending_score:
+        blank "(...and admittedly, you might need a bit more help with these flowers than you thought you would.)"
+        blank "(Ilana comes back, way more than usual, to quiz you on that manual.)"
+        blank "(Surely, after some time, you'd get better at it.)"
+        blank "(And you did!)"
+
+    blank "(But no matter what, you end up helping them growing a part of your customers' stories.)"
     blank "(Every single time, you help them reach their dreams.)"
-    blank "(Just a little more.)"
+    blank "(Even just a little more.)"
 
     $ day = day + 1
     $ dayShift()

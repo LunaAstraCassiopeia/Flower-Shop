@@ -713,8 +713,7 @@ label customerCutscene:
         hide Clove Happy
         with dissolve
 
-
-
-
+    play sound "come again sometime.mp3"
+    pause 1.0
 
     jump customerWave

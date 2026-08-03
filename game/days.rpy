@@ -134,8 +134,9 @@ label customerWave:
         $ customer.runAfterFlowers(joyRating)
         $ print(joyRating)
         $ quota -= 1
+        $ total_satisfaction += joyRating
+        $ print(f"{total_satisfaction=}")
         jump customerCutscene
-        play sound "come again sometime.mp3"
     
     $ nightShift()
     # This ends the game.
